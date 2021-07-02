@@ -1,0 +1,45 @@
+<div>
+    <app-header></app-header>
+    <div id="interface">
+        <div class="heading2">
+          <h1>HR Dashboard</h1>
+        </div>
+        <div id="invitenew">
+          <button class="button-group absolute-right" (click)="openform()" data-target="#createinvite" >Create Invite</button>
+        </div>
+        <div id="request" style="margin: 73px 14px;">
+          <table id="requesttable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" style="width: 100%;">
+            <thead>
+              <tr>
+                <th>Emp ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Created At</th>
+                <th style="width: 200px;" >Actions</th>
+                <!-- style="width: 170px;" -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let employee of employees">
+                <td>{{ employee.EmpId }}</td>
+                <td>{{ employee.Name }}</td>
+                <td>{{ employee.Email }}</td>
+                <td>{{employee.Status}}</td>
+                <td>{{employee.CreatedAt}}</td>
+                <td style="height: 50px;">
+                 
+                  <button  *ngIf="employee.Status === 'Rejected' || employee.Status === 'Incomplete' || employee.Status === 'Pending' && employee.Status !=='Completed'" class="button-group-small" data-target="#usernotified" (click)="opennotification()">Notify</button>
+                  <button *ngIf="employee.Status === 'Completed'" class="button-group-small" data-target="#editaccess" (click)="openedit()">Edit</button>
+                  <button  *ngIf="employee.Status !== 'Incomplete'" type="button" class="view" data-target="#empdetailsview" (click)="openview(employee.Status)"><i class="fa fa-eye"></i></button>
+                </td>
+              </tr>
+            </tbody> 
+          </table>
+          <app-modals *ngIf=notify  (newItemEvent)="addItem($event)" id="usernotified" [open]=notify Content="User Notified Successfully"></app-modals>
+          <app-modals *ngIf=edit  (newItemEvent)="addItem($event)" id="editaccess" [open]=edit Content="User has been provided Edit access Successfully"></app-modals> 
+          <app-inviteform *ngIf=invite (closeEvent)="closeform($event)" id="inviteform" [open]=invite></app-inviteform>
+          <app-userdetailsview *ngIf=view id="userdetails" (closedetails)="closeview($event)" (rejectreason)="rejectview($event)" [open]=view [status]=current></app-userdetailsview>
+          <app-rejectreason *ngIf=reject (closereason)="closefor($event)" [open]=reject id="rejectreason"></app-rejectreason>
+        </div>
+        </div>
