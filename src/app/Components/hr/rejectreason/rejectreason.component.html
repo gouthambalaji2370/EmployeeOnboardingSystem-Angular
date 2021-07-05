@@ -1,24 +1,25 @@
-<div id="myModal" [ngClass]="{'modal fades': open}" >
-    <div class="modal-head">
-      <h4 class="modal-top alert-text">Reason For Rejection</h4>
-      <button type="button" class="xbtn" (click)="closemodal()">&times;</button>
+<div id="myModal" [ngClass]="{'modal fades': open}">
+  <div class="modal-head">
+    <h4 class="modal-top alert-text">Reason For Rejection</h4>
+    <button type="button" class="xbtn" (click)="closemodal()">&times;</button>
+  </div>
+  <div class="modal-content">
+    <div class="modal-body">
+      <form [formGroup]="reasonForm" (ngSubmit)="submitreason()" class="formclass">
+        <div class="flexform">
+          <input class="reasoncontent" type="text" name="reason" formControlName="reason"
+            [ngClass]="{'alert':isSubmitted && this.reasondata?.errors?.required}"
+            placeholder="Reason for Rejection...">
+          <button type="submit" class="button-group"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+
+        </div>
+        <span class="invalid-feedback" *ngIf="isSubmitted && this.reasondata?.errors?.required">
+          <sup>*</sup>reason is required
+        </span>
+
+      </form>
+
     </div>
-      <div class="modal-content">
-        <div class="modal-body">
-            <form [formGroup]="reasonForm" (ngSubmit)="submitreason()" class="formclass">
-                <div class="flexform">
-                  <input  class="reasoncontent" type="text" name="reason" formControlName="reason" [ngClass]="{'alert':isSubmitted && this.reasondata?.errors?.required}" placeholder="Reason for Rejection...">
-                  <button type="submit" class="button-group"><i class="fa fa-paper-plane"
-                      aria-hidden="true"></i></button>
-                      
-                </div>
-                <span class="invalid-feedback" *ngIf="isSubmitted && this.reasondata?.errors?.required">
-                  <sup>*</sup>reason is required
-                </span>
-                
-              </form>
-              
-          </div>
-       
-      </div>
-    </div>
+
+  </div>
+</div>

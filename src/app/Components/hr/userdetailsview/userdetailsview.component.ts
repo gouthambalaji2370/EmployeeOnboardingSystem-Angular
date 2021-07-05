@@ -7,9 +7,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class UserdetailsviewComponent implements OnInit {
   @Input()
-  open:Boolean=false;
+  open: Boolean = false;
   @Input()
-  status:String="";
+  status: String = "";
   @Output()
   closedetails = new EventEmitter<Boolean>();
   @Output()
@@ -18,18 +18,18 @@ export class UserdetailsviewComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  closemodalapprove():void{
-    this.open=!this.open
+  closemodalapprove(): void {
+    this.open = !this.open
     this.closedetails.emit(false);
     this.rejectreason.emit(false);
   }
-  closemodal():void{
-    this.open=!this.open
+  closemodal(): void {
+    this.open = !this.open
     this.closedetails.emit(false);
     this.rejectreason.emit(false);
   }
-  closemodalreject():void{
-    this.open=!this.open
+  closemodalreject(): void {
+    this.open = !this.open
     this.closedetails.emit(false);
     this.rejectreason.emit(true);
   }

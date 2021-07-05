@@ -1,43 +1,44 @@
 <div>
-    <div class="bgsetup">
+  <div class="bgsetup">
     <img src="../../../assets/images/listerlogo.png" alt="Lister Technologies" class="logo">
     <div class="formdiv">
-    <!-- <form class="formclass"   name="login form" (ngSubmit)="loginmethod()" novalidate > -->
-      <form class="formclass"  [formGroup]="loginForm" (ngSubmit)="loginmethod()">
+      <form class="formclass" [formGroup]="loginForm" (ngSubmit)="loginmethod()">
         <div class="container">
-            <label class="control-label" for="email">Username:</label>
-            <input  class="inputdata" type="text" id="username" formControlName="userName" placeholder="Username">
+          <label class="control-label" for="email">Username:</label>
+          <input class="inputdata" type="text" id="username" formControlName="userName" placeholder="Username">
         </div>
         <div class="invalid-feedback" *ngIf="isSubmitted && userName?.errors?.required">
           <sup>*</sup>username is required
-       </div>
-       <div class="invalid-feedback" *ngIf="isSubmitted && userName?.errors?.email">
-        <sup>*</sup>Please enter a valid username
-     </div>
-        
-          <div class="container">
-            <label class="control-label" for="email">Password:</label>
-            <input class="inputdata" type="password" id="Password" placeholder="Password"  formControlName="password"><br/>
-          </div>
-          <div class="invalid-feedback" *ngIf="isSubmitted && password?.errors?.required">
-            <sup>*</sup>password is required
-         </div>
-         <div class="invalid-feedback" *ngIf="isSubmitted && password?.errors?.pattern || password?.errors?.minlength ">
+        </div>
+        <div class="invalid-feedback" *ngIf="isSubmitted && userName?.errors?.email">
+          <sup>*</sup>Please enter a valid username
+        </div>
+
+        <div class="container">
+          <label class="control-label" for="email">Password:</label>
+          <input class="inputdata" type="password" id="Password" placeholder="Password"
+            formControlName="password"><br />
+        </div>
+        <div class="invalid-feedback" *ngIf="isSubmitted && password?.errors?.required">
+          <sup>*</sup>password is required
+        </div>
+        <div class="invalid-feedback" *ngIf="isSubmitted && password?.errors?.pattern || password?.errors?.minlength ">
           <sup>*</sup>Please enter a valid password
-       </div>
-    <br/>
-    <button class="button-group"  type="submit"  id="myBtn">Login</button>
-    </form>
-</div>
-</div>
+        </div>
+        <br />
+        <button class="button-group" type="submit" id="myBtn">Login</button>
+      </form>
+    </div>
+  </div>
 
-<!-- <app-footer></app-footer> -->
-<hr class="divider">
-<footer class="footer-group">
+  <!-- <app-footer></app-footer> -->
+  <hr class="divider">
+  <footer class="footer-group">
     ©Lister Technologies, 2021. All Rights reserved
-</footer>
+  </footer>
 
-</div><!-- <div id="myModal" class="modal">
+</div>
+<!-- <div id="myModal" class="modal">
   <div class="modal-dialog modal-lg modal-dialog-centered">
 
   <div class="modal-dialog modal-lg modal-dialog-centered">

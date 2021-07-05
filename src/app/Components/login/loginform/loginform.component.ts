@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Services/login.service';
-import { FormGroup, Validators,FormBuilder } from '@angular/forms';
-// import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-// import { FooterComponent } from '../../core/footer/footer.component';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+
 
 @Component({
   selector: 'app-loginform',
@@ -15,14 +14,14 @@ export class LoginformComponent implements OnInit {
 
   invalidemail: Boolean = false;
   invalidpassword: Boolean = false;
-  status:Boolean=false;
-  erroremail:String="";
-  errorpassword:String="";
+  status: Boolean = false;
+  erroremail: String = "";
+  errorpassword: String = "";
   loginForm!: FormGroup;
   errorMessage = {
     userName: {
       empty: "*UserName is required",
-      valid:"*Enter valid Username"
+      valid: "*Enter valid Username"
     },
     password: {
       empty: "*Password is required",
@@ -30,18 +29,18 @@ export class LoginformComponent implements OnInit {
       pattern: "Numbers only allowed",
     },
   };
-  userNameErrorMsg:String="";
-  passwordErrorMsg:String="";
-  isSubmitted:Boolean=false;
-  constructor(private login:LoginService,http:HttpClient,private router:Router,private fb: FormBuilder) { 
+  userNameErrorMsg: String = "";
+  passwordErrorMsg: String = "";
+  isSubmitted: Boolean = false;
+  constructor(private login: LoginService, http: HttpClient, private router: Router, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      userName: ["", 
-      [
-        Validators.required,
-         Validators.email
+      userName: ["",
+        [
+          Validators.required,
+          Validators.email
         ]
       ],
       password: [
@@ -53,7 +52,7 @@ export class LoginformComponent implements OnInit {
         ],
       ],
     });
-   
+
   }
   get userName() {
     return this.loginForm.get("userName");
@@ -85,26 +84,26 @@ export class LoginformComponent implements OnInit {
     }
     return hasError;
   }
-loginmethod():void{
-this.isSubmitted=true
-if(this.loginForm.valid){
-  var formData: any = new FormData();
-  console.log(formData);
-  // using subject
-  this.login.checkuser({
-    email: this.userName?.value,
-    password: this.password?.value,
-  })
-  if(this.userName?.value==='hr@gmail.com')
-      this.router.navigate(['/hr'])
-  else if(this.userName?.value==='user@gmail.com')
-      this.router.navigate(['/employee'])
-  //  using observable
-  // this.login.checkuser(formData).subscribe(data => {
-  //   console.log(data);
-  // });
-   
-}
-}
+  loginmethod(): void {
+    this.isSubmitted = true
+    if (this.loginForm.valid) {
+      var formData: any = new FormData();
+      console.log(formData);
+      // using subject
+      this.login.checkuser({
+        email: this.userName?.value,
+        password: this.password?.value,
+      })
+      if (this.userName?.value === 'hr@gmail.com'){
+        localStorage.setItem('user', 'HR');
+        this.router.navigate(['/hr'])
+      }
+      else if (this.userName?.value === 'user@gmail.com'){
+        localStorage.setItem('user', 'Employee');
+        this.router.navigate(['/employee'])
+      }
+
+    }
+  }
 
 }

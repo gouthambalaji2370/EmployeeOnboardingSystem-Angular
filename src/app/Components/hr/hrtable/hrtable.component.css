@@ -13,7 +13,6 @@
 }
 .button-group{
     color: white;
-    /*padding: 12px 20px;*/
     border: 1px solid #ccc;
     background-color: #346751;
     border-radius: 8px;
@@ -35,7 +34,6 @@
   }
 .button-group-small{
     color: white;
-    /* padding: 12px 20px; */
     border: 1px solid #ccc;
     background-color: #346751;
     border-radius: 8px;
@@ -67,8 +65,10 @@ table {
     
     
   }
+  button{
+      cursor: pointer;
+  }
   th{
-    /*border: 1px solid #dddddd;*/
     text-align: left;
     padding: 8px;
     color: white;
@@ -88,9 +88,7 @@ table {
     width : 60px;
     height : 30px;
 }
-/* .dataTables tbody tr {
-    min-height: 45px; 
-    } */
+
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
     margin-top: 95px;
     cursor: default;

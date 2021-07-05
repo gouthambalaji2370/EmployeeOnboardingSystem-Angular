@@ -1,10 +1,7 @@
 body {
     text-align: center;
 }
-/* form {
-    padding-block-start: 50px;
-    display: inline-block;  
-} */
+
 .formdiv{
     position:fixed;
     top: 60%;
@@ -12,27 +9,14 @@ body {
     z-index: 1;
     width:30em;
     height:20em;
-    margin-top: -9em; /*set to a negative number 1/2 of your height*/
-    margin-left: -15em; /*set to a negative number 1/2 of your width*/
-    /* border: 1px solid #ccc; */
-    /* box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25) ; */
+    margin-top: -9em; 
+    margin-left: -15em; 
 }
 .formclass{
     position: absolute;
     right: 50px;
 }
-/* .inputdata{
-    
-width:400px;
-Height:50px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.06);
-    border-radius: 8px;
-} */
+
 label {
     margin-top: 20px;
     height: 20px;
@@ -68,10 +52,7 @@ input {
     height: 617px;
     background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('../../../../assets/images/bg.png');
     background-size: cover;
-    /* background-repeat: no-repeat; */
-    /* background-position-x: center; */
     overflow-x: hidden;
-    /* opacity: 0.5; */
 }
 .button-group{
     color: white;
@@ -85,22 +66,22 @@ input {
     left: 217px;
 }
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
   }
   .margin-60-left{
     margin-left: 60px;
   }
-  /* Modal Content */
+  
   .modal-content {
     background-color: #fefefe;
     margin: auto;
@@ -109,7 +90,7 @@ input {
     width: 80%;
   }
   
-  /* The Close Button */
+
   .close {
     color: #aaaaaa;
     float: right;
@@ -132,7 +113,6 @@ input {
     align-items: center;
     justify-content: center;
     padding: .75rem;
-    /* border-top: 1px solid #dee2e6; */
     border-bottom-right-radius: calc(.3rem - 1px);
     border-bottom-left-radius: calc(.3rem - 1px);
     
@@ -172,7 +152,6 @@ margin-block-start: 15px;
 padding-left: 489px;
 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 padding-right: 100px;
-/* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, 'Roboto', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 }
 .logo{  
 position: absolute;
@@ -181,6 +160,9 @@ top: 100px;
 padding-top: 20px;
 width: 250px;
 height: 70px;
+}
+button{
+    cursor: pointer;
 }
 .class1{
     margin-left: 165px;

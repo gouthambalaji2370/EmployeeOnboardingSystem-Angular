@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalsComponent } from './modals.component';
+import { ModalsComponent } from './alerts.component';
 
 describe('ModalsComponent', () => {
   let component: ModalsComponent;

@@ -1,25 +1,22 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import { Country, State, City }  from 'country-state-city';
 import { Subject } from 'rxjs';
 import { Employees } from '../employees';
 
-// import data from '../data.json';
-// console.log(Country.getAllCountries())
-// console.log(State.getAllStates())
+
 
 @Component({
   selector: 'app-hrtable',
   templateUrl: './hrtable.component.html',
   styleUrls: ['./hrtable.component.css']
 })
-export class HRTableComponent implements OnInit,OnDestroy {
-  notify:Boolean=false;
-  edit:Boolean=false;
-  invite:Boolean=false;
-  view:Boolean=false;
-  reject:Boolean=false;
-  current:String="";
+export class HRTableComponent implements OnInit, OnDestroy {
+  notify: Boolean = false;
+  edit: Boolean = false;
+  invite: Boolean = false;
+  view: Boolean = false;
+  reject: Boolean = false;
+  current: String = "";
   dtOptions: DataTables.Settings = {};
   employees: Employees[] = [];
   dtTrigger: Subject<any> = new Subject<any>();
@@ -34,37 +31,36 @@ export class HRTableComponent implements OnInit,OnDestroy {
       });
   }
   addItem(newItem: Boolean) {
-   this.notify=newItem;
-   this.edit=newItem;
+    this.notify = newItem;
+    this.edit = newItem;
   }
-  closeview(closedetails:Boolean){
-this.view=closedetails;
+  closeview(closedetails: Boolean) {
+    this.view = closedetails;
   }
-  rejectview(rejectreason:Boolean){
+  rejectview(rejectreason: Boolean) {
     console.log(rejectreason);
-    this.reject=rejectreason;
+    this.reject = rejectreason;
   }
-  closefor(closereason:Boolean){
-    this.reject=closereason;
+  closefor(closereason: Boolean) {
+    this.reject = closereason;
   }
-  openview(status:String):void{
-    this.current=status;
-    this.view=!this.view
+  openview(status: String): void {
+    this.current = status;
+    this.view = !this.view
   }
-  closeform(closeEvent:Boolean){
-  this.invite=closeEvent;
+  closeform(closeEvent: Boolean) {
+    this.invite = closeEvent;
   }
-  openform():void{
-    this.invite=!this.invite
+  openform(): void {
+    this.invite = !this.invite
   }
-  opennotification():void{
-    this.notify=!this.notify;
+  opennotification(): void {
+    this.notify = !this.notify;
   }
-  openedit():void{
-    this.edit=!this.edit;
+  openedit(): void {
+    this.edit = !this.edit;
   }
   ngOnDestroy(): void {
-    // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
   }
 

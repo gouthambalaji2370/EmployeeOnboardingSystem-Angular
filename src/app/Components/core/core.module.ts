@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ModalsComponent } from './modals/modals.component';
+import {ModalsComponent} from './alerts/alerts.component'
 import { FormsModule } from '@angular/forms';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 
 
@@ -11,11 +12,12 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ModalsComponent
+    ModalsComponent,
+    ErrorpageComponent
   ],
   imports: [
     CommonModule
   ],
-  exports:[HeaderComponent,FooterComponent,ModalsComponent,CommonModule,FormsModule ]
+  exports: [HeaderComponent, FooterComponent, ModalsComponent, CommonModule, FormsModule]
 })
 export class CoreModule { }

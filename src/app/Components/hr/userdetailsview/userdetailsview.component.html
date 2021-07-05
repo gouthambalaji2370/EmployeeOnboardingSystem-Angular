@@ -1,33 +1,36 @@
-<div id="myModal" [ngClass]="{'modal fades': open}" >
-    <div class="modal-head">
-      <h4 class="modal-top alert-text">User Details View</h4>
-      <button type="button" class="xbtn" (click)="closemodal()">&times;</button>
-    </div>
-      <div class="modal-content">
-        <div class="modal-body">
-            <h5>Basic Details</h5>
-            <p>Father Name: Ram Kumar</p>
-            <p>Mother Name: Savitha</p>
-            <p>Blood Group: O +ve</p>
-            <p>DOB: 09/05/1999</p>
-            <h5>Emergency Contact</h5>
-            <div class="flexform spacebetween">
-              <p>Name: Ram Kumar</p>
-              <p>Relation: Father</p>
-              <p>Phone Number:9840284118</p>
-            </div>
-            <div class="flexform" *ngIf="status==='Rejected'">
-                <h4>Reason for Rejection:</h4><h4 class="invalid-feedback">Map coordinates are not pointing to the given address
-                </h4>
-              </div>
-          </div>
-          <div class="modal-foot-right">
-                  <button type="button"  *ngIf="status=== 'Completed' || 'Rejected' && status !== 'Pending'" class="button-group" (click)="closemodal()">Back</button>
-                   <button type="button"  *ngIf="status=== 'Pending'" class="button-group" (click)="closemodalapprove()">Approve</button>
-                  <button type="button"  *ngIf="status=== 'Pending'" class="button-group" (click)="closemodalreject()">Reject</button>
-                
-          </div>
-       
+<div id="myModal" [ngClass]="{'modal fades': open}">
+  <div class="modal-head">
+    <h4 class="modal-top alert-text">User Details View</h4>
+    <button type="button" class="xbtn" (click)="closemodal()">&times;</button>
+  </div>
+  <div class="modal-content">
+    <div class="modal-body">
+      <h5>Basic Details</h5>
+      <p>Father Name: Ram Kumar</p>
+      <p>Mother Name: Savitha</p>
+      <p>Blood Group: O +ve</p>
+      <p>DOB: 09/05/1999</p>
+      <h5>Emergency Contact</h5>
+      <div class="flexform spacebetween">
+        <p>Name: Ram Kumar</p>
+        <p>Relation: Father</p>
+        <p>Phone Number:9840284118</p>
+      </div>
+      <div class="flexform" *ngIf="status==='Rejected'">
+        <h4>Reason for Rejection:</h4>
+        <h4 class="invalid-feedback">Map coordinates are not pointing to the given address
+        </h4>
       </div>
     </div>
-  
+    <div class="modal-foot-right">
+      <button type="button" *ngIf="status=== 'Completed' || 'Rejected' && status !== 'Pending'" class="button-group"
+        (click)="closemodal()">Back</button>
+      <button type="button" *ngIf="status=== 'Pending'" class="button-group"
+        (click)="closemodalapprove()">Approve</button>
+      <button type="button" *ngIf="status=== 'Pending'" class="button-group"
+        (click)="closemodalreject()">Reject</button>
+
+    </div>
+
+  </div>
+</div>

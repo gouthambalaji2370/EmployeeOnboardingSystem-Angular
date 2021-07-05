@@ -6,14 +6,14 @@ export interface Countries {
     longitude: DoubleRange,
     name: String
     phonecode: String
-    timezones: 
-   [ 
-       {  
-        abbreviation: String,
-        gmtOffset: Number,
-        gmtOffsetName: String,
-        tzName: String,
-        zoneName: String
+    timezones:
+    [
+        {
+            abbreviation: String,
+            gmtOffset: Number,
+            gmtOffsetName: String,
+            tzName: String,
+            zoneName: String
         }
     ]
 }
