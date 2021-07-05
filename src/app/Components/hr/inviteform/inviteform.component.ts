@@ -75,7 +75,8 @@ export class InviteformComponent implements OnInit {
     this.isSubmitted = true;
     console.log(this.password);
     if (this.inviteForm.valid) {
-      let submit=this.hr.createuser({'name':this.name,'email':this.email,'role':this.role,'password':this.password});
+      let form=JSON.stringify({'name':this.name?.value,'email':this.email?.value,'role':this.role?.value,'password':this.password?.value});
+      let submit=this.hr.createuser(form);
       if(submit){
       this.open = !this.open
       this.closeEvent.emit(false);

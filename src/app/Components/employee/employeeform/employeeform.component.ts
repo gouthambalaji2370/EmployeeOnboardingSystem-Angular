@@ -5,6 +5,7 @@ import { CountryStateDataService } from '../../../Services/country-state-data.se
 import { tap, distinctUntilChanged, switchMap, startWith } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 import { data } from 'jquery';
+import { EmployeeService } from 'src/app/Services/employee.service';
 
 @Component({
   selector: 'app-employeeform',
@@ -27,12 +28,17 @@ export class EmployeeformComponent implements OnInit {
   isDisabled:Boolean=false;
   public isSameAddressControl: FormControl = new FormControl(false);
   public submitted: Boolean = false;
-  constructor(private router: Router, private fb: FormBuilder, private country: CountryStateDataService) {
+  constructor(private router: Router, private fb: FormBuilder, private country: CountryStateDataService,private employee:EmployeeService) {
   }
 
   saveDraft() {
-    this.draft = !this.draft;
-    this.notifyText="User Details has been saved";
+    let form=JSON.stringify(this.registrationForm.value);
+    let value=this.employee.save(form);
+    if(value){
+      this.draft = !this.draft;
+      this.notifyText="User Details has been saved";
+    }
+
   }
   CloseNotification(closeEvent: Boolean) {
     this.notify = closeEvent;
@@ -369,12 +375,16 @@ export class EmployeeformComponent implements OnInit {
   finalSubmit(): void {
     this.submitted = true;
     if (this.registrationForm.controls.addressDetails.valid) {
-      this.notify = true;
-      this.notifyText="User Details has been forwarded Successfully";
-      console.log("Form is submitted successfully")
-      this.registrationForm.disable();
-      this.isDisabled=true;
-      this.submitted = false;
+      let form=JSON.stringify(this.registrationForm.value);
+      let value=this.employee.register(form);
+      if(value){
+        this.notify = true;
+        this.notifyText="User Details has been forwarded Successfully";
+        console.log("Form is submitted successfully")
+        this.registrationForm.disable();
+        this.isDisabled=true;
+        this.submitted = false;
+      }
     }
     else {
       console.log(this.registrationForm.status, this.registrationForm.controls.addressDetails.invalid);

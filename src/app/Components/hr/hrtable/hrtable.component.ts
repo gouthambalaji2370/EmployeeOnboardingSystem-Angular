@@ -42,12 +42,6 @@ export class HRTableComponent implements OnInit, OnDestroy {
         this.employees=data.data;
         console.log(this.employees);
       });
-    // this.httpClient.get<Employees[]>("../../../../assets/data.json")
-    //   .subscribe(data => {
-    //     console.log(data);
-    //     this.employees =  (data as any).data;
-    //     this.dtTrigger.next();
-    //   });
   }
   prevstateview(){
     this.reject=!this.reject;
@@ -72,7 +66,8 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.isSubmitted = true;
     console.log(this.reasonForm.valid, this.reasondata)
     if (this.reasonForm.valid) {
-    let status=  this.hr.reasonforrejection(this.reasondata);
+      let form =JSON.stringify(this.reasondata)
+    let status=  this.hr.reasonforrejection(form);
     if(status===true)
       console.log("reason is submitted")
    this.reject=false;
