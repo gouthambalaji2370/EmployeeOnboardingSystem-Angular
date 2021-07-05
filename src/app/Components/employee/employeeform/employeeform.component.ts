@@ -34,9 +34,9 @@ export class EmployeeformComponent implements OnInit {
     this.draft = !this.draft;
     this.notifyText="User Details has been saved";
   }
-  addItem(newItem: Boolean) {
-    this.notify = newItem;
-    this.draft = newItem
+  CloseNotification(closeEvent: Boolean) {
+    this.notify = closeEvent;
+    this.draft = closeEvent;
   }
   ngOnInit(): void {
     this.getCountries();
@@ -60,40 +60,40 @@ export class EmployeeformComponent implements OnInit {
   getFormInstance(){
     this.registrationForm = this.fb.group({
       userDetails: new FormGroup({
-        fname: new FormControl("",
+        firstName: new FormControl("",
           [
             Validators.required,
             Validators.pattern("^[a-zA-Z]*$"),
           ]
         ),
 
-        lname: new FormControl("",
+        lastName: new FormControl("",
           [
             Validators.required,
             Validators.pattern("[a-zA-Z]*")
           ],
         ),
 
-        pno: new FormControl("",
+        phoneNumber: new FormControl("",
           [
             Validators.required,
             Validators.pattern("[0-9]{10}"),
           ],
         ),
 
-        emailid: new FormControl("",
+        emailID: new FormControl("",
           [
             Validators.required,
             Validators.email
           ],
         ),
 
-        bloodgroup: new FormControl("",
+        bloodGroup: new FormControl("",
           [
             Validators.required,
           ]),
 
-        ano: new FormControl("",
+        aadharNumber: new FormControl("",
           [
             Validators.required,
             Validators.pattern("[0-9]*"),
@@ -102,6 +102,10 @@ export class EmployeeformComponent implements OnInit {
           ]),
 
         dob: new FormControl("",
+          [
+            Validators.required
+          ]),
+        gender: new FormControl("",
           [
             Validators.required
           ]),
@@ -121,24 +125,18 @@ export class EmployeeformComponent implements OnInit {
             Validators.required
           ]),
 
-        fathername: new FormControl("",
+        fatherName: new FormControl("",
           [
             Validators.required,
             Validators.pattern("[a-zA-Z]*")
           ]),
 
-        mothername: new FormControl("",
+        motherName: new FormControl("",
           [
             Validators.required,
             Validators.pattern("[a-zA-Z]*")
           ]),
-
-        role: new FormControl("",
-          [
-            Validators.required
-          ]),
-
-        ename: new FormControl("",
+        emergencyContactName: new FormControl("",
           [
             Validators.required,
             Validators.pattern("[a-zA-Z]*")
@@ -150,7 +148,7 @@ export class EmployeeformComponent implements OnInit {
             Validators.pattern("[a-zA-Z]*")
           ]),
 
-        econtact: new FormControl("",
+        emergencyContactNumber: new FormControl("",
           [
             Validators.required,
             Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),
@@ -161,14 +159,14 @@ export class EmployeeformComponent implements OnInit {
 
       addressDetails: new FormGroup({
         presentAddress: new FormGroup({
-          flatname: new FormControl("",
+          flatName: new FormControl("",
             [
               Validators.required
 
             ]
           ),
 
-          streetname: new FormControl("",
+          streetName: new FormControl("",
             [
               Validators.required
             ]
@@ -195,13 +193,13 @@ export class EmployeeformComponent implements OnInit {
             ]
           ),
 
-          mapcoordinates: new FormControl("",
+          mapCoordinates: new FormControl("",
             [
               Validators.required
             ]
           ),
 
-          pincode: new FormControl("",
+          pinCode: new FormControl("",
             [
               Validators.required,
               Validators.pattern("^[0-9]*$"),
@@ -213,14 +211,14 @@ export class EmployeeformComponent implements OnInit {
         }),
 
         permanentAddress: new FormGroup({
-          flatname: new FormControl("",
+          flatName: new FormControl("",
             [
               Validators.required
 
             ]
           ),
 
-          streetname: new FormControl("",
+          streetName: new FormControl("",
             [
               Validators.required
             ]
@@ -246,13 +244,13 @@ export class EmployeeformComponent implements OnInit {
               Validators.required
             ]
           ),
-          mapcoordinates: new FormControl("",
+          mapCoordinates: new FormControl("",
             [
               Validators.required
             ]
           ),
 
-          pincode: new FormControl("",
+          pinCode: new FormControl("",
             [
               Validators.required,
               Validators.pattern("^[0-9]*$"),
@@ -295,23 +293,26 @@ export class EmployeeformComponent implements OnInit {
     this.selectedstate = stateValue;
   }
 
-  get fname() {
-    return this.registrationForm.get("userDetails.fname");
+  get firstName() {
+    return this.registrationForm.get("userDetails.firstName");
   }
-  get lname() {
-    return this.registrationForm.get("userDetails.lname");
+  get lastName() {
+    return this.registrationForm.get("userDetails.lastName");
   }
-  get pno() {
-    return this.registrationForm.get("userDetails.pno");
+  get phoneNumber() {
+    return this.registrationForm.get("userDetails.phoneNumber");
   }
-  get emailid() {
-    return this.registrationForm.get("userDetails.emailid");
+  get emailID() {
+    return this.registrationForm.get("userDetails.emailID");
   }
-  get bloodgroup() {
-    return this.registrationForm.get("userDetails.bloodgroup");
+  get bloodGroup() {
+    return this.registrationForm.get("userDetails.bloodGroup");
   }
-  get ano() {
-    return this.registrationForm.get("userDetails.ano");
+  get gender() {
+    return this.registrationForm.get("userDetails.gender");
+  }
+  get aadharNumber() {
+    return this.registrationForm.get("userDetails.aadharNumber");
   }
   get dob() {
     return this.registrationForm.get("userDetails.dob");
@@ -325,31 +326,29 @@ export class EmployeeformComponent implements OnInit {
   get ug() {
     return this.registrationForm.get("userDetails.ug");
   }
-  get fathername() {
-    return this.registrationForm.get("userDetails.fathername");
+  get fatherName() {
+    return this.registrationForm.get("userDetails.fatherName");
   }
-  get mothername() {
-    return this.registrationForm.get("userDetails.mothername");
+  get motherName() {
+    return this.registrationForm.get("userDetails.motherName");
   }
-  get role() {
-    return this.registrationForm.get("userDetails.role");
-  }
-  get ename() {
-    return this.registrationForm.get("userDetails.ename");
+  get emergencyContactName() {
+    return this.registrationForm.get("userDetails.emergencyContactName");
   }
   get relation() {
     return this.registrationForm.get("userDetails.relation");
   }
-  get econtact() {
-    return this.registrationForm.get("userDetails.econtact");
+  get emergencyContactNumber() {
+    return this.registrationForm.get("userDetails.emergencyContactNumber");
   }
  
 
 
 
 
-  testResults(move_to: number): void {
+  validateBaseDetails(move_to: number): void {
     this.submitted = true;
+    console.log(this.gender?.errors);
     console.log(this.registrationForm.disabled);
     if (this.registrationForm.controls.userDetails.valid || this.isDisabled===true) {
       this.current += move_to;

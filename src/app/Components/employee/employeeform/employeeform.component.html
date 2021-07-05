@@ -19,23 +19,23 @@
                         <div class="container">
                             <label for="FirstName" id="f1"><b>First Name</b></label>
                             <input type="text"
-                                [ngClass]="{'alert':submitted && fname?.errors?.required || fname?.errors?.pattern}"
-                                placeholder="Enter First Name" name="fname" formControlName="fname" required>
+                                [ngClass]="{'alert':submitted && firstName?.errors?.required || firstName?.errors?.pattern}"
+                                placeholder="Enter First Name" name="firstName" formControlName="firstName" required>
                         </div>
                         <div>
-                            <span *ngIf="(fname?.errors?.required) && submitted" class="invalid-feedback">*First name is required</span>
-                            <span *ngIf="fname?.errors?.pattern" class="invalid-feedback">*First name should contain alphabets only</span>
+                            <span *ngIf="(firstName?.errors?.required) && submitted" class="invalid-feedback">*First name is required</span>
+                            <span *ngIf="firstName?.errors?.pattern" class="invalid-feedback">*First name should contain alphabets only</span>
                         </div>
 
                         <div class="container">
                             <label for="LastName"><b>Last Name</b></label>
                             <input type="text"
-                                [ngClass]="{'alert':submitted && lname?.errors?.required || lname?.errors?.pattern}"
-                                placeholder="Enter Last Name" name="lname" formControlName="lname" required>
+                                [ngClass]="{'alert':submitted && lastName?.errors?.required || lastName?.errors?.pattern}"
+                                placeholder="Enter Last Name" name="lname" formControlName="lastName" required>
                         </div>
                         <div>
-                            <span *ngIf="lname?.errors?.required && submitted" class="invalid-feedback">*Last Name is required </span>
-                            <span *ngIf="lname?.errors?.pattern" class='invalid-feedback'>*Last name should contain
+                            <span *ngIf="lastName?.errors?.required && submitted" class="invalid-feedback">*Last Name is required </span>
+                            <span *ngIf="lastName?.errors?.pattern" class='invalid-feedback'>*Last name should contain
                                 alphabets
                                 only</span>
                         </div>
@@ -43,15 +43,15 @@
                         <div class="container">
                             <label for="PhoneNumber"><b>Contact Number</b></label>
                             <input type="tel"
-                                [ngClass]="{'alert':submitted && pno?.errors?.required || pno?.errors?.pattern}"
-                                placeholder="Enter Contact Number" name="pno" formControlName="pno" required>
+                                [ngClass]="{'alert':submitted && phoneNumber?.errors?.required || phoneNumber?.errors?.pattern}"
+                                placeholder="Enter Contact Number" name="phoneNumber" formControlName="phoneNumber" required>
                         </div>
 
 
                         <div>
-                            <span *ngIf="pno?.errors?.required && submitted" class="invalid-feedback">*Phone Number is
+                            <span *ngIf="phoneNumber?.errors?.required && submitted" class="invalid-feedback">*Phone Number is
                                 required </span>
-                            <span *ngIf="pno?.errors?.pattern" class="invalid-feedback">*Enter valid Phone Number</span>
+                            <span *ngIf="phoneNumber?.errors?.pattern" class="invalid-feedback">*Enter valid Phone Number</span>
                         </div>
 
 
@@ -59,22 +59,22 @@
                         <div class="container">
                             <label for="EmailID"><b>Email ID</b></label>
                             <input type="text"
-                                [ngClass]="{'alert':submitted && emailid?.errors?.required || emailid?.errors?.pattern}"
-                                placeholder="Enter Email ID" name="email" id="email" formControlName="emailid">
+                                [ngClass]="{'alert':submitted && emailID?.errors?.required || emailID?.errors?.pattern}"
+                                placeholder="Enter Email ID" name="email" id="email" formControlName="emailID">
                         </div>
 
 
                         <div>
-                            <span *ngIf="emailid?.errors?.required && submitted " class="invalid-feedback">*Email Id is
+                            <span *ngIf="emailID?.errors?.required && submitted " class="invalid-feedback">*Email ID is
                                 required
                             </span>
-                            <span *ngIf="emailid?.errors?.email" class="invalid-feedback">*Enter valid Email id</span>
+                            <span *ngIf="emailID?.errors?.email" class="invalid-feedback">*Enter valid Email ID</span>
                         </div>
 
 
                         <div class="container">
                             <label for="blood"><b>Blood Group</b></label>
-                    <select id="bloodgroup" class="blood-select"  placeholder="Enter Blood Group" formControlName="bloodgroup" [ngClass]="{'alert':submitted && bloodgroup?.errors?.required}" name="bloodgroup">
+                    <select id="bloodGroup" class="blood-select"  placeholder="Enter Blood Group" formControlName="bloodGroup" [ngClass]="{'alert':submitted && bloodGroup?.errors?.required}" name="bloodGroup">
                             <option value="">--- Please select ---</option>
                             <option value="O+ve">O +ve</option>
                             <option value="O-ve">O -ve</option>
@@ -88,7 +88,7 @@
                         </select>
                         </div>
                         <div>
-                            <span *ngIf="bloodgroup?.errors?.required && submitted " class="invalid-feedback">*Blood
+                            <span *ngIf="bloodGroup?.errors?.required && submitted " class="invalid-feedback">*Blood
                                 group is required
                             </span>
 
@@ -98,16 +98,16 @@
                         <div class="container">
                             <label for="aadhar"><b>Aadhar Number</b></label>
                             <input type="text"
-                                [ngClass]="{'alert':submitted && ano?.errors?.required || ano?.errors?.pattern || ano?.errors?.minlength || ano?.errors?.maxlength }"
-                                placeholder="Enter Aadhar Number" name="ano" id="ano" formControlName="ano">
+                                [ngClass]="{'alert':submitted && aadharNumber?.errors?.required || aadharNumber?.errors?.pattern || aadharNumber?.errors?.minlength || aadharNumber?.errors?.maxlength }"
+                                placeholder="Enter Aadhar Number" name="aadharNumber" id="aadharNumber" formControlName="aadharNumber">
                         </div>
 
                         <div>
-                            <span *ngIf="ano?.errors?.required && submitted " class="invalid-feedback">*Aadhar Number is
+                            <span *ngIf="aadharNumber?.errors?.required && submitted " class="invalid-feedback">*Aadhar number is
                                 required</span>
-                            <span *ngIf="ano?.errors?.pattern" class="invalid-feedback">*Aadhar Number should contain
+                            <span *ngIf="aadharNumber?.errors?.pattern" class="invalid-feedback">*Aadhar number should contain
                                 digits only</span>
-                            <span *ngIf="ano?.errors?.minlength || ano?.errors?.maxlength "
+                            <span *ngIf="aadharNumber?.errors?.minlength || aadharNumber?.errors?.maxlength "
                                 class="invalid-feedback">Aadhar number
                                 should contain 12 digits</span>
                         </div>
@@ -115,7 +115,7 @@
                         <div class="container">
                             <label for="dob"><b>Date Of Birth</b></label>
                             <input type="date" [ngClass]="{'alert':submitted && dob?.errors?.required}"
-                                placeholder="Enter Date Of Birth" name="dob" id="dob" formControlName="dob">
+                                 name="dob" id="dob" formControlName="dob">
                         </div>
 
                         <div>
@@ -125,11 +125,14 @@
 
                         <div class="radio">
                             <label for="gender" class="genderlabel"><b>Gender</b></label>
-                            <input type="radio" id="male" name="gender" value="male" required>
+                            <input type="radio" id="male" name="gender" value="male" formControlName="gender">
                             <p class="paragraphgender">Male</p>
-                            <input type="radio" id="female" name="gender" value="female" required>
+                            <input type="radio" id="female" name="gender" value="female" formControlName="gender">
                             <p class="paragraphgender">Female</p>
                         </div>
+                        <div>
+                        <span *ngIf="gender?.invalid && submitted" class="invalid-feedback">*Gender is required</span>
+                    </div>
                         <div class="container">
                             <label for="sslc"><b>SSLC Score</b></label>
                             <input type="text" [ngClass]="{'alert':submitted && sslc?.errors?.required}"
@@ -167,67 +170,53 @@
                         </div>
 
                         <div class="container">
-                            <label for="fathername"><b>Father's Name</b></label>
+                            <label for="fatherName"><b>Father's Name</b></label>
                             <input type="text"
-                                [ngClass]="{'alert':submitted && fathername?.errors?.required || fathername?.errors?.pattern}"
-                                placeholder="Enter Father's Name" name="fathername" id="fathername"
-                                formControlName="fathername">
+                                [ngClass]="{'alert':submitted && fatherName?.errors?.required || fatherName?.errors?.pattern}"
+                                placeholder="Enter Father's Name" name="fatherName" id="fatherName"
+                                formControlName="fatherName">
                         </div>
 
                         <div>
-                            <span *ngIf="fathername?.errors?.required && submitted " class="invalid-feedback">*Father
+                            <span *ngIf="fatherName?.errors?.required && submitted " class="invalid-feedback">*Father
                                 name is required
                             </span>
-                            <span *ngIf="fathername?.errors?.pattern" class="invalid-feedback"> Father name should
+                            <span *ngIf="fatherName?.errors?.pattern" class="invalid-feedback"> Father name should
                                 contain alphabets
                                 only </span>
                         </div>
 
                         <div class="container">
-                            <label for="mothername"><b>Mother's Name</b></label>
+                            <label for="motherName"><b>Mother's Name</b></label>
                             <input type="text"
-                                [ngClass]="{'alert':submitted && mothername?.errors?.required || mothername?.errors?.pattern}"
-                                placeholder="Enter Mother's Name" name="mothername" id="mothername"
-                                formControlName="mothername">
+                                [ngClass]="{'alert':submitted && motherName?.errors?.required || motherName?.errors?.pattern}"
+                                placeholder="Enter Mother's Name" name="motherName" id="motherName"
+                                formControlName="motherName">
                         </div>
 
                         <div>
-                            <span *ngIf="mothername?.errors?.required && submitted " class="invalid-feedback"> Mother
+                            <span *ngIf="motherName?.errors?.required && submitted " class="invalid-feedback"> Mother
                                 Name is required
                             </span>
-                            <span *ngIf="mothername?.errors?.pattern" class="invalid-feedback">*Mother Name should
+                            <span *ngIf="motherName?.errors?.pattern" class="invalid-feedback">*Mother Name should
                                 contain alphabets
                                 only</span>
-                        </div>
-
-                        <div class="container">
-                            <label for="role"><b>Designation</b></label>
-                            <input type="text" [ngClass]="{'alert':submitted && role?.errors?.required}"
-                                placeholder="Enter Designation" name="role" id="role" formControlName="role">
-
-                        </div>
-
-                        <div>
-                            <span *ngIf="role?.errors?.required && submitted " class="invalid-feedback">*Designation is
-                                required
-                            </span>
-
                         </div>
 
                         <h3 class="sub-division">
                             <h3 id="two">Emergency Contact</h3>
                         </h3>
                         <div class="container">
-                            <label for="ename"><b>Name</b></label>
+                            <label for="emergencyContactName"><b>Name</b></label>
                             <input type="text"
-                                [ngClass]="{'alert':submitted && ename?.errors?.required || ename?.errors?.pattern}"
-                                placeholder="Name Of the Person" name="ename" id="ename" formControlName="ename">
+                                [ngClass]="{'alert':submitted && emergencyContactName?.errors?.required || emergencyContactName?.errors?.pattern}"
+                                placeholder="Name Of the Person" name="emergencyContactName" id="emergencyContactName" formControlName="emergencyContactName">
                         </div>
                         <div>
-                            <span *ngIf="ename?.errors?.required && submitted " class="invalid-feedback">*Emergency
+                            <span *ngIf="emergencyContactName?.errors?.required && submitted " class="invalid-feedback">*Emergency
                                 contact name is
                                 required </span>
-                            <span *ngIf="ename?.errors?.pattern" class="invalid-feedback">*This field should contain
+                            <span *ngIf="emergencyContactName?.errors?.pattern" class="invalid-feedback">*This field should contain
                                 alphabets
                                 only</span>
                         </div>
@@ -249,17 +238,17 @@
                         </div>
 
                         <div class="container" id="present">
-                            <label for="econtact"><b>Contact Number</b></label>
-                            <input type="tel" placeholder="Enter Contact Number" name="econtact" id="econtact"
-                                [ngClass]="{'alert':submitted && econtact?.errors?.required || econtact?.errors?.pattern}"
-                                formControlName="econtact">
+                            <label for="emergencyContactNumber"><b>Contact Number</b></label>
+                            <input type="tel" placeholder="Enter Contact Number" name="emergencyContactNumber" id="emergencyContactNumber"
+                                [ngClass]="{'alert':submitted && emergencyContactNumber?.errors?.required || emergencyContactNumber?.errors?.pattern}"
+                                formControlName="emergencyContactNumber">
                         </div>
 
                         <div>
-                            <span *ngIf="econtact?.errors?.required && submitted " class="invalid-feedback">*Emergency
+                            <span *ngIf="emergencyContactNumber?.errors?.required && submitted " class="invalid-feedback">*Emergency
                                 contact is
                                 required </span>
-                            <span *ngIf="econtact?.errors?.pattern" class="invalid-feedback">*Emergency contact should
+                            <span *ngIf="emergencyContactNumber?.errors?.pattern" class="invalid-feedback">*Emergency contact should
                                 contain numbers
                                 only</span>
                         </div>
@@ -267,7 +256,7 @@
                     </fieldset>
                 </div>
 
-                <button type="button" class="firstbutton" id="nextBtn" (click)="testResults(1)">Next</button>
+                <button type="button" class="firstbutton" id="nextBtn" (click)="validateBaseDetails(1)">Next</button>
 
             </div>
 
@@ -286,23 +275,23 @@
                                         <label for="presentflatname"><b>Building No/Flat Name</b></label>
                                         <input type="text" placeholder="Enter Building No /Flat Name"
                                             name="presentflatname"
-                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.presentAddress.flatname')?.errors?.required}"
-                                            formControlName="flatname">
+                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.presentAddress.flatName')?.errors?.required}"
+                                            formControlName="flatName">
                                     </div>
                                     <span
-                                        *ngIf="registrationForm.get('addressDetails.presentAddress.flatname')?.errors?.required && submitted "
+                                        *ngIf="registrationForm.get('addressDetails.presentAddress.flatName')?.errors?.required && submitted "
                                         class="invalid-feedback">*Present Flat name is required </span>
 
 
                                     <div class="container">
                                         <label for="presentstreetname"><b>Street</b></label>
                                         <input type="text" placeholder="Enter Street" name="presentstreetname"
-                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.presentAddress.streetname')?.errors?.required}"
-                                            formControlName="streetname">
+                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.presentAddress.streetName')?.errors?.required}"
+                                            formControlName="streetName">
                                     </div>
 
                                     <span
-                                        *ngIf="registrationForm.get('addressDetails.presentAddress.streetname')?.errors?.required && submitted "
+                                        *ngIf="registrationForm.get('addressDetails.presentAddress.streetName')?.errors?.required && submitted "
                                         class="invalid-feedback">*Present Street Name is required</span>
 
                                     <div class="container">
@@ -366,14 +355,14 @@
                                     <div class="container">
                                         <label for="presentmapcoordinates"><b>Map Coordinates</b></label>
                                         <input type="text" placeholder="Enter Map Coordinates"
-                                            id="presentmapcoordinates" formControlName="mapcoordinates"
+                                            id="presentmapcoordinates" formControlName="mapCoordinates"
                                             id="presentmapcoordinates"
-                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.presentAddress.mapcoordinates')?.errors?.required}"
+                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.presentAddress.mapCoordinates')?.errors?.required}"
                                             style="width: 350px;">
                                     </div>
 
                                     <span
-                                        *ngIf="registrationForm.get('addressDetails.presentAddress.mapcoordinates')?.errors?.required && submitted "
+                                        *ngIf="registrationForm.get('addressDetails.presentAddress.mapCoordinates')?.errors?.required && submitted "
                                         class="invalid-feedback">*Present map coordinates is required </span>
 
 
@@ -381,15 +370,15 @@
                                         <label for="presentpincode"><b>Pincode</b></label>
                                         <input type="text" placeholder="Pincode" name="presentpincode"
                                             id="presentpincode"
-                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.presentAddress.pincode')?.errors?.required || registrationForm.get('addressDetails.presentAddress.pincode')?.errors?.pattern}"
-                                            formControlName="pincode">
+                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.presentAddress.pinCode')?.errors?.required || registrationForm.get('addressDetails.presentAddress.pinCode')?.errors?.pattern}"
+                                            formControlName="pinCode">
                                     </div>
 
                                     <span
-                                        *ngIf="registrationForm.get('addressDetails.presentAddress.pincode')?.errors?.required && submitted "
+                                        *ngIf="registrationForm.get('addressDetails.presentAddress.pinCode')?.errors?.required && submitted "
                                         class="invalid-feedback"> *Pincode is required </span>
                                     <span
-                                        *ngIf="registrationForm.get('addressDetails.presentAddress.pincode')?.errors?.pattern"
+                                        *ngIf="registrationForm.get('addressDetails.presentAddress.pinCode')?.errors?.pattern"
                                         class="invalid-feedback">*Pincode should contain numbers only</span>
 
 
@@ -418,22 +407,22 @@
                                         <label for="permanentflatname"><b>Building No/Flat Name</b></label>
                                         <input type="text" placeholder="Enter Building No /Flat Name"
                                             name="permanentflatname"
-                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.permanentAddress.flatname')?.errors?.required}"
-                                            id="permanentflatname" formControlName="flatname">
+                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.permanentAddress.flatName')?.errors?.required}"
+                                            id="permanentflatname" formControlName="flatName">
                                     </div>
 
                                     <span
-                                        *ngIf="registrationForm.get('addressDetails.permanentAddress.flatname')?.errors?.required && submitted "
+                                        *ngIf="registrationForm.get('addressDetails.permanentAddress.flatName')?.errors?.required && submitted "
                                         class="invalid-feedback">*Permanent Flat name is required </span>
 
                                     <div class="container">
                                         <label for="permanentstreetname"><b>Street</b></label>
                                         <input type="text" placeholder="Enter Street" name="permanentstreetname"
-                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.permanentAddress.streetname')?.errors?.required}"
-                                            id="permanentstreetname" formControlName="streetname">
+                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.permanentAddress.streetName')?.errors?.required}"
+                                            id="permanentstreetname" formControlName="streetName">
                                     </div>
                                     <span
-                                        *ngIf="registrationForm.get('addressDetails.permanentAddress.streetname')?.errors?.required && submitted "
+                                        *ngIf="registrationForm.get('addressDetails.permanentAddress.streetName')?.errors?.required && submitted "
                                         class="invalid-feedback">*Permanent Street name is required </span>
 
 
@@ -500,27 +489,27 @@
                                         <label for="permanentmapcoordinates"><b>Map Coordinates</b></label>
                                         <input type="text" placeholder="Enter Map Coordinates"
                                             name="permanentmapcoordinates"
-                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.permanentAddress.mapcoordinates')?.errors?.required}"
-                                            id="permanentmapcoordinates" formControlName="mapcoordinates"
+                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.permanentAddress.mapCoordinates')?.errors?.required}"
+                                            id="permanentmapcoordinates" formControlName="mapCoordinates"
                                             style="width: 350px;">
                                     </div>
 
                                     <span
-                                        *ngIf="registrationForm.get('addressDetails.permanentAddress.mapcoordinates')?.errors?.required && submitted "
+                                        *ngIf="registrationForm.get('addressDetails.permanentAddress.mapCoordinates')?.errors?.required && submitted "
                                         class="invalid-feedback">*Permanent map coordinates is required </span>
 
                                     <div class="container">
                                         <label for="permanentpincode"><b>Pincode</b></label>
                                         <input type="text" placeholder="Pincode" name="permanentpincode"
-                                            id="permanentpincode" formControlName="pincode"
-                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.permanentAddress.pincode')?.errors?.required || registrationForm.get('addressDetails.permanentAddress.pincode')?.errors?.pattern}">
+                                            id="permanentpincode" formControlName="pinCode"
+                                            [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.permanentAddress.pinCode')?.errors?.required || registrationForm.get('addressDetails.permanentAddress.pinCode')?.errors?.pattern}">
                                     </div>
 
                                     <span
-                                        *ngIf="registrationForm.get('addressDetails.permanentAddress.pincode')?.errors?.required && submitted "
+                                        *ngIf="registrationForm.get('addressDetails.permanentAddress.pinCode')?.errors?.required && submitted "
                                         class="invalid-feedback">*Permanent pincode is required </span>
                                     <span
-                                        *ngIf="registrationForm.get('addressDetails.permanentAddress.pincode')?.errors?.pattern && submitted "
+                                        *ngIf="registrationForm.get('addressDetails.permanentAddress.pinCode')?.errors?.pattern && submitted "
                                         class="invalid-feedback">*Pincode should contain digits only </span>
                                 </div>
                             </ng-container>
@@ -540,7 +529,7 @@
                 </div>
             </div>
         </form>
-        <app-modals *ngIf="notify || draft" (newItemEvent)="addItem($event)" id="usernotified" [open]="notify ? notify : draft"
+        <app-modals *ngIf="notify || draft" (closeEvent)="CloseNotification($event)" id="usernotified" 
             [Content]="notifyText"></app-modals>
 
     </div>

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Role } from '../role';
+import { Role } from '../../../Interfaces/role';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { HrService } from 'src/app/Services/hr.service';
 @Component({
   selector: 'app-inviteform',
   templateUrl: './inviteform.component.html',
@@ -8,23 +9,25 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class InviteformComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private  hr:HrService) {  }
   @Input()
   open: Boolean = false;
   @Output()
   closeEvent = new EventEmitter<Boolean>();
   inviteForm!: FormGroup;
-  public roles: Role[] = [
-    { id: 'Software Engineer', role: 'Software Engineer' },
-    { id: 'Senior Software Engineer', role: 'Senior Software Engineer' },
-    { id: 'Associate Software Engineer', role: 'Associate Software Engineer' }
-  ];
+  public roles: Role[] = [];
 
 
 
   close: Boolean = false;
   isSubmitted: Boolean = false;
   ngOnInit(): void {
+    this.hr.listRoles();
+    this.hr.roles$.subscribe((data) => {
+      console.log(data, typeof data, "httpdata");
+      this.roles=data.sets;
+      console.log(this.roles);
+    });
     this.inviteForm = this.fb.group({
       name: ["",
         [
@@ -69,12 +72,14 @@ export class InviteformComponent implements OnInit {
     this.closeEvent.emit(false);
   }
   createinvite(): void {
-    console.log("hello")
     this.isSubmitted = true;
     console.log(this.password);
     if (this.inviteForm.valid) {
+      let submit=this.hr.createuser({'name':this.name,'email':this.email,'role':this.role,'password':this.password});
+      if(submit){
       this.open = !this.open
       this.closeEvent.emit(false);
+    }
     }
   }
   closeout(): void {

@@ -8,9 +8,9 @@
       <button class="button-group absolute-right" (click)="openform()" data-target="#createinvite">Create
         Invite</button>
     </div>
-    <div id="request" style="margin: 73px 14px;">
-      <table id="requesttable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" style="width: 100%;">
-        <thead>
+    <div id="request" style="margin: 85px 14px;">
+      <table id="requesttable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" style="width: 100%;margin-top: 10px;">
+        <thead >
           <tr>
             <th>Emp ID</th>
             <th>Name</th>
@@ -41,14 +41,38 @@
           </tr>
         </tbody>
       </table>
-      <app-modals *ngIf=notify (newItemEvent)="addItem($event)" id="usernotified" [open]=notify
-        Content="User Notified Successfully"></app-modals>
-      <app-modals *ngIf=edit (newItemEvent)="addItem($event)" id="editaccess" [open]=edit
-        Content="User has been provided Edit access Successfully"></app-modals>
+      <app-modals *ngIf="notify || edit" (closeEvent)="CloseNotification($event)" id="usernotified" [Content]="notifyText"></app-modals>
       <app-inviteform *ngIf=invite (closeEvent)="closeform($event)" id="inviteform" [open]=invite></app-inviteform>
       <app-userdetailsview *ngIf=view id="userdetails" (closedetails)="closeview($event)"
-        (rejectreason)="rejectview($event)" [open]=view [status]=current></app-userdetailsview>
-      <app-rejectreason *ngIf=reject (closereason)="closefor($event)" [open]=reject id="rejectreason">
-      </app-rejectreason>
+        (rejectreason)="rejectview($event)" [status]=current></app-userdetailsview>
+      
     </div>
+    <dialog id="myModal" *ngIf=reject class="modal fades">
+      <div class="modal-head">
+        <h4 class="modal-top alert-text">Reason For Rejection</h4>
+        <button type="button" class="xbtn" (click)="closemodal()">&times;</button>
+      </div>
+      <div class="modal-content">
+        <div class="modal-body">
+          <form [formGroup]="reasonForm" (ngSubmit)="submitreason()" class="formclass">
+            <div class="flexform">
+              <input class="reasoncontent" type="text" name="reason" formControlName="reason"
+                [ngClass]="{'alert':isSubmitted && this.reasondata?.errors?.required}"
+                placeholder="Reason for Rejection...">
+              <button type="submit" class="button-group-modal"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </div>
+            <span class="invalid-feedback" *ngIf="isSubmitted && this.reasondata?.errors?.required">
+              <sup>*</sup>reason is required
+            </span>
+    
+          </form>
+          <div class="modal-foot-center">
+            <button type="button" class="button-group-reject"
+              (click)="prevstateview()">Back</button>
+          </div>
+    
+        </div>
+    
+      </div>
+    </dialog>
   </div>

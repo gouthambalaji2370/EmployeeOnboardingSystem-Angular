@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginformComponent } from './loginform/loginform.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { LoginService } from 'src/app/Services/login.service';
 
 
 
@@ -13,6 +14,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers:[LoginService]
 })
 export class LoginModule { }

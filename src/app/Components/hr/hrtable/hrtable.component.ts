@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
-import { Employees } from '../employees';
+import { Employees } from '../../../Interfaces/employees';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HrService } from 'src/app/Services/hr.service';
 
 
 
@@ -19,20 +21,41 @@ export class HRTableComponent implements OnInit, OnDestroy {
   current: String = "";
   dtOptions: DataTables.Settings = {};
   employees: Employees[] = [];
+  notifyText:String="";
   dtTrigger: Subject<any> = new Subject<any>();
-  constructor(private httpClient: HttpClient) { }
+  reasonForm!: FormGroup;
+  isSubmitted: Boolean = false;
+  constructor(private httpClient: HttpClient,private fb: FormBuilder,private hr:HrService) { }
 
   ngOnInit(): void {
-    this.httpClient.get<Employees[]>("../../../../assets/data.json")
-      .subscribe(data => {
-        console.log(data);
-        this.employees = (data as any).data;
-        this.dtTrigger.next();
+    this.reasonForm = this.fb.group(
+      {
+        reason: ["",
+          [
+            Validators.required
+          ]
+        ],
+      })
+      this.hr.listEmployees();
+      this.hr.employees$.subscribe((data) => {
+        console.log(data, typeof data, "httpdata");
+        this.employees=data.data;
+        console.log(this.employees);
       });
+    // this.httpClient.get<Employees[]>("../../../../assets/data.json")
+    //   .subscribe(data => {
+    //     console.log(data);
+    //     this.employees =  (data as any).data;
+    //     this.dtTrigger.next();
+    //   });
   }
-  addItem(newItem: Boolean) {
-    this.notify = newItem;
-    this.edit = newItem;
+  prevstateview(){
+    this.reject=!this.reject;
+    this.openview('Pending');
+  }
+  CloseNotification(closeEvent: Boolean) {
+    this.notify = closeEvent;
+    this.edit = closeEvent;
   }
   closeview(closedetails: Boolean) {
     this.view = closedetails;
@@ -44,6 +67,24 @@ export class HRTableComponent implements OnInit, OnDestroy {
   closefor(closereason: Boolean) {
     this.reject = closereason;
   }
+  
+  submitreason(): void {
+    this.isSubmitted = true;
+    console.log(this.reasonForm.valid, this.reasondata)
+    if (this.reasonForm.valid) {
+    let status=  this.hr.reasonforrejection(this.reasondata);
+    if(status===true)
+      console.log("reason is submitted")
+   this.reject=false;
+    }
+  }
+  get reasondata() {
+    return this.reasonForm.get("reason");
+  }
+closemodal(){
+  this.reject=false;
+}
+
   openview(status: String): void {
     this.current = status;
     this.view = !this.view
@@ -52,12 +93,15 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.invite = closeEvent;
   }
   openform(): void {
+    console.log(this.invite);
     this.invite = !this.invite
   }
   opennotification(): void {
+    this.notifyText="User Notified Successfully"
     this.notify = !this.notify;
   }
   openedit(): void {
+    this.notifyText="Edit access provided"
     this.edit = !this.edit;
   }
   ngOnDestroy(): void {

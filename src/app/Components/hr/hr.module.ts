@@ -5,26 +5,21 @@ import { CoreModule } from '../core/core.module';
 import { DataTablesModule } from 'angular-datatables';
 import { InviteformComponent } from './inviteform/inviteform.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 import { UserdetailsviewComponent } from './userdetailsview/userdetailsview.component';
-import { RejectreasonComponent } from './rejectreason/rejectreason.component';
-
-const routes: Routes = [
-  { path: '', component: HRTableComponent }
-];
+import { HrService } from 'src/app/Services/hr.service';
 
 @NgModule({
   declarations: [
     HRTableComponent,
     InviteformComponent,
-    UserdetailsviewComponent,
-    RejectreasonComponent
+    UserdetailsviewComponent
   ],
   imports: [
     CommonModule, CoreModule,
     DataTablesModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers:[HrService]
 })
 export class HrModule { }

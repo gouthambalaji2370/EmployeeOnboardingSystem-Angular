@@ -6,8 +6,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./userdetailsview.component.css']
 })
 export class UserdetailsviewComponent implements OnInit {
-  @Input()
-  open: Boolean = false;
+  // @Input()
+  // open: Boolean = false;
   @Input()
   status: String = "";
   @Output()
@@ -19,17 +19,17 @@ export class UserdetailsviewComponent implements OnInit {
   ngOnInit(): void {
   }
   closemodalapprove(): void {
-    this.open = !this.open
+    // this.open = !this.open
     this.closedetails.emit(false);
     this.rejectreason.emit(false);
   }
   closemodal(): void {
-    this.open = !this.open
+    // this.open = !this.open
     this.closedetails.emit(false);
     this.rejectreason.emit(false);
   }
   closemodalreject(): void {
-    this.open = !this.open
+    // this.open = !this.open
     this.closedetails.emit(false);
     this.rejectreason.emit(true);
   }

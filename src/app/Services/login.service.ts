@@ -22,10 +22,5 @@ export class LoginService {
   }
   return value;
   }
-  // checkValidUser(params: any) {
-  //   console.log(params);
-  //   return this.http.get('../../../assets/credentials.json').subscribe(data => {
-  //     this.login$.next(data);
-  //   });
-  // }
+  
 }

@@ -10,21 +10,21 @@ export class ModalsComponent implements OnInit {
   constructor() { }
   @Input()
   Content: String = "";
-  @Input()
-  open: Boolean = false;
+  // @Input()
+  // open: Boolean = false;
   @Output()
-  newItemEvent = new EventEmitter<Boolean>();
+  closeEvent = new EventEmitter<Boolean>();
   close: Boolean = false;
 
   ngOnInit(): void {
   }
   closemodal(): void {
-    this.open = !this.open
-    this.newItemEvent.emit(false);
+    // this.open = !this.open
+    this.closeEvent.emit(false);
   }
   closeout(): void {
-    this.open = false
-    this.newItemEvent.emit(false);
+    // this.open = false
+    this.closeEvent.emit(false);
   }
 
 }

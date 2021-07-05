@@ -31,7 +31,7 @@
             <label for="role">Role:</label>
             <select name="role" [ngClass]="{'alert':isSubmitted&& role?.errors?.required}" formControlName="role"
               id="role" placeholder="Role">
-              <option value="">Select state...</option>
+              <option value="">Select Role...</option>
               <option *ngFor="let set of roles" [ngValue]="set.id">{{set.role}}</option>
             </select>
             <br />
