@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginformComponent } from './loginform/loginform.component';
+import { LoginformComponent } from './loginform.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { LoginService } from 'src/app/Services/login.service';
 

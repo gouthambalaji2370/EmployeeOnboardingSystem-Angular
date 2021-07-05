@@ -117,6 +117,22 @@ input {
     border-width: 2px;
     outline: none;   
 }
+textarea {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 492px;
+  Height:20px;
+  padding: 10px;
+  line-height: 26px;
+  border-color: black;
+  border-radius: 12px;
+  border-width: 2px;
+  outline: none;   
+}
 label{
   margin-top: 15px;
 }

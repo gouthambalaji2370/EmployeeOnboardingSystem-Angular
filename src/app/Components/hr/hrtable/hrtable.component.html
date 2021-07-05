@@ -56,9 +56,9 @@
         <div class="modal-body">
           <form [formGroup]="reasonForm" (ngSubmit)="submitreason()" class="formclass">
             <div class="flexform">
-              <input class="reasoncontent" type="text" name="reason" formControlName="reason"
+              <textarea class="reasoncontent" type="text" name="reason" formControlName="reason"
                 [ngClass]="{'alert':isSubmitted && this.reasondata?.errors?.required}"
-                placeholder="Reason for Rejection...">
+                placeholder="Reason for Rejection..."></textarea>
               <button type="submit" class="button-group-modal"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
             </div>
             <span class="invalid-feedback" *ngIf="isSubmitted && this.reasondata?.errors?.required">

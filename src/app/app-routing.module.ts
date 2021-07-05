@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HrModule } from './Components/hr/hr.module';
 import { EmployeeModule } from './Components/employee/employee.module';
 import { LoginModule } from './Components/login/login.module';
-import { LoginformComponent } from './Components/login/loginform/loginform.component';
+import { LoginformComponent } from './Components/login/loginform.component';
 import { ErrorpageComponent } from './Components/core/errorpage/errorpage.component';
 import { AuthguardService } from './Services/authguard.service';
 import { RolebasedguardService } from './Services/rolebasedguard.service';

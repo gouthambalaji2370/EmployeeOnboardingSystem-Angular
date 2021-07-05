@@ -16,7 +16,7 @@ export class RolebasedguardService {
       return true
     }
     else{
-    this.router.navigate(["/xxx"])
+      this.router.navigate(["/**"])
       return false
     }
    }
