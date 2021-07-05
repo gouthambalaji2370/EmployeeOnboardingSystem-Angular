@@ -40,6 +40,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
       this.hr.employees$.subscribe((data) => {
         console.log(data, typeof data, "httpdata");
         this.employees=data.data;
+        this.dtTrigger.next();
         console.log(this.employees);
       });
   }
