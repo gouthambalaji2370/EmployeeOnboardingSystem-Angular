@@ -4,7 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {ModalsComponent} from './alerts/alerts.component'
 import { FormsModule } from '@angular/forms';
-import { ErrorpageComponent } from './errorpage/errorpage.component';
+import { ErrorpageComponent } from './error-page/error-page.component';
 
 
 

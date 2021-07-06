@@ -9,8 +9,8 @@ import { HrService } from 'src/app/Services/hr.service';
 
 @Component({
   selector: 'app-hrtable',
-  templateUrl: './hrtable.component.html',
-  styleUrls: ['./hrtable.component.css']
+  templateUrl: './hr-table.component.html',
+  styleUrls: ['./hr-table.component.css']
 })
 export class HRTableComponent implements OnInit, OnDestroy {
   notify: Boolean = false;

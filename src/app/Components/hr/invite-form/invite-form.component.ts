@@ -4,8 +4,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HrService } from 'src/app/Services/hr.service';
 @Component({
   selector: 'app-inviteform',
-  templateUrl: './inviteform.component.html',
-  styleUrls: ['./inviteform.component.css']
+  templateUrl: './invite-form.component.html',
+  styleUrls: ['./invite-form.component.css']
 })
 export class InviteformComponent implements OnInit {
 

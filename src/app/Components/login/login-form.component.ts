@@ -7,8 +7,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-loginform',
-  templateUrl: './loginform.component.html',
-  styleUrls: ['./loginform.component.css']
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css']
 })
 export class LoginformComponent implements OnInit {
 

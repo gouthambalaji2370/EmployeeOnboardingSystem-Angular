@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HrtableComponent } from './hrtable.component';
+import { UserdetailsviewComponent } from './user-details-view.component';
 
-describe('HrtableComponent', () => {
-  let component: HrtableComponent;
-  let fixture: ComponentFixture<HrtableComponent>;
+describe('UserdetailsviewComponent', () => {
+  let component: UserdetailsviewComponent;
+  let fixture: ComponentFixture<UserdetailsviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HrtableComponent ]
+      declarations: [ UserdetailsviewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HrtableComponent);
+    fixture = TestBed.createComponent(UserdetailsviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

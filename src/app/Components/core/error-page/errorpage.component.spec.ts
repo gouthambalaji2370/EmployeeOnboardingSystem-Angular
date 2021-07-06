@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginformComponent } from './loginform.component';
+import { ErrorpageComponent } from './error-page.component';
 
-describe('LoginformComponent', () => {
-  let component: LoginformComponent;
-  let fixture: ComponentFixture<LoginformComponent>;
+describe('ErrorpageComponent', () => {
+  let component: ErrorpageComponent;
+  let fixture: ComponentFixture<ErrorpageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginformComponent ]
+      declarations: [ ErrorpageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginformComponent);
+    fixture = TestBed.createComponent(ErrorpageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

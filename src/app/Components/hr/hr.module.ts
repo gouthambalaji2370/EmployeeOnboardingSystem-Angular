@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HRTableComponent } from './hrtable/hrtable.component';
+import { HRTableComponent } from './hr-table/hr-table.component';
 import { CoreModule } from '../core/core.module';
 import { DataTablesModule } from 'angular-datatables';
-import { InviteformComponent } from './inviteform/inviteform.component';
+import { InviteformComponent } from './invite-form/invite-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserdetailsviewComponent } from './userdetailsview/userdetailsview.component';
+import { UserdetailsviewComponent } from './user-details-view/user-details-view.component';
 import { HrService } from 'src/app/Services/hr.service';
 
 @NgModule({

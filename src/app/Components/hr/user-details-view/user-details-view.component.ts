@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-userdetailsview',
-  templateUrl: './userdetailsview.component.html',
-  styleUrls: ['./userdetailsview.component.css']
+  templateUrl: './user-details-view.component.html',
+  styleUrls: ['./user-details-view.component.css']
 })
 export class UserdetailsviewComponent implements OnInit {
   // @Input()

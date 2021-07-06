@@ -9,8 +9,8 @@ import { EmployeeService } from 'src/app/Services/employee.service';
 
 @Component({
   selector: 'app-employeeform',
-  templateUrl: './employeeform.component.html',
-  styleUrls: ['./employeeform.component.css']
+  templateUrl: './employee-form.component.html',
+  styleUrls: ['./employee-form.component.css']
 })
 export class EmployeeformComponent implements OnInit {
   registrationForm!: FormGroup;
