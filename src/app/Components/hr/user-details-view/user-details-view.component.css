@@ -155,13 +155,10 @@ label{
     border-bottom-left-radius: calc(.3rem - 1px);
     
   }
-  .flexform{
+  .flex-form{
     display: flex;
   }
-  .spacebetween{
-    justify-content: space-between;
-  }
-  .formclass{
+  .form-class{
     padding: 8px 8px;
     border: 2px solid #346751;
   }

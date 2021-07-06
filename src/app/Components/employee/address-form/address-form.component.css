@@ -5,6 +5,51 @@
 }
 
 
+.topbar{
+display: flex;
+position: absolute;
+top: 0px;
+left: 0px;
+background:#D8E3E7;
+width: 100%;
+height: 72px;
+box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25) ;
+}
+.heading{
+text-align: center;
+color: #346751;
+font-family: 'Times New Roman', Times, serif,'Roboto';
+font-style: normal;
+font-weight: bold;
+font-size: 29px;
+line-height: 35px;
+margin-left: 40px;
+margin-block-start: 15px;
+padding-left: 280px;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+padding-right: 100px;
+
+}
+
+.logo{
+padding-left: 30px;
+padding-top: 19px;
+width: 158px;
+height: 50px;
+}
+.logout-btn{
+position: absolute;
+  color:#346751;
+  background-color: #D8E3E7;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  right: -318px;
+  top: -1px;
+  margin-left: 60px;
+  width: 60px;
+  height: 60px;
+}
 .sub-division{
     background-color:#2F5D62 ;
     height:50px;
@@ -12,7 +57,17 @@
     margin-left:-15px; 
     margin-top: 66px;
 }
-
+.logout{
+color: #346751;
+border: none;
+font-size: medium;
+font-weight: bold;
+text-decoration: none;
+margin-top: 30px;
+margin-left: 300px;
+width: 60px;
+height: 60px;
+}
 .fieldset {
     display: flex;
     flex-direction: column;
@@ -152,7 +207,9 @@ border-radius: 15px;
 background-color: #2F5D62;
 border-radius: 15px;
 }
-
+button{
+    cursor: pointer;
+}
 
 .step {
     height: 15px;
@@ -260,23 +317,10 @@ select:focus{
     
 }
 
-.countries{
-    width: 258.23px;
-    border-color: black;
-    border-width: 2px;
-    border-radius: 12px;
 
-}
-.countries:focus{
-    width: 258.23px;
-    border-color: black;
-    border-width: 2px;
-    border-radius: 12px;
-
-}
 .states,
 .cities {
-    width: 269.56px;
+    width: 275px;
     border-color: black;
     border-width: 2px;
     border-radius: 12px;
@@ -284,7 +328,7 @@ select:focus{
 }
 .states,
 .cities:focus {
-    width: 269.56px;
+    width: 275px;
     border-color: black;
     border-width: 2px;
     border-radius: 12px;
@@ -302,7 +346,7 @@ span{
 .secondbutton {
     display: flex;
     margin-top: 25px;
-    margin-left: 635px;
+    margin-left: 685px;
 }
 
 .firstbutton {
@@ -317,13 +361,13 @@ span{
 .submitbtn {
     margin: 0;
     margin-right: 5px;
+
+
+
+
+
 }
 
-.savedraftbtn
-{
-    margin-right: 5px;
-
-}
 .previousbtn,
 .resetbtn {
     color: black;
@@ -373,11 +417,11 @@ color: #2F5D62;
 .progressbar li:after {
 content: "";
 position: absolute;
-width: 90.9%;
+width: 100%;
 height: 3px;
 background-color:#2F5D62;
 top: 15px;
-left: -45.90%;
+left: -47.5%;
 z-index: -1;
 }
 

@@ -16,7 +16,6 @@ export class EmployeeformComponent implements OnInit {
   registrationForm!: FormGroup;
   stateInfo: any[] = [];
   countryInfo: any[] = [];
-  cityInfo: any[] = [];
   notify: Boolean = false;
   draft: Boolean = false;
   notifyText:String="";
@@ -49,19 +48,21 @@ export class EmployeeformComponent implements OnInit {
     this.getFormInstance();
   }
   getCountries() {
+    this.country.allCountriesSubject();
     this.country.Countrydata$.subscribe(data=>{
       console.log(data);
+      this.countryInfo = data.Countries;
     },err=>console.log(err),
     ()=>console.log('complete')
     )
-    this.country.allCountries().
-      subscribe(
-        data => {
-          this.countryInfo = data.Countries;
-        },
-        err => console.log(err),
-        () => console.log('complete')
-      )
+    // this.country.allCountries().
+    //   subscribe(
+    //     data => {
+    //       this.countryInfo = data.Countries;
+    //     },
+    //     err => console.log(err),
+    //     () => console.log('complete')
+    //   )
   }
   getFormInstance(){
     this.registrationForm = this.fb.group({
@@ -289,9 +290,11 @@ export class EmployeeformComponent implements OnInit {
   }
 
   onChangeCountry(countryValue: any) {
+    console.log(countryValue);
     this.stateInfo = this.countryInfo[countryValue].States;
     this.countryName = this.countryInfo[countryValue].countryName
     this.selectedcountry = countryValue;
+    console.log(this.selectedcountry);
   }
 
   onChangeState(stateValue: any) {
@@ -375,7 +378,9 @@ export class EmployeeformComponent implements OnInit {
   finalSubmit(): void {
     this.submitted = true;
     if (this.registrationForm.controls.addressDetails.valid) {
+
       let form=JSON.stringify(this.registrationForm.value);
+        // console.log(form["userDetails"])
       let value=this.employee.register(form);
       if(value){
         this.notify = true;

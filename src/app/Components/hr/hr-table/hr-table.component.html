@@ -1,7 +1,7 @@
 <div>
   <app-header></app-header>
   <div id="interface">
-    <div class="heading2">
+    <div class="heading-2">
       <h1>HR Dashboard</h1>
     </div>
     <div id="invitenew">
@@ -50,13 +50,13 @@
     <dialog id="myModal" *ngIf=reject class="modal fades">
       <div class="modal-head">
         <h4 class="modal-top alert-text">Reason For Rejection</h4>
-        <button type="button" class="xbtn" (click)="closemodal()">&times;</button>
+        <button type="button" class="modal-close-button" (click)="closemodal()">&times;</button>
       </div>
       <div class="modal-content">
         <div class="modal-body">
           <form [formGroup]="reasonForm" (ngSubmit)="submitreason()" class="formclass">
-            <div class="flexform">
-              <textarea class="reasoncontent" type="text" name="reason" rows="4" cols="40" formControlName="reason"
+            <div class="flex-form">
+              <textarea type="text" name="reason" rows="4" cols="40" formControlName="reason"
                 [ngClass]="{'alert':isSubmitted && this.reasondata?.errors?.required}"
                 placeholder="Reason for Rejection..."></textarea>
               <button type="submit" class="button-group-modal"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>

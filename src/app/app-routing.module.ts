@@ -8,13 +8,13 @@ import { ErrorpageComponent } from './Components/core/error-page/error-page.comp
 import { AuthguardService } from './Services/auth-guard.service';
 import { RolebasedguardService } from './Services/role-based-guard.service';
 import { HRTableComponent } from './Components/hr/hr-table/hr-table.component';
-import { EmployeeformComponent } from './Components/employee/employee-form/employee-form.component';
+import { BasicDetailsFormComponent } from './Components/employee/basic-details-form/basic-details-form.component';
 
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
   { path: 'login',  component: LoginformComponent },
-  { path: 'employee', component:EmployeeformComponent,canActivate:[AuthguardService,RolebasedguardService],data: {roles: ['Employee']}},
+  { path: 'employee', component:BasicDetailsFormComponent,canActivate:[AuthguardService,RolebasedguardService],data: {roles: ['Employee']}},
   { path: 'hr',component:HRTableComponent,canActivate:[AuthguardService,RolebasedguardService],data: {roles: ['HR']}},
   {path:'**', component:ErrorpageComponent},
 ];
