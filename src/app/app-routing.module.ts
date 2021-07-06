@@ -9,12 +9,12 @@ import { AuthguardService } from './Services/auth-guard.service';
 import { RolebasedguardService } from './Services/role-based-guard.service';
 import { HRTableComponent } from './Components/hr/hr-table/hr-table.component';
 import { BasicDetailsFormComponent } from './Components/employee/basic-details-form/basic-details-form.component';
-
+import { RouteDeactivationGuardService } from './Services/route-deactivation-guard.service';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
   { path: 'login',  component: LoginformComponent },
-  { path: 'employee', component:BasicDetailsFormComponent,canActivate:[AuthguardService,RolebasedguardService],data: {roles: ['Employee']}},
+  { path: 'employee', component:BasicDetailsFormComponent,canActivate:[AuthguardService,RolebasedguardService],canDeactivate:[RouteDeactivationGuardService],data: {roles: ['Employee']}},
   { path: 'hr',component:HRTableComponent,canActivate:[AuthguardService,RolebasedguardService],data: {roles: ['HR']}},
   {path:'**', component:ErrorpageComponent},
 ];
@@ -26,6 +26,6 @@ const routes: Routes = [
     LoginModule,
     EmployeeModule,
     RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

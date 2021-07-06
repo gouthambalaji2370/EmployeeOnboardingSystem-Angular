@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { DialogService } from 'src/app/Services/dialog.service';
 import { EmployeeService } from 'src/app/Services/employee.service';
 
 @Component({
@@ -14,7 +16,7 @@ export class BasicDetailsFormComponent implements OnInit {
   isDisabled:Boolean=false;
   basicDetailsForm!:FormGroup;
   basicDetails: any;
-  constructor(private fb: FormBuilder,private employeeService: EmployeeService) { }
+  constructor(private fb: FormBuilder,private employeeService: EmployeeService,public dialogService:DialogService) { }
   submitted:Boolean=false;
   ngOnInit(): void {
     this.formoninit();
@@ -127,6 +129,14 @@ export class BasicDetailsFormComponent implements OnInit {
 
     })
   }
+  canDeactivate(): Observable<boolean> | boolean {
+
+    if (this.submitted ===false && this.basicDetailsForm.touched) {
+
+        return this.dialogService.confirm('Discard changes for the Employee Details?');
+    }
+    return true;
+}	
   basicdetails(){
    this.submitted=true;
    console.log("hello")
