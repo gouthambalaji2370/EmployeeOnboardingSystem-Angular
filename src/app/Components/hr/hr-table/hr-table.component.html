@@ -8,9 +8,9 @@
       <button class="button-group absolute-right" (click)="openform()" data-target="#createinvite">Create
         Invite</button>
     </div>
-    <div id="request" style="margin: 85px 14px;">
+    <div id="request" style="margin: 85px 14px;margin-top: 100px;">
       <table id="requesttable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" style="width: 100%;margin-top: 10px;">
-        <thead >
+        <thead style=" height:60px;" >
           <tr>
             <th>Emp ID</th>
             <th>Name</th>
@@ -56,7 +56,7 @@
         <div class="modal-body">
           <form [formGroup]="reasonForm" (ngSubmit)="submitreason()" class="formclass">
             <div class="flexform">
-              <textarea class="reasoncontent" type="text" name="reason" formControlName="reason"
+              <textarea class="reasoncontent" type="text" name="reason" rows="4" cols="40" formControlName="reason"
                 [ngClass]="{'alert':isSubmitted && this.reasondata?.errors?.required}"
                 placeholder="Reason for Rejection..."></textarea>
               <button type="submit" class="button-group-modal"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>

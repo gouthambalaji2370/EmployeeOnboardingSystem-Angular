@@ -329,7 +329,7 @@
                                     <div class="container">
                                         <label for="presentstate"><b>State</b></label>
 
-                                        <select name="presentstate" class="countries" id="stateId"
+                                        <select name="presentstate" class="states" id="stateId"
                                             formControlName="state"
                                             [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.presentAddress.state')?.errors?.required}">
                                             <option value="">Select state...</option>
@@ -459,7 +459,7 @@
                                 <div class="column2">
                                     <div class="container">
                                         <label for="permanentstate"><b>State</b></label>
-                                        <select name="permanentstate" class="countries" id="stateId"
+                                        <select name="permanentstate" class="states" id="stateId"
                                             formControlName="state"
                                             [ngClass]="{'alert':submitted && registrationForm.get('addressDetails.permanentAddress.state')?.errors?.required}">
                                             <option value="">Select state...</option>
