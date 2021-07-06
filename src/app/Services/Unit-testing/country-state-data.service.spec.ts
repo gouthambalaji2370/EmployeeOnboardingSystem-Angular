@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CountryStateDataService } from './country-state-data.service';
+import { CountryStateDataService } from '../country-state-data.service';
 
 describe('CountryStateDataService', () => {
   let service: CountryStateDataService;
