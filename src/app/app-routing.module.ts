@@ -5,8 +5,8 @@ import { EmployeeModule } from './Components/employee/employee.module';
 import { LoginModule } from './Components/login/login.module';
 import { LoginformComponent } from './Components/login/login-form.component';
 import { ErrorpageComponent } from './Components/core/error-page/error-page.component';
-import { AuthguardService } from './Services/authguard.service';
-import { RolebasedguardService } from './Services/rolebasedguard.service';
+import { AuthguardService } from './Services/auth-guard.service';
+import { RolebasedguardService } from './Services/role-based-guard.service';
 import { HRTableComponent } from './Components/hr/hr-table/hr-table.component';
 import { EmployeeformComponent } from './Components/employee/employee-form/employee-form.component';
 
