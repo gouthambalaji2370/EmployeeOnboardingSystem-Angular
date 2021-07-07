@@ -42,6 +42,8 @@ export class HRTableComponent implements OnInit, OnDestroy {
       console.log(data, typeof data, "httpdata");
       this.employees = data.data;
       this.dtTrigger.next();
+      this.dtOptions = {
+       }
       console.log(this.employees);
       if(this.employees.length>0){
         console.log('data loaded successfully');

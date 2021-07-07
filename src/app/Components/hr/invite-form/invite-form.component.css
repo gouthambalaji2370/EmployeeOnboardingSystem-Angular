@@ -111,6 +111,9 @@ select:focus{
     font-size: 28px;
     font-weight: bold;
   }
+  button{
+    cursor: pointer;
+  }
   .modal-close-button{
     top: 135px;
     position: absolute;
