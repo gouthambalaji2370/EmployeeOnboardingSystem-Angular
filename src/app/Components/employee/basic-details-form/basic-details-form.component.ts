@@ -18,11 +18,14 @@ export class BasicDetailsFormComponent implements OnInit {
   basicDetails: any;
   constructor(private fb: FormBuilder,private employeeService: EmployeeService,public dialogService:DialogService) { }
   submitted:Boolean=false;
+
   ngOnInit(): void {
     this.formoninit();
     this.basicDetails =this.employeeService.getBasicDetails();
   if (this.basicDetails) this.setFormData();
   }
+
+  
   checkback(currentback:any){
     this.current=currentback.current;
     this.isDisabled=currentback.completed
@@ -139,10 +142,8 @@ export class BasicDetailsFormComponent implements OnInit {
 }	
   basicdetails(){
    this.submitted=true;
-   console.log("hello")
     if (this.basicDetailsForm.valid || this.isDisabled===true) {
     let form=JSON.stringify(this.basicDetailsForm.getRawValue());
-    console.log(form);
     this.employeeService.setBasicDetails(form);
     this.current=1;
     }

@@ -69,7 +69,7 @@
                                 </select>
                             </div>
                             <span *ngIf="addressDetailsForm.get('presentAddress.state')?.errors?.required && submitted "
-                                class="invalid-feedback-state">*Present State is required</span>
+                                class="invalid-feedback">*Present State is required</span>
 
                             <div class="container">
                                 <label for="presentcity"><b>District</b></label>
@@ -198,7 +198,7 @@
                             </div>
                             <span
                                 *ngIf="addressDetailsForm.get('permanentAddress.state')?.errors?.required && submitted"
-                                class="invalid-feedback-state">*Permanent State is required
+                                class="invalid-feedback">*Permanent State is required
                             </span>
                             <div class="container">
                                 <label for="permanentcity"><b>District</b></label>
@@ -218,7 +218,7 @@
                             </div>
 
                             <span
-                                *ngIf="addressDetailsForm.get('addressDetails.permanentAddress.mapCoordinates')?.errors?.required && submitted "
+                                *ngIf="addressDetailsForm.get('permanentAddress.mapCoordinates')?.errors?.required && submitted "
                                 class="invalid-feedback">*Permanent map coordinates is required </span>
 
                             <div class="container">

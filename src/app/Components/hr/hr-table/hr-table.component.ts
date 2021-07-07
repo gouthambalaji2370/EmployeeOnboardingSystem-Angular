@@ -65,16 +65,16 @@ export class HRTableComponent implements OnInit, OnDestroy {
   
   submitreason(): void {
     this.isSubmitted = true;
-    console.log(this.reasonForm.valid, this.reasondata)
+    console.log(this.reasonForm.valid, this.reason)
     if (this.reasonForm.valid) {
-      let form =JSON.stringify(this.reasondata)
+      let form =JSON.stringify(this.reason?.value)
     let status=  this.hr.reasonforrejection(form);
     if(status===true)
       console.log("reason is submitted")
    this.reject=false;
     }
   }
-  get reasondata() {
+  get reason() {
     return this.reasonForm.get("reason");
   }
 closemodal(){

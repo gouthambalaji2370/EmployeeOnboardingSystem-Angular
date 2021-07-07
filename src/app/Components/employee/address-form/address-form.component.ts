@@ -23,8 +23,6 @@ export class AddressFormComponent implements OnInit {
   submitted:Boolean=false;
   notify: Boolean = false;
   draft: Boolean = false;
-  selectedcountry!: Number;
-  selectedstate!: Number;
   stateName: String = "";
   countryName: String = "";
   presentStateName:String="";
@@ -93,6 +91,10 @@ export class AddressFormComponent implements OnInit {
         this.addressDetailsForm.disable();
         this.isDisabled=true;
         this.submitted = false;
+      }
+      else{
+        this.notify = true;
+        this.notifyText="User Details has some issues";
       }
     }
     else {
@@ -228,8 +230,11 @@ getformInstance(){
     this.country.Countrydata$.subscribe(data=>{
       console.log(data);
       this.countryInfo = data.Countries;
-    },err=>console.log(err),
-    ()=>console.log('complete')
+    },err=>{
+      console.log(err)
+      this.notify = true;
+      this.notifyText="Country data failed to load";},
+    ()=>console.log('Country data loaded')
     )
   }
   onChangeCountrypresent(countryValue: any) {
