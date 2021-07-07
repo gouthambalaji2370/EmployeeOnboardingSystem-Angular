@@ -20,7 +20,7 @@
                             <label for="FirstName" id="f1"><b>First Name</b></label>
                             <input type="text"
                                 [ngClass]="{'alert':submitted && firstName?.errors?.required || firstName?.errors?.pattern}"
-                                placeholder="Enter First Name" name="firstName" formControlName="firstName">
+                                placeholder="Enter First Name" name="firstName" formControlName="firstName" autofocus>
                         </div>
                         <div>
                             <span *ngIf="(firstName?.errors?.required) && submitted" class="invalid-feedback">*First

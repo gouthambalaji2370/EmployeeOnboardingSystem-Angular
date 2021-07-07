@@ -28,6 +28,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
   constructor(private httpClient: HttpClient, private fb: FormBuilder, private hr: HrService) { }
 
   ngOnInit(): void {
+  
     this.reasonForm = this.fb.group(
       {
         reason: ["",

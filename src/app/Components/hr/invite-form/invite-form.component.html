@@ -10,7 +10,7 @@
           <div class="container">
             <label for="name">Name:</label>
             <input type="text" [ngClass]="{'alert':isSubmitted && name?.errors?.required}" formControlName="name"
-              id="username" name="username" placeholder="Username">
+              id="username" name="username" placeholder="Username" autofocus>
           </div>
           <div class="invalid-feedback" *ngIf="isSubmitted && name?.errors?.required">
             <sup>*</sup>Name is required

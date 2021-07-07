@@ -13,7 +13,7 @@
                                     <label for="presentflatname"><b>Building No/Flat Name</b></label>
                                     <input type="text" placeholder="Enter Building No /Flat Name" name="presentflatname"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.flatName')?.errors?.required}"
-                                        formControlName="flatName">
+                                        formControlName="flatName" autofocus>
                                 </div>
                                 <span
                                     *ngIf="addressDetailsForm.get('presentAddress.flatName')?.errors?.required && submitted "
