@@ -144,6 +144,9 @@ width: 50%;
   margin-bottom: 10px;
   height: 50px;
 }
+.form-elements{
+padding: 5px 5px;
+}
 .button-group:hover{
   border: 1px solid #ccc;
   background-color: #346751;
