@@ -230,10 +230,16 @@ export class AddressFormComponent implements OnInit {
     this.country.Countrydata$.subscribe(data => {
       console.log(data);
       this.countryInfo = data.Countries;
+      if(this.countryInfo.length>0){
+        console.log('data loaded successfully')
+      }
+      else{
+        this.notify = true;
+        this.notifyText = "Country data failed to load";
+      }
     }, err => {
       console.log(err)
-      this.notify = true;
-      this.notifyText = "Country data failed to load";
+      
     },
       () => console.log('Country data loaded')
     )
