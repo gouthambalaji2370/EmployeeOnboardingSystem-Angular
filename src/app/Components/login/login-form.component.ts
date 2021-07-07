@@ -12,11 +12,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class LoginformComponent implements OnInit {
 
-  invalidemail: Boolean = false;
-  invalidpassword: Boolean = false;
+
   status: Boolean = false;
-  erroremail: String = "";
-  errorpassword: String = "";
   loginForm!: FormGroup;
   errorMessage = {
     userName: {
@@ -61,44 +58,20 @@ export class LoginformComponent implements OnInit {
   get password() {
     return this.loginForm.get("password");
   }
-  validateForm() {
-    let hasError = false;
-    console.log(this.userName);
-    if (this.userName?.errors && this.userName?.errors.required) {
-      this.userNameErrorMsg = this.errorMessage.userName.empty;
-      hasError = true;
-    }
-    if (this.userName?.errors && this.userName?.errors.email) {
-      this.userNameErrorMsg = this.errorMessage.userName.valid;
-      hasError = true;
-    }
-    if (this.password?.errors) {
-      if (this.password.errors.required) {
-        this.passwordErrorMsg = this.errorMessage.password.empty;
-      } else if (this.password.errors.pattern) {
-        this.passwordErrorMsg = this.errorMessage.password.pattern;
-      } else {
-        this.passwordErrorMsg = this.errorMessage.password.minLegth;
-      }
-      hasError = true;
-    }
-    return hasError;
-  }
   loginmethod(): void {
     this.isSubmitted = true
     if (this.loginForm.valid) {
       var formData: any = new FormData();
       console.log(formData);
-      // using subject
       this.login.checkuser({
         email: this.userName?.value,
         password: this.password?.value,
       })
-      if (this.userName?.value === 'hr@gmail.com'){
+      if (this.userName?.value === 'hr@gmail.com') {
         localStorage.setItem('user', 'HR');
         this.router.navigate(['/hr'])
       }
-      else if (this.userName?.value === 'user@gmail.com'){
+      else if (this.userName?.value === 'user@gmail.com') {
         localStorage.setItem('user', 'Employee');
         this.router.navigate(['/employee'])
       }

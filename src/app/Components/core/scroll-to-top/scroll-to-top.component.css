@@ -1,0 +1,19 @@
+.scroll-to-top {
+    margin-top: 70px;
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+   }
+   .show-scrollTop {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+   }
+   .button-active{
+    background:#346751;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+   }

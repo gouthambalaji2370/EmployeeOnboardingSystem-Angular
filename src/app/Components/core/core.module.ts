@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import {ModalsComponent} from './alerts/alerts.component'
 import { FormsModule } from '@angular/forms';
 import { ErrorpageComponent } from './error-page/error-page.component';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 
 
 
@@ -13,11 +14,12 @@ import { ErrorpageComponent } from './error-page/error-page.component';
     HeaderComponent,
     FooterComponent,
     ModalsComponent,
-    ErrorpageComponent
+    ErrorpageComponent,
+    ScrollToTopComponent
   ],
   imports: [
     CommonModule
   ],
-  exports: [HeaderComponent, FooterComponent, ModalsComponent, CommonModule, FormsModule]
+  exports: [HeaderComponent, FooterComponent, ModalsComponent, ErrorpageComponent, ScrollToTopComponent,  CommonModule, FormsModule]
 })
 export class CoreModule { }

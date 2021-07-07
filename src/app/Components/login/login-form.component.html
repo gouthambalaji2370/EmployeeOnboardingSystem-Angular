@@ -8,7 +8,7 @@
           <input class="inputdata" type="text" id="username" formControlName="userName" placeholder="Username">
         </div>
         <div class="invalid-feedback" *ngIf="isSubmitted && userName?.errors?.required">
-          <sup>*</sup>username is required
+          <sup>*</sup>Username is required
         </div>
         <div class="invalid-feedback" *ngIf="isSubmitted && userName?.errors?.email">
           <sup>*</sup>Please enter a valid username
@@ -20,7 +20,7 @@
             formControlName="password"><br />
         </div>
         <div class="invalid-feedback" *ngIf="isSubmitted && password?.errors?.required">
-          <sup>*</sup>password is required
+          <sup>*</sup>Password is required
         </div>
         <div class="invalid-feedback" *ngIf="isSubmitted && password?.errors?.pattern || password?.errors?.minlength ">
           <sup>*</sup>Please enter a valid password

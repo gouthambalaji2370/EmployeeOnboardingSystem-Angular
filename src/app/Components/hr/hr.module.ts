@@ -20,6 +20,6 @@ import { HrService } from 'src/app/Services/hr.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers:[HrService]
+  providers: [HrService]
 })
 export class HrModule { }
