@@ -31,7 +31,7 @@
           </div>
 
           <div class="container-select">
-            <label for="role">Role:</label>
+            <label for="role" style="margin-left: 113px;">Role:</label>
             <select name="role" [ngClass]="{'alert':isSubmitted&& role?.errors?.required}" formControlName="role"
               id="role" placeholder="Role">
               <option value="">Select Role...</option>
@@ -44,7 +44,7 @@
           </div>
           <div class="container">
             <label for="password">Password:</label>
-            <input id="Password"
+            <input id="Password" class="password-text"
               [ngClass]="{'alert':isSubmitted && password?.errors?.required || password?.errors?.pattern || password?.errors?.minlength }"
               type="password" name="Password" formControlName="password" placeholder="Password">
           </div>
