@@ -1,6 +1,9 @@
 .alert-text{
-    text-align: center;
-  }
+  text-align: center;
+  font-weight: bold;
+  font-size: medium;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
   button{
     cursor: pointer;
 }
@@ -32,11 +35,11 @@
   line-height: 2.75
 }
 .modal-content{
-  background-color: #fefefe;
+  background-color: #ffffff;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%;
+  width: 25%;
 }
 .fades{
     background-color: rgba(0,0,0,0.4);
