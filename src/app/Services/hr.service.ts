@@ -12,12 +12,13 @@ export class HrService {
   baseurl="http://localhost:5000/";
   constructor(private http: HttpClient) { }
   listRoles(){
-   return this.http.get("../../../../assets/roles.json").subscribe(data=>{
+   return this.http.get("/../../../../assets/roles.json").subscribe(data=>{
      console.log(data);
      this.roles$.next(data);
    })
     
   }
+  
   listEmployees(){
     return this.http.get('../../../../assets/data.json').subscribe(data=>{
       console.log(data);

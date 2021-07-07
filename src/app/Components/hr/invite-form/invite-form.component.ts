@@ -21,12 +21,20 @@ export class InviteformComponent implements OnInit {
 
   close: Boolean = false;
   isSubmitted: Boolean = false;
+  isLoaded:Boolean=true;
   ngOnInit(): void {
     this.hr.listRoles();
     this.hr.roles$.subscribe((data) => {
       console.log(data, typeof data, "httpdata");
       this.roles=data.sets;
       console.log(this.roles);
+      if(this.roles.length>0){
+        console.log('data loaded successfully')
+        this.isLoaded=true
+      }
+      else{
+        this.isLoaded=false
+      }
     });
     this.inviteForm = this.fb.group({
       name: ["",
