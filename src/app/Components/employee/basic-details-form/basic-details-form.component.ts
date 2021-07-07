@@ -12,29 +12,29 @@ import { EmployeeService } from 'src/app/Services/employee.service';
 export class BasicDetailsFormComponent implements OnInit {
 
   current: number = 0;
-  showaddressform:Boolean=false;
-  isDisabled:Boolean=false;
-  basicDetailsForm!:FormGroup;
+  showaddressform: Boolean = false;
+  isDisabled: Boolean = false;
+  basicDetailsForm!: FormGroup;
   basicDetails: any;
-  constructor(private fb: FormBuilder,private employeeService: EmployeeService,public dialogService:DialogService) { }
-  submitted:Boolean=false;
+  constructor(private fb: FormBuilder, private employeeService: EmployeeService, public dialogService: DialogService) { }
+  submitted: Boolean = false;
 
   ngOnInit(): void {
     this.formoninit();
-    this.basicDetails =this.employeeService.getBasicDetails();
-  if (this.basicDetails) this.setFormData();
+    this.basicDetails = this.employeeService.getBasicDetails();
+    if (this.basicDetails) this.setFormData();
   }
 
-  
-  checkback(currentback:any){
-    this.current=currentback.current;
-    this.isDisabled=currentback.completed
-    if(this.isDisabled){
+
+  checkback(currentback: any) {
+    this.current = currentback.current;
+    this.isDisabled = currentback.completed
+    if (this.isDisabled) {
       this.basicDetailsForm.disable();
     }
   }
-  formoninit(){
-    this.basicDetailsForm= this.fb.group({
+  formoninit() {
+    this.basicDetailsForm = this.fb.group({
       firstName: new FormControl("",
         [
           Validators.required,
@@ -127,25 +127,25 @@ export class BasicDetailsFormComponent implements OnInit {
         [
           Validators.required,
           Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),
-          
+
         ]),
 
     })
   }
   canDeactivate(): Observable<boolean> | boolean {
 
-    if (this.submitted ===false && this.basicDetailsForm.touched) {
+    if (this.submitted === false && this.basicDetailsForm.touched) {
 
-        return this.dialogService.confirm('Discard changes for the Employee Details?');
+      return this.dialogService.confirm('Discard changes for the Employee Details?');
     }
     return true;
-}	
-  basicdetails(){
-   this.submitted=true;
-    if (this.basicDetailsForm.valid || this.isDisabled===true) {
-    let form=JSON.stringify(this.basicDetailsForm.getRawValue());
-    this.employeeService.setBasicDetails(form);
-    this.current=1;
+  }
+  basicdetails() {
+    this.submitted = true;
+    if (this.basicDetailsForm.valid || this.isDisabled === true) {
+      let form = JSON.stringify(this.basicDetailsForm.getRawValue());
+      this.employeeService.setBasicDetails(form);
+      this.current = 1;
     }
   }
   get firstName() {
@@ -200,20 +200,20 @@ export class BasicDetailsFormComponent implements OnInit {
     this.basicDetailsForm.setValue({
       firstName: this.basicDetails.firstName,
       lastName: this.basicDetails.lastName,
-      phoneNumber:this.basicDetails.phoneNumber,
-      emailID:this.basicDetails.emailID,
+      phoneNumber: this.basicDetails.phoneNumber,
+      emailID: this.basicDetails.emailID,
       gender: this.basicDetails.gender,
-      bloodGroup:this.basicDetails.bloodGroup,
-      aadharNumber:this.basicDetails.aadharNumber,
-      dob:this.basicDetails.dob,
-      sslc:this.basicDetails.sslc,
-      hsc:this.basicDetails.hsc,
-      ug:this.basicDetails.ug,
-      fatherName:this.basicDetails.fatherName,
-      motherName:this.basicDetails.motherName,
-      emergencyContactName:this.basicDetails.emergencyContactName,
-      relation:this.basicDetails.relation,
-      emergencyContactNumber:this.basicDetails.emergencyContactNumber
+      bloodGroup: this.basicDetails.bloodGroup,
+      aadharNumber: this.basicDetails.aadharNumber,
+      dob: this.basicDetails.dob,
+      sslc: this.basicDetails.sslc,
+      hsc: this.basicDetails.hsc,
+      ug: this.basicDetails.ug,
+      fatherName: this.basicDetails.fatherName,
+      motherName: this.basicDetails.motherName,
+      emergencyContactName: this.basicDetails.emergencyContactName,
+      relation: this.basicDetails.relation,
+      emergencyContactNumber: this.basicDetails.emergencyContactNumber
     });
   }
 

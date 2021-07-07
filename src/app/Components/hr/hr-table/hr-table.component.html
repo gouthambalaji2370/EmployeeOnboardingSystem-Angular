@@ -9,8 +9,9 @@
         Invite</button>
     </div>
     <div id="request" style="margin: 85px 14px;margin-top: 85px;">
-      <table id="requesttable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" style="width: 100%;margin-top: 40px;">
-        <thead style=" height:60px; margin-top: 30px;" >
+      <table id="requesttable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+        style="width: 100%;margin-top: 40px;">
+        <thead style=" height:60px; margin-top: 30px;">
           <tr>
             <th>Emp ID</th>
             <th>Name</th>
@@ -41,11 +42,12 @@
           </tr>
         </tbody>
       </table>
-      <app-modals *ngIf="notify || edit" (closeEvent)="CloseNotification($event)" id="usernotified" [Content]="notifyText"></app-modals>
+      <app-modals *ngIf="notify || edit" (closeEvent)="CloseNotification($event)" id="usernotified"
+        [Content]="notifyText"></app-modals>
       <app-inviteform *ngIf=invite (closeEvent)="closeform($event)" id="inviteform" [open]=invite></app-inviteform>
       <app-userdetailsview *ngIf=view id="userdetails" (closedetails)="closeview($event)"
         (rejectreason)="rejectview($event)" [status]=current></app-userdetailsview>
-      
+
     </div>
     <dialog id="myModal" *ngIf=reject class="modal fades">
       <div class="modal-head">
@@ -59,20 +61,20 @@
               <textarea type="text" name="reason" rows="4" cols="40" formControlName="reason"
                 [ngClass]="{'alert':isSubmitted && this.reason?.errors?.required}"
                 placeholder="Reason for Rejection..."></textarea>
-              <button type="submit" class="button-group-modal"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+              <button type="submit" class="button-group-modal"><i class="fa fa-paper-plane"
+                  aria-hidden="true"></i></button>
             </div>
             <span class="invalid-feedback" *ngIf="isSubmitted && this.reason?.errors?.required">
               <sup>*</sup>reason is required
             </span>
-    
+
           </form>
           <div class="modal-foot-center">
-            <button type="button" class="button-group-reject"
-              (click)="prevstateview()">Back</button>
+            <button type="button" class="button-group-reject" (click)="prevstateview()">Back</button>
           </div>
-    
+
         </div>
-    
+
       </div>
     </dialog>
   </div>

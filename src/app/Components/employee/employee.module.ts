@@ -8,7 +8,6 @@ import { BasicDetailsFormComponent } from './basic-details-form/basic-details-fo
 
 @NgModule({
   declarations: [
-   
     AddressFormComponent,
     BasicDetailsFormComponent
   ],

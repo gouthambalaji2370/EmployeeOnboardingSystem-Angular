@@ -21,11 +21,11 @@ export class HRTableComponent implements OnInit, OnDestroy {
   current: String = "";
   dtOptions: DataTables.Settings = {};
   employees: Employees[] = [];
-  notifyText:String="";
+  notifyText: String = "";
   dtTrigger: Subject<any> = new Subject<any>();
   reasonForm!: FormGroup;
   isSubmitted: Boolean = false;
-  constructor(private httpClient: HttpClient,private fb: FormBuilder,private hr:HrService) { }
+  constructor(private httpClient: HttpClient, private fb: FormBuilder, private hr: HrService) { }
 
   ngOnInit(): void {
     this.reasonForm = this.fb.group(
@@ -36,16 +36,16 @@ export class HRTableComponent implements OnInit, OnDestroy {
           ]
         ],
       })
-      this.hr.listEmployees();
-      this.hr.employees$.subscribe((data) => {
-        console.log(data, typeof data, "httpdata");
-        this.employees=data.data;
-        this.dtTrigger.next();
-        console.log(this.employees);
-      });
+    this.hr.listEmployees();
+    this.hr.employees$.subscribe((data) => {
+      console.log(data, typeof data, "httpdata");
+      this.employees = data.data;
+      this.dtTrigger.next();
+      console.log(this.employees);
+    });
   }
-  prevstateview(){
-    this.reject=!this.reject;
+  prevstateview() {
+    this.reject = !this.reject;
     this.openview('Pending');
   }
   CloseNotification(closeEvent: Boolean) {
@@ -62,24 +62,22 @@ export class HRTableComponent implements OnInit, OnDestroy {
   closefor(closereason: Boolean) {
     this.reject = closereason;
   }
-  
+
   submitreason(): void {
     this.isSubmitted = true;
-    console.log(this.reasonForm.valid, this.reason)
     if (this.reasonForm.valid) {
-      let form =JSON.stringify(this.reason?.value)
-    let status=  this.hr.reasonforrejection(form);
-    if(status===true)
-      console.log("reason is submitted")
-   this.reject=false;
+      let form = JSON.stringify(this.reason?.value)
+      let status = this.hr.reasonforrejection(form);
+      if (status === true)
+        this.reject = false;
     }
   }
   get reason() {
     return this.reasonForm.get("reason");
   }
-closemodal(){
-  this.reject=false;
-}
+  closemodal() {
+    this.reject = false;
+  }
 
   openview(status: String): void {
     this.current = status;
@@ -93,11 +91,11 @@ closemodal(){
     this.invite = !this.invite
   }
   opennotification(): void {
-    this.notifyText="User Notified Successfully"
+    this.notifyText = "User Notified Successfully"
     this.notify = !this.notify;
   }
   openedit(): void {
-    this.notifyText="Edit access provided"
+    this.notifyText = "Edit access provided"
     this.edit = !this.edit;
   }
   ngOnDestroy(): void {
