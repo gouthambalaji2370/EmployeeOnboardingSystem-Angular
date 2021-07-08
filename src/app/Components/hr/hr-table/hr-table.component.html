@@ -37,16 +37,18 @@
               <button *ngIf="employee.Status === 'Completed'" class="button-group-small" data-target="#editaccess"
                 (click)="openedit()">Edit</button>
               <button *ngIf="employee.Status !== 'Incomplete'" type="button" class="view" data-target="#empdetailsview"
-                (click)="openview(employee.Status)"><i class="fa fa-eye"></i></button>
+                (click)="openview(employee.EmpId)"><i class="fa fa-eye"></i></button>
             </td>
+            
           </tr>
         </tbody>
       </table>
+      <app-userdetailsview *ngIf=view id="userdetails" (closedetails)="closeview($event)"
+            (rejectreason)="rejectview($event)" [employeedetails]=employee></app-userdetailsview>
       <app-modals *ngIf="notify || edit" (closeEvent)="CloseNotification($event)" id="usernotified"
         [Content]="notifyText"></app-modals>
       <app-inviteform *ngIf=invite (closeEvent)="closeform($event)" id="inviteform" [open]=invite></app-inviteform>
-      <app-userdetailsview *ngIf=view id="userdetails" (closedetails)="closeview($event)"
-        (rejectreason)="rejectview($event)" [status]=current></app-userdetailsview>
+    
 
     </div>
     <dialog id="myModal" *ngIf=reject class="modal fades">

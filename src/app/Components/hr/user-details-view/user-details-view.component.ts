@@ -8,18 +8,33 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class UserdetailsviewComponent implements OnInit {
 
   @Input()
-  status: String = "";
+  employeedetails: any;
   @Output()
   closedetails = new EventEmitter<Boolean>();
   @Output()
   rejectreason = new EventEmitter<Boolean>();
+  basicDetails: Boolean = false;
+  addressDetails: Boolean = false;
+  status: String = ""
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.employeedetails.Status)
+    status = this.employeedetails.Status
+    console.log(typeof status)
   }
   closemodalapprove(): void {
     this.closedetails.emit(false);
     this.rejectreason.emit(false);
+  }
+  openBasicDetails() {
+    this.basicDetails = !this.basicDetails;
+    this.addressDetails = false;
+  }
+  openAddressDetails() {
+    this.addressDetails = !this.addressDetails;
+    this.basicDetails = false;
+
   }
   closemodal(): void {
     this.closedetails.emit(false);

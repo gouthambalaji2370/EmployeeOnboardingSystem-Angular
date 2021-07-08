@@ -18,17 +18,18 @@ export class HRTableComponent implements OnInit, OnDestroy {
   invite: Boolean = false;
   view: Boolean = false;
   reject: Boolean = false;
-  current: String = "";
+  current!: Number;
   dtOptions: DataTables.Settings = {};
   employees: Employees[] = [];
   notifyText: String = "";
   dtTrigger: Subject<any> = new Subject<any>();
   reasonForm!: FormGroup;
   isSubmitted: Boolean = false;
+  employee: any
   constructor(private httpClient: HttpClient, private fb: FormBuilder, private hr: HrService) { }
 
   ngOnInit(): void {
-  
+
     this.reasonForm = this.fb.group(
       {
         reason: ["",
@@ -43,20 +44,20 @@ export class HRTableComponent implements OnInit, OnDestroy {
       this.employees = data.data;
       this.dtTrigger.next();
       this.dtOptions = {
-       }
+      }
       console.log(this.employees);
-      if(this.employees.length>0){
+      if (this.employees.length > 0) {
         console.log('data loaded successfully');
       }
-      else{
-        this.notifyText="Employee data loading failed"
-      this.notify=!this.notify
+      else {
+        this.notifyText = "Employee data loading failed"
+        this.notify = !this.notify
       }
     });
   }
   prevstateview() {
     this.reject = !this.reject;
-    this.openview('Pending');
+    this.openview(this.current);
   }
   CloseNotification(closeEvent: Boolean) {
     this.notify = closeEvent;
@@ -89,8 +90,14 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.reject = false;
   }
 
-  openview(status: String): void {
+  openview(status: Number): void {
     this.current = status;
+    this.employees.forEach(data => {
+      if (data.EmpId === this.current) {
+        this.employee = data
+      }
+    })
+    console.log(status);
     this.view = !this.view
   }
   closeform(closeEvent: Boolean) {

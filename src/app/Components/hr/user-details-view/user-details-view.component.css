@@ -1,6 +1,51 @@
 .alert-text{
     text-align: center;
   }
+  h3{
+    margin-top: 5px;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.sub-heading{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: medium;
+  
+}
+.grid-row{
+  display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap:    1px;
+    grid-column-gap: 1px;  
+  
+}
+.tab{
+
+  display: none;
+}
+.view{
+  float: right;
+  background-color: inherit;
+  border:thick;
+  margin-right: 50px;
+  width: 30px;
+  height: 30px;
+  size: inherit;
+}
+.grid-col{
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 2px 5px #888888;
+}
+.grid-row-2{
+  display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 1fr 1fr ;
+    grid-row-gap:    1px;
+    grid-column-gap: 1px;  
+}
   .modal {
     display: block; 
     position: fixed; 
@@ -9,8 +54,9 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%; 
-    overflow: auto; 
+    height: 100%;
+    overflow-x: auto; 
+    overflow-y: scroll;
     background-color: rgba(0,0,0,0.4); 
   }
   .formelements{
@@ -106,6 +152,7 @@ label{
     text-decoration: none;
     cursor: pointer;
   }
+
   .modal-foot {
     display: flex;
     flex-wrap: wrap;
@@ -128,7 +175,7 @@ label{
   width: 50%;
 }
 .fades{
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.1);
 }
 .button-group{
     color: white;
@@ -163,8 +210,8 @@ label{
     border: 2px solid #346751;
   }
   .modal-head{
-    width: 51.73%;
-    margin-left: 325.5px;
+    width: 51.55%;
+    margin-left: 322.5px;
     text-align: center;
     background-color: #346751;
     color: white;
