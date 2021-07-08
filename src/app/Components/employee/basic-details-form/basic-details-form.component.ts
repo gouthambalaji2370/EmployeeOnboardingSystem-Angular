@@ -52,14 +52,14 @@ export class BasicDetailsFormComponent implements OnInit {
       phoneNumber: new FormControl("",
         [
           Validators.required,
-          Validators.pattern("[0-9]{10}"),
+          Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),
         ],
       ),
 
       emailID: new FormControl("",
         [
           Validators.required,
-          Validators.email
+          Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@listertechnologies.com$"),
         ],
       ),
 

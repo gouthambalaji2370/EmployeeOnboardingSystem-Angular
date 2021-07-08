@@ -125,8 +125,9 @@
 
                         <div class="container">
                             <label for="dob"><b>Date Of Birth</b></label>
-                            <input type="date" [ngClass]="{'alert':submitted && dob?.errors?.required}" name="dob"
-                                id="dob" formControlName="dob">
+                            <input type="text" [ngClass]="{'alert':submitted && dob?.errors?.required}" name="dob"
+                                id="dob" formControlName="dob" placeholder="MM/DD/YY" onfocus="(this.type='date')">
+                            
                         </div>
 
                         <div>
