@@ -49,10 +49,10 @@ input {
 }
 .bgsetup{
     width: 100%;
-    height: 617px;
+    height: 655px;
+    overflow: hidden;
     background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('../../../assets/images/bg.png');
     background-size: cover;
-    overflow-x: hidden;
 }
 .button-group{
     color: white;

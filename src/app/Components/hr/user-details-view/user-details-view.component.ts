@@ -15,7 +15,9 @@ export class UserdetailsviewComponent implements OnInit {
   rejectreason = new EventEmitter<Boolean>();
   basicDetails: Boolean = false;
   addressDetails: Boolean = false;
-  status: String = ""
+  approve:Boolean=false;
+  status: String = "";
+  notifyText: String = "";
   constructor() { }
 
   ngOnInit(): void {

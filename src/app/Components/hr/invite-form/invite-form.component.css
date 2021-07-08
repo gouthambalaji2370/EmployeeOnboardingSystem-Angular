@@ -31,7 +31,7 @@ input {
   Height:20px;
   padding: 10px;
   line-height: 26px;
-  margin-left:60px;
+  margin-left:59px;
   border-color: black;
   border-radius: 12px;
   border-width: 2px;
@@ -79,7 +79,7 @@ border-radius: 12px;
 outline: none;
 
 }
-select:focus{
+/* select:focus{
 width: 330px;
 height: 41px;
 display: flex;
@@ -92,7 +92,7 @@ border-color: black;
 border-width: 2px;
 border-radius: 12px;
 outline: none;
-}
+} */
 .close {
   color: #aaaaaa;
   float: right;
@@ -118,6 +118,9 @@ button{
   text-decoration: none;
   cursor: pointer;
 }
+input{
+  height: 18px;
+}
 
 .modal-top{
 margin-bottom: 0;
@@ -140,7 +143,7 @@ width: 50%;
   background-color: #346751;
   border-radius: 8px;
   width: 147px;
-  margin-left: 255px;
+  margin-left: 265px;
   margin-bottom: 10px;
   height: 50px;
 }
@@ -166,5 +169,5 @@ padding: 5px 5px;
   color: white;
 }
 .password-text{
-  margin-left:35px;
+  margin-left:32px;
 }

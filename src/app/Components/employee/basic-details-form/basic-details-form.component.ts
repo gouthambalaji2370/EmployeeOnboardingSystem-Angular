@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DialogService } from 'src/app/Services/dialog.service';
@@ -25,7 +25,7 @@ export class BasicDetailsFormComponent implements OnInit {
     if (this.basicDetails) this.setFormData();
   }
 
-
+ 
   checkback(currentback: any) {
     this.current = currentback.current;
     this.isDisabled = currentback.completed
@@ -59,7 +59,7 @@ export class BasicDetailsFormComponent implements OnInit {
       emailID: new FormControl("",
         [
           Validators.required,
-          Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@listertechnologies.com$"),
+          Validators.email
         ],
       ),
 
