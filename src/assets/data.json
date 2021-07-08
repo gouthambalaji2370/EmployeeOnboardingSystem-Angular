@@ -7,8 +7,8 @@
         "Status":"Incomplete",
         "CreatedAt":"21-06-2021",
         "basicDetails":{
-            "fatherName":"ram",
-            "motherName":"shyamala",
+            "fatherName":"Ram",
+            "motherName":"Shyamala",
             "bloodGroup":"O +ve",
             "dob":"05-05-1998",
             "gender":"M",
@@ -17,7 +17,7 @@
             "UG":"9.0",
             "ContactNumber":"9840231313",
             "aadharNumber":"123412341234",
-            "emergencyContactName":"ram",
+            "emergencyContactName":"Ram",
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
@@ -51,8 +51,8 @@
         "Status":"Pending",
         "CreatedAt":"16-06-2021",
         "basicDetails":{
-            "fatherName":"ram",
-            "motherName":"shyamala",
+            "fatherName":"Ram",
+            "motherName":"Shyamala",
             "bloodGroup":"O +ve",
             "dob":"05-05-1998",
             "gender":"M",
@@ -61,7 +61,7 @@
             "UG":"9.0",
             "ContactNumber":"9840231313",
             "aadharNumber":"123412341234",
-            "emergencyContactName":"ram",
+            "emergencyContactName":"Ram",
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
@@ -96,8 +96,8 @@
         "CreatedAt":"20-06-2021",
         "reasonForRejection":"Map coordinates are not pointing to the given address",
         "basicDetails":{
-            "fatherName":"ram",
-            "motherName":"shyamala",
+            "fatherName":"Ram",
+            "motherName":"Shyamala",
             "bloodGroup":"O +ve",
             "dob":"05-05-1998",
             "gender":"M",
@@ -106,7 +106,7 @@
             "UG":"9.0",
             "ContactNumber":"9840231313",
             "aadharNumber":"123412341234",
-            "emergencyContactName":"ram",
+            "emergencyContactName":"Ram",
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
@@ -140,8 +140,8 @@
         "Status":"Completed",
         "CreatedAt":"20-06-2021",
         "basicDetails":{
-            "fatherName":"ram",
-            "motherName":"shyamala",
+            "fatherName":"Ram",
+            "motherName":"Shyamala",
             "bloodGroup":"O +ve",
             "dob":"05-05-1998",
             "gender":"M",
@@ -150,7 +150,7 @@
             "UG":"9.0",
             "ContactNumber":"9840231313",
             "aadharNumber":"123412341234",
-            "emergencyContactName":"ram",
+            "emergencyContactName":"Ram",
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
@@ -184,8 +184,8 @@
         "Status":"Incomplete",
         "CreatedAt":"21-06-2021",
         "basicDetails":{
-            "fatherName":"ram",
-            "motherName":"shyamala",
+            "fatherName":"Ram",
+            "motherName":"Shyamala",
             "bloodGroup":"O +ve",
             "dob":"05-05-1998",
             "gender":"M",
@@ -194,7 +194,7 @@
             "UG":"9.0",
             "ContactNumber":"9840231313",
             "aadharNumber":"123412341234",
-            "emergencyContactName":"ram",
+            "emergencyContactName":"Ram",
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
@@ -228,8 +228,8 @@
         "Status":"Pending",
         "CreatedAt":"16-06-2021",
         "basicDetails":{
-            "fatherName":"ram",
-            "motherName":"shyamala",
+            "fatherName":"Ram",
+            "motherName":"Shyamala",
             "bloodGroup":"O +ve",
             "dob":"05-05-1998",
             "gender":"M",
@@ -238,7 +238,7 @@
             "UG":"9.0",
             "ContactNumber":"9840231313",
             "aadharNumber":"123412341234",
-            "emergencyContactName":"ram",
+            "emergencyContactName":"Ram",
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
@@ -273,8 +273,8 @@
         "CreatedAt":"20-06-2021",
         "reasonForRejection":"Map coordinates are not pointing to the given address",
         "basicDetails":{
-            "fatherName":"ram",
-            "motherName":"shyamala",
+            "fatherName":"Ram",
+            "motherName":"Shyamala",
             "bloodGroup":"O +ve",
             "dob":"05-05-1998",
             "gender":"M",
@@ -283,7 +283,7 @@
             "UG":"9.0",
             "ContactNumber":"9840231313",
             "aadharNumber":"123412341234",
-            "emergencyContactName":"ram",
+            "emergencyContactName":"Ram",
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
@@ -317,8 +317,8 @@
         "Status":"Completed",
         "CreatedAt":"20-06-2021",
         "basicDetails":{
-            "fatherName":"ram",
-            "motherName":"shyamala",
+            "fatherName":"Ram",
+            "motherName":"Shyamala",
             "bloodGroup":"O +ve",
             "dob":"05-05-1998",
             "gender":"M",
@@ -327,7 +327,7 @@
             "UG":"9.0",
             "ContactNumber":"9840231313",
             "aadharNumber":"123412341234",
-            "emergencyContactName":"ram",
+            "emergencyContactName":"Ram",
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },

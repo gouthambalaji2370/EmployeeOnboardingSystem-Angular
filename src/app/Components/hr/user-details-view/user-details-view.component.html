@@ -16,10 +16,6 @@
         </div>
         <div [ngClass]="{'grid-col':basicDetails===true ,'tab': basicDetails===false}">
           <div class="grid-row">
-            <p><b>Father Name:</b>{{employeedetails.basicDetails.fatherName}}</p>
-            <p><b>Mother Name:</b>{{employeedetails.basicDetails.motherName}}</p>
-          </div>
-          <div class="grid-row">
             <p><b>Blood Group:</b>{{employeedetails.basicDetails.bloodGroup}}</p>
             <p><b>DOB:</b> {{employeedetails.basicDetails.dob}}</p>
             <p><b>Gender:</b> {{employeedetails.basicDetails.gender}}</p>
@@ -29,7 +25,11 @@
             <p><b>HSC:</b> {{employeedetails.basicDetails.HSC}} %</p>
             <p><b>UG:</b> {{employeedetails.basicDetails.UG}} CGPA</p>
           </div>
-          <div class="grid-row">
+          <div class="grid-row-2">
+            <p><b>Father Name:</b>{{employeedetails.basicDetails.fatherName}}</p>
+            <p><b>Mother Name:</b>{{employeedetails.basicDetails.motherName}}</p>
+          </div>
+          <div class="grid-row-2">
             <p><b>Mobile:</b> {{employeedetails.basicDetails.ContactNumber}}</p>
             <p><b>Aadhar:</b> {{employeedetails.basicDetails.aadharNumber}}</p>
           </div>
