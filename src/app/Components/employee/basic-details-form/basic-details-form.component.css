@@ -352,7 +352,7 @@ span{
 .firstbutton {
     margin-left: 400px;
     margin-top: 25px;
-
+    outline: none;
 
 }
 
@@ -421,7 +421,7 @@ width: 100%;
 height: 3px;
 background-color:#2F5D62;
 top: 15px;
-left: -47.5%;
+left: -45.8%;
 z-index: -1;
 }
 

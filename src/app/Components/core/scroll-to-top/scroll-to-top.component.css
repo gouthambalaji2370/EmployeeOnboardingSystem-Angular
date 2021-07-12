@@ -1,6 +1,6 @@
 .scroll-to-top {
     margin-top: 70px;
-    position: fixed;
+    position: inherit;
     bottom: 50px;
     right: 15px;
     opacity: 0;
@@ -11,7 +11,7 @@
     transition: all .2s ease-in-out;
    }
    .button-active{
-    background:#346751;
+    background:#2F5D62;
     color: white;
     border: none;
     font-size: 18px;

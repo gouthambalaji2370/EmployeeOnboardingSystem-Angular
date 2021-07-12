@@ -253,7 +253,6 @@
 
 
             </div>
-            <app-scroll-to-top></app-scroll-to-top>
             <div class="secondbutton">
 
                 <button type="button" class="previousbtn" id="prevBtn" (click)="nextPrev()">Previous</button>
@@ -261,9 +260,10 @@
                 <button type="button" class="submitbtn" id="nextBtn" (click)="saveDraft()">Save</button>
 
             </div>
-            
+
         </div>
     </form>
+    <app-scroll-to-top [ngClass]="{'tab': current === 0}" ></app-scroll-to-top>
     <app-modals *ngIf="notify || draft" (closeEvent)="CloseNotification($event)" id="usernotified"
         [Content]="notifyText"></app-modals>
 </div>
