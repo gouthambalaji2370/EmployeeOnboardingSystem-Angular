@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-errorpage',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorpageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }
-
+  moveback():void{
+    let user=localStorage.getItem('user');
+    if(user==='HR'){
+      this.router.navigate(['/hr'])
+    }
+    else{
+      this.router.navigate(['/employee'])
+    }
+  }
 }
