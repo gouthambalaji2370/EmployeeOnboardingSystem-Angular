@@ -1,8 +1,11 @@
 .scroll-to-top {
-    margin-top: 70px;
-    position: inherit;
-    bottom: 50px;
-    right: 15px;
+    /* margin-top: 70px;
+    position: fixed;
+    bottom: 15px;
+    right: 15px; */
+    position: absolute;
+    margin-top: 30px;
+    right: 20px;
     opacity: 0;
     transition: all .2s ease-in-out;
    }

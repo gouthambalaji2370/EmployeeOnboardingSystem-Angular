@@ -124,7 +124,8 @@ label {
 
 
 .radio {
-
+    margin-top: 10px;
+    margin-bottom: 12px;
     display: flex;
 
 }
@@ -157,14 +158,12 @@ label {
 }
 
 #male {
-    margin-left: 10px;
-
-    width: 30px;
+    width: 20px;
 }
 
 #female {
-    margin-left: 20px;
-    width: 30px;
+    margin-left: 30px;
+    width: 20px;
 }
 
 
@@ -300,15 +299,20 @@ button{
 
 select{
     width: 270px;
+    padding-left: 5px;
     border-color: black;
     border-width: 2px;
     border-radius: 12px;
     outline: none;   
 }
+.mandatory-asterick{
+    color : red;
+}
 .alert{
     border-color: red;
   }
 select:focus{
+    padding-left: 5px;
     width: 270px;
     border-color: black;
     border-width: 2px;

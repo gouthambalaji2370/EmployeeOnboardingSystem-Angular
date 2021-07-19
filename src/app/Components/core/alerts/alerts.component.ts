@@ -10,6 +10,8 @@ export class ModalsComponent implements OnInit {
   constructor() { }
   @Input()
   Content: String = "";
+  @Input()
+  type:Boolean=true
   @Output()
   closeEvent = new EventEmitter<Boolean>();
   close: Boolean = false;

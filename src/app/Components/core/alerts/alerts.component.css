@@ -7,6 +7,15 @@
   button{
     cursor: pointer;
 }
+.fa-check-circle{
+  font-size: 35px;
+    text-align: center;
+    color: green;
+    margin-left: 150px;
+}
+.fa-check-circle::before {
+  content: "\f058";
+}
   .modal {
     display: block; 
     position: fixed; 
@@ -41,9 +50,17 @@
   border: 1px solid #888;
   width: 25%;
 }
+.fa-exclamation-triangle{
+  font-size: 35px;
+  text-align: center;
+color: red;
+margin-left: 150px;
+
+}
 .fades{
     background-color: rgba(0,0,0,0.4);
 }
+
 .button-group{
     color: white;
     padding: 12px 20px;

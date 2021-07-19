@@ -1,6 +1,9 @@
 <dialog id="myModal" class="modal fades" (click)="closeout()">
   <div class="modal-content">
     <div class="modal-body">
+      
+      <i *ngIf="!type" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+      <i *ngIf="type" class="fa fa-check-circle"></i>
       <p id="error" class="alert-text">{{Content}}</p>
     </div>
     <div class="modal-foot">

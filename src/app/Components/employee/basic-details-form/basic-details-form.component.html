@@ -17,34 +17,34 @@
                     <fieldset id="field1">
 
                         <div class="container">
-                            <label for="FirstName" id="f1"><b>First Name</b></label>
+                            <label for="FirstName" id="f1"><b>First Name <span class="mandatory-asterick">*</span></b></label>
                             <input type="text"
                                 [ngClass]="{'alert':submitted && firstName?.errors?.required || firstName?.errors?.pattern}"
                                 placeholder="Enter First Name" name="firstName" formControlName="firstName" autofocus>
                         </div>
                         <div>
-                            <span *ngIf="(firstName?.errors?.required) && submitted" class="invalid-feedback">*First
+                            <span *ngIf="(firstName?.errors?.required) && submitted" class="invalid-feedback">First
                                 name is required</span>
-                            <span *ngIf="firstName?.errors?.pattern" class="invalid-feedback">*First name should contain
+                            <span *ngIf="firstName?.errors?.pattern" class="invalid-feedback">First name should contain
                                 alphabets only</span>
                         </div>
 
                         <div class="container">
-                            <label for="LastName"><b>Last Name</b></label>
+                            <label for="LastName"><b>Last Name <span class="mandatory-asterick">*</span></b></label>
                             <input type="text"
                                 [ngClass]="{'alert':submitted && lastName?.errors?.required || lastName?.errors?.pattern}"
                                 placeholder="Enter Last Name" name="lname" formControlName="lastName">
                         </div>
                         <div>
-                            <span *ngIf="lastName?.errors?.required && submitted" class="invalid-feedback">*Last Name is
+                            <span *ngIf="lastName?.errors?.required && submitted" class="invalid-feedback">Last Name is
                                 required </span>
-                            <span *ngIf="lastName?.errors?.pattern" class='invalid-feedback'>*Last name should contain
+                            <span *ngIf="lastName?.errors?.pattern" class='invalid-feedback'>Last name should contain
                                 alphabets
                                 only</span>
                         </div>
 
                         <div class="container">
-                            <label for="PhoneNumber"><b>Contact Number</b></label>
+                            <label for="PhoneNumber"><b>Contact Number <span class="mandatory-asterick">*</span></b></label>
                             <input type="tel"
                                 [ngClass]="{'alert':submitted && phoneNumber?.errors?.required || phoneNumber?.errors?.pattern}"
                                 placeholder="Enter Contact Number" name="phoneNumber" formControlName="phoneNumber"
@@ -53,17 +53,17 @@
 
 
                         <div>
-                            <span *ngIf="phoneNumber?.errors?.required && submitted" class="invalid-feedback">*Phone
+                            <span *ngIf="phoneNumber?.errors?.required && submitted" class="invalid-feedback">Phone
                                 Number is
                                 required </span>
-                            <span *ngIf="phoneNumber?.errors?.pattern" class="invalid-feedback">*Enter valid Phone
+                            <span *ngIf="phoneNumber?.errors?.pattern" class="invalid-feedback">Enter valid Phone
                                 Number</span>
                         </div>
 
 
 
                         <div class="container">
-                            <label for="EmailID"><b>Email ID</b></label>
+                            <label for="EmailID"><b>Email ID <span class="mandatory-asterick">*</span></b></label>
                             <input type="text"
                                 [ngClass]="{'alert':submitted && emailID?.errors?.required || emailID?.errors?.pattern}"
                                 placeholder="Enter Email ID" name="email" id="email" formControlName="emailID">
@@ -71,19 +71,19 @@
 
 
                         <div>
-                            <span *ngIf="emailID?.errors?.required && submitted " class="invalid-feedback">*Email ID is
+                            <span *ngIf="emailID?.errors?.required && submitted " class="invalid-feedback">Email ID is
                                 required
                             </span>
-                            <span *ngIf="emailID?.errors?.email" class="invalid-feedback">*Enter valid Email ID</span>
+                            <span *ngIf="emailID?.errors?.email" class="invalid-feedback">Enter valid Email ID</span>
                         </div>
 
 
                         <div class="container">
-                            <label for="blood"><b>Blood Group</b></label>
+                            <label for="blood"><b>Blood Group <span class="mandatory-asterick">*</span></b></label>
                             <select id="bloodGroup" class="blood-select" placeholder="Enter Blood Group"
                                 formControlName="bloodGroup"
                                 [ngClass]="{'alert':submitted && bloodGroup?.errors?.required}" name="bloodGroup">
-                                <option value="">--- Please select ---</option>
+                                <option value="">Select Blood Group</option>
                                 <option value="O+ve">O +ve</option>
                                 <option value="O-ve">O -ve</option>
                                 <option value="B+ve">B +ve</option>
@@ -96,7 +96,7 @@
                             </select>
                         </div>
                         <div>
-                            <span *ngIf="bloodGroup?.errors?.required && submitted " class="invalid-feedback">*Blood
+                            <span *ngIf="bloodGroup?.errors?.required && submitted " class="invalid-feedback">Blood
                                 group is required
                             </span>
 
@@ -104,7 +104,7 @@
 
 
                         <div class="container">
-                            <label for="aadhar"><b>Aadhar Number</b></label>
+                            <label for="aadhar"><b>Aadhar Number <span class="mandatory-asterick">*</span></b></label>
                             <input type="text"
                                 [ngClass]="{'alert':submitted && aadharNumber?.errors?.required || aadharNumber?.errors?.pattern || aadharNumber?.errors?.minlength || aadharNumber?.errors?.maxlength }"
                                 placeholder="Enter Aadhar Number" name="aadharNumber" id="aadharNumber"
@@ -112,10 +112,10 @@
                         </div>
 
                         <div>
-                            <span *ngIf="aadharNumber?.errors?.required && submitted " class="invalid-feedback">*Aadhar
+                            <span *ngIf="aadharNumber?.errors?.required && submitted " class="invalid-feedback">Aadhar
                                 number is
                                 required</span>
-                            <span *ngIf="aadharNumber?.errors?.pattern" class="invalid-feedback">*Aadhar number should
+                            <span *ngIf="aadharNumber?.errors?.pattern" class="invalid-feedback">Aadhar number should
                                 contain
                                 digits only</span>
                             <span *ngIf="aadharNumber?.errors?.minlength || aadharNumber?.errors?.maxlength "
@@ -124,66 +124,66 @@
                         </div>
 
                         <div class="container">
-                            <label for="dob"><b>Date Of Birth</b></label>
+                            <label for="dob"><b>Date Of Birth <span class="mandatory-asterick">*</span></b></label>
                             <input type="text" [ngClass]="{'alert':submitted && dob?.errors?.required}" name="dob"
                                 id="dob" formControlName="dob" placeholder="MM/DD/YY" onfocus="(this.type='date')">
                             
                         </div>
 
                         <div>
-                            <span *ngIf="dob?.errors?.required && submitted " class="invalid-feedback">*Date of birth is
+                            <span *ngIf="dob?.errors?.required && submitted " class="invalid-feedback">Date of birth is
                                 required</span>
                         </div>
 
                         <div class="radio">
-                            <label for="gender" class="genderlabel"><b>Gender</b></label>
+                            <label for="gender" class="genderlabel"><b>Gender <span class="mandatory-asterick">*</span></b></label>
                             <input type="radio" id="male" name="gender" value="male" formControlName="gender">
                             <p class="paragraphgender">Male</p>
                             <input type="radio" id="female" name="gender" value="female" formControlName="gender">
                             <p class="paragraphgender">Female</p>
                         </div>
                         <div>
-                            <span *ngIf="gender?.invalid && submitted" class="invalid-feedback">*Gender is
+                            <span *ngIf="gender?.invalid && submitted" class="invalid-feedback">Gender is
                                 required</span>
                         </div>
                         <div class="container">
-                            <label for="sslc"><b>SSLC Score</b></label>
+                            <label for="sslc"><b>SSLC Score <span class="mandatory-asterick">*</span></b></label>
                             <input type="text" [ngClass]="{'alert':submitted && sslc?.errors?.required}"
                                 placeholder="Percentage or CGPA" name="sslc" id="sslc" formControlName="sslc">
                         </div>
 
                         <div>
-                            <span *ngIf="sslc?.errors?.required && submitted " class="invalid-feedback">*SSLC score is
+                            <span *ngIf="sslc?.errors?.required && submitted " class="invalid-feedback">SSLC score is
                                 required </span>
 
                         </div>
 
                         <div class="container">
-                            <label for="hsc"><b>HSC Score</b></label>
+                            <label for="hsc"><b>HSC Score <span class="mandatory-asterick">*</span></b></label>
                             <input type="text" [ngClass]="{'alert':submitted && hsc?.errors?.required}"
                                 placeholder="Percentage or CGPA" name="hsc" id="hsc" formControlName="hsc">
                         </div>
 
                         <div>
-                            <span *ngIf="hsc?.errors?.required && submitted " class="invalid-feedback">*HSC score is
+                            <span *ngIf="hsc?.errors?.required && submitted " class="invalid-feedback">HSC score is
                                 required </span>
 
                         </div>
 
                         <div class="container">
-                            <label for="ug"><b>UG Score</b></label>
+                            <label for="ug"><b>UG Score <span class="mandatory-asterick">*</span></b></label>
                             <input type="text" [ngClass]="{'alert':submitted && ug?.errors?.required }"
                                 placeholder="Percentage or CGPA" name="ug" id="ug" formControlName="ug">
                         </div>
 
                         <div>
-                            <span *ngIf="ug?.errors?.required && submitted " class="invalid-feedback">*UG score is
+                            <span *ngIf="ug?.errors?.required && submitted " class="invalid-feedback">UG score is
                                 required </span>
 
                         </div>
 
                         <div class="container">
-                            <label for="fatherName"><b>Father's Name</b></label>
+                            <label for="fatherName"><b>Father's Name <span class="mandatory-asterick">*</span></b></label>
                             <input type="text"
                                 [ngClass]="{'alert':submitted && fatherName?.errors?.required || fatherName?.errors?.pattern}"
                                 placeholder="Enter Father's Name" name="fatherName" id="fatherName"
@@ -191,16 +191,16 @@
                         </div>
 
                         <div>
-                            <span *ngIf="fatherName?.errors?.required && submitted " class="invalid-feedback">*Father
+                            <span *ngIf="fatherName?.errors?.required && submitted " class="invalid-feedback">Father
                                 name is required
                             </span>
-                            <span *ngIf="fatherName?.errors?.pattern" class="invalid-feedback"> Father name should
+                            <span *ngIf="fatherName?.errors?.pattern" class="invalid-feedback">Father name should
                                 contain alphabets
                                 only </span>
                         </div>
 
                         <div class="container">
-                            <label for="motherName"><b>Mother's Name</b></label>
+                            <label for="motherName"><b>Mother's Name <span class="mandatory-asterick">*</span></b></label>
                             <input type="text"
                                 [ngClass]="{'alert':submitted && motherName?.errors?.required || motherName?.errors?.pattern}"
                                 placeholder="Enter Mother's Name" name="motherName" id="motherName"
@@ -211,7 +211,7 @@
                             <span *ngIf="motherName?.errors?.required && submitted " class="invalid-feedback"> Mother
                                 Name is required
                             </span>
-                            <span *ngIf="motherName?.errors?.pattern" class="invalid-feedback">*Mother Name should
+                            <span *ngIf="motherName?.errors?.pattern" class="invalid-feedback">Mother Name should
                                 contain alphabets
                                 only</span>
                         </div>
@@ -220,7 +220,7 @@
                             <h3 id="two">Emergency Contact</h3>
                         </h3>
                         <div class="container">
-                            <label for="emergencyContactName"><b>Name</b></label>
+                            <label for="emergencyContactName"><b>Name <span class="mandatory-asterick">*</span></b></label>
                             <input type="text"
                                 [ngClass]="{'alert':submitted && emergencyContactName?.errors?.required || emergencyContactName?.errors?.pattern}"
                                 placeholder="Name Of the Person" name="emergencyContactName" id="emergencyContactName"
@@ -228,33 +228,33 @@
                         </div>
                         <div>
                             <span *ngIf="emergencyContactName?.errors?.required && submitted "
-                                class="invalid-feedback">*Emergency
+                                class="invalid-feedback">Emergency
                                 contact name is
                                 required </span>
-                            <span *ngIf="emergencyContactName?.errors?.pattern" class="invalid-feedback">*This field
+                            <span *ngIf="emergencyContactName?.errors?.pattern" class="invalid-feedback">This field
                                 should contain
                                 alphabets
                                 only</span>
                         </div>
 
                         <div class="container">
-                            <label for="relation"><b>Relationship</b></label>
+                            <label for="relation"><b>Relationship <span class="mandatory-asterick">*</span></b></label>
                             <input type="text" placeholder="Relationship" name="relation" id="relation"
                                 [ngClass]="{'alert':submitted && relation?.errors?.required || relation?.errors?.pattern}"
                                 formControlName="relation">
                         </div>
 
                         <div>
-                            <span *ngIf="relation?.errors?.required && submitted " class="invalid-feedback">*Emergency
+                            <span *ngIf="relation?.errors?.required && submitted " class="invalid-feedback">Emergency
                                 relation is
                                 required </span>
-                            <span *ngIf="relation?.errors?.pattern" class="invalid-feedback">*This field should contain
+                            <span *ngIf="relation?.errors?.pattern" class="invalid-feedback">Relationship should contain
                                 alphabets
                                 only</span>
                         </div>
 
                         <div class="container" id="present">
-                            <label for="emergencyContactNumber"><b>Contact Number</b></label>
+                            <label for="emergencyContactNumber"><b>Contact Number <span class="mandatory-asterick">*</span></b></label>
                             <input type="tel" placeholder="Enter Contact Number" name="emergencyContactNumber"
                                 id="emergencyContactNumber"
                                 [ngClass]="{'alert':submitted && emergencyContactNumber?.errors?.required || emergencyContactNumber?.errors?.pattern}"
@@ -263,10 +263,10 @@
 
                         <div>
                             <span *ngIf="emergencyContactNumber?.errors?.required && submitted "
-                                class="invalid-feedback">*Emergency
+                                class="invalid-feedback">Emergency
                                 contact is
                                 required </span>
-                            <span *ngIf="emergencyContactNumber?.errors?.pattern" class="invalid-feedback">*Emergency
+                            <span *ngIf="emergencyContactNumber?.errors?.pattern" class="invalid-feedback">Emergency
                                 contact should
                                 contain numbers
                                 only</span>

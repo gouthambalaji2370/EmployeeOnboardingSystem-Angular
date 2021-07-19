@@ -279,16 +279,20 @@ button{
 .column1 div {
     height: 62px;
 }
-
+.mandatory-asterick{
+    color : red;
+}
 .blood-select{
     height: 32px;
     width: 300px;
     border-color: black;
     border-width: 2px;
+    padding-left: 5px;
     border-radius: 12px;
     outline: none; 
 }
 .blood-select:focus{
+    padding-left: 5px;
     height: 32px;
     width: 300px;
     border-color: black;
@@ -301,6 +305,7 @@ button{
 select{
     width: 270px;
     border-color: black;
+    padding-left: 5px;
     border-width: 2px;
     border-radius: 12px;
     outline: none;   
@@ -310,6 +315,7 @@ select{
   }
 select:focus{
     width: 270px;
+    padding-left: 5px;
     border-color: black;
     border-width: 2px;
     border-radius: 12px;

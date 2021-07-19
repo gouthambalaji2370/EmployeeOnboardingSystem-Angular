@@ -18,6 +18,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
   invite: Boolean = false;
   view: Boolean = false;
   reject: Boolean = false;
+  error:boolean=true;
   current!: Number;
   dtOptions: DataTables.Settings = {};
   employees: Employees[] = [];
@@ -50,7 +51,8 @@ export class HRTableComponent implements OnInit, OnDestroy {
         console.log('data loaded successfully');
       }
       else {
-        this.notifyText = "Employee data loading failed"
+        this.notifyText = "Employee data loading failed";
+        this.error=!this.error
         this.notify = !this.notify
       }
     });

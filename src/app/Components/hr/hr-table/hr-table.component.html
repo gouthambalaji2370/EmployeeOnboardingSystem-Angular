@@ -9,7 +9,7 @@
         Invite</button>
     </div>
     <div id="request" style="margin: 85px 14px">
-      <table id="requesttable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+      <table id="requesttable" datatable  [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
         style="width: 100%;margin-top: 40px;">
         <thead style=" height:60px; margin-top: 30px;">
           <tr>
@@ -18,7 +18,7 @@
             <th>Email</th>
             <th>Status</th>
             <th>Created At</th>
-            <th style="width: 200px;">Actions</th>
+            <th style="width: 200px; text-align: center; background-image: none;">Actions</th>
             <!-- style="width: 170px;" -->
           </tr>
         </thead>
@@ -45,7 +45,7 @@
       </table>
       <app-userdetailsview *ngIf=view id="userdetails" (closedetails)="closeview($event)"
             (rejectreason)="rejectview($event)" [employeedetails]=employee></app-userdetailsview>
-      <app-modals *ngIf="notify || edit" (closeEvent)="CloseNotification($event)" id="usernotified"
+      <app-modals *ngIf="notify || edit" (closeEvent)="CloseNotification($event)" [type]="error" id="usernotified"
         [Content]="notifyText"></app-modals>
       <app-inviteform *ngIf=invite (closeEvent)="closeform($event)" id="inviteform" [open]=invite></app-inviteform>
     

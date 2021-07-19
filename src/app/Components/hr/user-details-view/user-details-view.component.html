@@ -16,7 +16,7 @@
         </div>
         <div [ngClass]="{'grid-col':basicDetails===true ,'tab': basicDetails===false}">
           <div class="grid-row">
-            <p><b>Blood Group:</b>{{employeedetails.basicDetails.bloodGroup}}</p>
+            <p><b>Blood Group:</b> {{employeedetails.basicDetails.bloodGroup}}</p>
             <p><b>DOB:</b> {{employeedetails.basicDetails.dob}}</p>
             <p><b>Gender:</b> {{employeedetails.basicDetails.gender}}</p>
           </div>
@@ -26,8 +26,8 @@
             <p><b>UG:</b> {{employeedetails.basicDetails.UG}} CGPA</p>
           </div>
           <div class="grid-row-2">
-            <p><b>Father Name:</b>{{employeedetails.basicDetails.fatherName}}</p>
-            <p><b>Mother Name:</b>{{employeedetails.basicDetails.motherName}}</p>
+            <p><b>Father Name:</b> {{employeedetails.basicDetails.fatherName}}</p>
+            <p><b>Mother Name:</b> {{employeedetails.basicDetails.motherName}}</p>
           </div>
           <div class="grid-row-2">
             <p><b>Mobile:</b> {{employeedetails.basicDetails.ContactNumber}}</p>
@@ -36,9 +36,9 @@
           <hr />
           <h4 class="sub-heading">Emergency Contact</h4>
           <div class="grid-row">
-            <p><b>Name:</b>{{employeedetails.basicDetails.emergencyContactName}}</p>
-            <p><b>Relation:</b>{{employeedetails.basicDetails.emergencyContactRelation}}</p>
-            <p><b>Contact:</b>{{employeedetails.basicDetails.emergencyContactNumber}}</p>
+            <p><b>Name:</b> {{employeedetails.basicDetails.emergencyContactName}}</p>
+            <p><b>Relation:</b> {{employeedetails.basicDetails.emergencyContactRelation}}</p>
+            <p><b>Contact:</b> {{employeedetails.basicDetails.emergencyContactNumber}}</p>
           </div>
         </div>
       </div>
@@ -56,34 +56,34 @@
         <div [ngClass]="{'grid-col':addressDetails===true ,'tab': addressDetails===false}">
           <h4 class="sub-heading">Present Address</h4>
           <div class="grid-row">
-            <p><b>Building No/Flat Name:</b>{{employeedetails.addressDetails.presentAddress.buildingName}}</p>
-            <p><b>Street:</b>{{employeedetails.addressDetails.presentAddress.streetName}}</p>
-            <p><b>Area:</b>{{employeedetails.addressDetails.presentAddress.area}}</p>
+            <p><b>Building No/Flat Name:</b> {{employeedetails.addressDetails.presentAddress.buildingName}}</p>
+            <p><b>Street:</b> {{employeedetails.addressDetails.presentAddress.streetName}}</p>
+            <p><b>Area:</b> {{employeedetails.addressDetails.presentAddress.area}}</p>
           </div>
           <div class="grid-row">
-            <p><b>City:</b>{{employeedetails.addressDetails.presentAddress.city}}</p>
-            <p><b>State:</b>{{employeedetails.addressDetails.presentAddress.state}}</p>
-            <p><b>Country:</b>{{employeedetails.addressDetails.presentAddress.country}}</p>
+            <p><b>City:</b> {{employeedetails.addressDetails.presentAddress.city}}</p>
+            <p><b>State:</b> {{employeedetails.addressDetails.presentAddress.state}}</p>
+            <p><b>Country:</b> {{employeedetails.addressDetails.presentAddress.country}}</p>
           </div>
           <div class="grid-row-2">
-            <p><b>Map:</b>{{employeedetails.addressDetails.presentAddress.mapCoordinates}}</p>
-            <p><b>Pincode:</b>{{employeedetails.addressDetails.presentAddress.pinCode}}</p>
+            <p><b>Map:</b> {{employeedetails.addressDetails.presentAddress.mapCoordinates}}</p>
+            <p><b>Pincode:</b> {{employeedetails.addressDetails.presentAddress.pinCode}}</p>
           </div>
           <hr />
           <h4 class="sub-heading">Permanent Address</h4>
           <div class="grid-row">
-            <p><b>Building No/Flat Name:</b>{{employeedetails.addressDetails.permanentAddress.buildingName}}</p>
-            <p><b>Street:</b>{{employeedetails.addressDetails.permanentAddress.streetName}}</p>
-            <p><b>Area:</b>{{employeedetails.addressDetails.permanentAddress.area}}</p>
+            <p><b>Building No/Flat Name:</b> {{employeedetails.addressDetails.permanentAddress.buildingName}}</p>
+            <p><b>Street:</b> {{employeedetails.addressDetails.permanentAddress.streetName}}</p>
+            <p><b>Area:</b> {{employeedetails.addressDetails.permanentAddress.area}}</p>
           </div>
           <div class="grid-row">
-            <p><b>City:</b>{{employeedetails.addressDetails.permanentAddress.city}}</p>
-            <p><b>State:</b>{{employeedetails.addressDetails.permanentAddress.state}}</p>
-            <p><b>Country:</b>{{employeedetails.addressDetails.permanentAddress.country}}</p>
+            <p><b>City:</b> {{employeedetails.addressDetails.permanentAddress.city}}</p>
+            <p><b>State:</b> {{employeedetails.addressDetails.permanentAddress.state}}</p>
+            <p><b>Country:</b> {{employeedetails.addressDetails.permanentAddress.country}}</p>
           </div>
           <div class="grid-row-2">
-            <p><b>Map:</b>{{employeedetails.addressDetails.permanentAddress.mapCoordinates}}</p>
-            <p><b>Pincode:</b>{{employeedetails.addressDetails.permanentAddress.pinCode}}</p>
+            <p><b>Map:</b> {{employeedetails.addressDetails.permanentAddress.mapCoordinates}}</p>
+            <p><b>Pincode:</b> {{employeedetails.addressDetails.permanentAddress.pinCode}}</p>
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@
 
       <div class="flex-form" *ngIf="employeedetails.Status==='Rejected'">
         <h4>Reason for Rejection:</h4>
-        <h4 class="invalid-feedback">{{employeedetails.reasonForRejection}}</h4>
+        <h4 class="invalid-feedback"> {{employeedetails.reasonForRejection}}</h4>
       </div>
       <div class="modal-foot-right">
         <button type="button"
@@ -99,7 +99,7 @@
           class="button-group" (click)="closemodal()">Close</button>
         <button type="button" *ngIf="employeedetails.Status == 'Pending'" class="button-group"
           (click)="closemodalapprove()">Approve</button>
-        <button type="button" *ngIf="employeedetails.Status == 'Pending'" class="button-group"
+        <button type="button"  style="margin-right: 25px" *ngIf="employeedetails.Status == 'Pending'" class="button-group"
           (click)="closemodalreject()">Reject</button>
       </div>
     </div>

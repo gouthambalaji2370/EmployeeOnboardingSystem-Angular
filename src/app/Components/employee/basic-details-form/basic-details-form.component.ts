@@ -134,7 +134,7 @@ export class BasicDetailsFormComponent implements OnInit {
   }
   canDeactivate(): Observable<boolean> | boolean {
 
-    if (this.submitted === false && this.basicDetailsForm.touched) {
+    if (this.submitted === false && this.basicDetailsForm.dirty) {
 
       return this.dialogService.confirm('Discard changes for the Employee Details?');
     }

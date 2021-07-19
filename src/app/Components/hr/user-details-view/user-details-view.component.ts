@@ -13,7 +13,7 @@ export class UserdetailsviewComponent implements OnInit {
   closedetails = new EventEmitter<Boolean>();
   @Output()
   rejectreason = new EventEmitter<Boolean>();
-  basicDetails: Boolean = false;
+  basicDetails: Boolean = true;
   addressDetails: Boolean = false;
   approve:Boolean=false;
   status: String = "";

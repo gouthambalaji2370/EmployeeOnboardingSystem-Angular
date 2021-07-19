@@ -10,18 +10,18 @@
                         <ng-container formGroupName="presentAddress">
                             <div class="column1">
                                 <div class="container">
-                                    <label for="presentflatname"><b>Building No/Flat Name</b></label>
+                                    <label for="presentflatname"><b>Building No/Flat Name <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="Enter Building No /Flat Name" name="presentflatname"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.flatName')?.errors?.required}"
                                         formControlName="flatName" autofocus>
                                 </div>
                                 <span
                                     *ngIf="addressDetailsForm.get('presentAddress.flatName')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Present Flat name is required </span>
+                                    class="invalid-feedback">Present Flat name is required </span>
 
 
                                 <div class="container">
-                                    <label for="presentstreetname"><b>Street</b></label>
+                                    <label for="presentstreetname"><b>Street <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="Enter Street" name="presentstreetname"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.streetName')?.errors?.required}"
                                         formControlName="streetName">
@@ -29,21 +29,21 @@
 
                                 <span
                                     *ngIf="addressDetailsForm.get('presentAddress.streetName')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Present Street Name is required</span>
+                                    class="invalid-feedback">Present Street Name is required</span>
 
                                 <div class="container">
-                                    <label for="presentarea"><b>Area</b></label>
+                                    <label for="presentarea"><b>Area <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="Area" name="presentarea" formControlName="area"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.area')?.errors?.required}">
                                 </div>
 
                                 <span
                                     *ngIf="addressDetailsForm.get('presentAddress.area')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Present Area is required</span>
+                                    class="invalid-feedback">Present Area is required</span>
 
 
                                 <div class="container">
-                                    <label for="presentcountry"><b>Country</b></label>
+                                    <label for="presentcountry"><b>Country <span class="mandatory-asterick">*</span></b></label>
                                     <select name="presentcountry" class="countries" id="countryId"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.country')?.errors?.required}"
                                         formControlName="country" #mySelect
@@ -56,13 +56,13 @@
                                 </div>
                                 <span
                                     *ngIf="addressDetailsForm.get('presentAddress.country')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Present Country is required</span>
+                                    class="invalid-feedback">Present Country is required</span>
 
                             </div>
 
                             <div class="column2">
                                 <div class="container">
-                                    <label for="presentstate"><b>State</b></label>
+                                    <label for="presentstate"><b>State <span class="mandatory-asterick">*</span></b></label>
 
                                     <select name="presentstate" class="countries" id="stateId" formControlName="state"
                                         (ngModelChange)='onChangeStatepresent(mySelect.value)'
@@ -74,10 +74,10 @@
                                 </div>
                                 <span
                                     *ngIf="addressDetailsForm.get('presentAddress.state')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Present State is required</span>
+                                    class="invalid-feedback">Present State is required</span>
 
                                 <div class="container">
-                                    <label for="presentcity"><b>District</b></label>
+                                    <label for="presentcity"><b>District <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="City" name="presentcity" id="presentcity"
                                         formControlName="city"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.city')?.errors?.required}">
@@ -85,10 +85,10 @@
                                 </div>
                                 <span
                                     *ngIf="addressDetailsForm.get('presentAddress.city')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Present City is required</span>
+                                    class="invalid-feedback">Present City is required</span>
 
                                 <div class="container">
-                                    <label for="presentmapcoordinates"><b>Map Coordinates</b></label>
+                                    <label for="presentmapcoordinates"><b>Map Coordinates <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="Enter Map Coordinates" id="presentmapcoordinates"
                                         formControlName="mapCoordinates" id="presentmapcoordinates"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.mapCoordinates')?.errors?.required}"
@@ -97,11 +97,11 @@
 
                                 <span
                                     *ngIf="addressDetailsForm.get('presentAddress.mapCoordinates')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Present map coordinates is required </span>
+                                    class="invalid-feedback">Present map coordinates is required </span>
 
 
                                 <div class="container">
-                                    <label for="presentpincode"><b>Pincode</b></label>
+                                    <label for="presentpincode"><b>Pincode <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="Pincode" name="presentpincode" id="presentpincode"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.pinCode')?.errors?.required || addressDetailsForm.get('addressDetails.presentAddress.pinCode')?.errors?.pattern}"
                                         formControlName="pinCode">
@@ -109,9 +109,9 @@
 
                                 <span
                                     *ngIf="addressDetailsForm.get('presentAddress.pinCode')?.errors?.required && submitted "
-                                    class="invalid-feedback"> *Pincode is required </span>
+                                    class="invalid-feedback"> Pincode is required </span>
                                 <span *ngIf="addressDetailsForm.get('presentAddress.pinCode')?.errors?.pattern"
-                                    class="invalid-feedback">*Pincode should contain numbers only</span>
+                                    class="invalid-feedback">Pincode should contain numbers only</span>
 
 
                             </div>
@@ -136,7 +136,7 @@
                             <div class="column1">
 
                                 <div class="container">
-                                    <label for="permanentflatname"><b>Building No/Flat Name</b></label>
+                                    <label for="permanentflatname"><b>Building No/Flat Name <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="Enter Building No /Flat Name"
                                         name="permanentflatname"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.flatName')?.errors?.required}"
@@ -145,33 +145,33 @@
 
                                 <span
                                     *ngIf="addressDetailsForm.get('permanentAddress.flatName')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Permanent Flat name is required </span>
+                                    class="invalid-feedback">Permanent Flat name is required </span>
 
                                 <div class="container">
-                                    <label for="permanentstreetname"><b>Street</b></label>
+                                    <label for="permanentstreetname"><b>Street <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="Enter Street" name="permanentstreetname"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.streetName')?.errors?.required}"
                                         id="permanentstreetname" formControlName="streetName">
                                 </div>
                                 <span
                                     *ngIf="addressDetailsForm.get('permanentAddress.streetName')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Permanent Street name is required </span>
+                                    class="invalid-feedback">Permanent Street name is required </span>
 
 
                                 <div class="container">
-                                    <label for="permanentarea"><b>Area</b></label>
+                                    <label for="permanentarea"><b>Area <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="Area" name="permanentarea" id="permanentarea"
                                         formControlName="area"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.area')?.errors?.required}">
                                 </div>
                                 <span
                                     *ngIf="addressDetailsForm.get('permanentAddress.area')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Permanent area is required </span>
+                                    class="invalid-feedback">Permanent area is required </span>
 
 
 
                                 <div class="container">
-                                    <label for="permanentcountry"><b>Country</b></label>
+                                    <label for="permanentcountry"><b>Country <span class="mandatory-asterick">*</span></b></label>
                                     <select name="permanentcountry" formControlName="country" class="countries"
                                         id="countryId" #myCountrypermanent
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.country')?.errors?.required}"
@@ -184,13 +184,13 @@
                                 </div>
                                 <span
                                     *ngIf="addressDetailsForm.get('permanentAddress.country')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Permanent Country is required </span>
+                                    class="invalid-feedback">Permanent Country is required </span>
 
                             </div>
 
                             <div class="column2">
                                 <div class="container">
-                                    <label for="permanentstate"><b>State</b></label>
+                                    <label for="permanentstate"><b>State <span class="mandatory-asterick">*</span></b></label>
                                     <select name="permanentstate" class="countries" id="stateId" formControlName="state"
                                         (ngModelChange)='onChangeStatepermanent(mySelect.value)'
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.state')?.errors?.required}">
@@ -205,20 +205,20 @@
                                 </div>
                                 <span
                                     *ngIf="addressDetailsForm.get('permanentAddress.state')?.errors?.required && submitted"
-                                    class="invalid-feedback">*Permanent State is required
+                                    class="invalid-feedback">Permanent State is required
                                 </span>
                                 <div class="container">
-                                    <label for="permanentcity"><b>District</b></label>
+                                    <label for="permanentcity"><b>District <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="City" name="permanentcity" id="permanentcity"
                                         formControlName="city"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.city')?.errors?.required}">
                                 </div>
                                 <span
                                     *ngIf="addressDetailsForm.get('permanentAddress.city')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Permanent City is required</span>
+                                    class="invalid-feedback">Permanent City is required</span>
 
                                 <div class="container">
-                                    <label for="permanentmapcoordinates"><b>Map Coordinates</b></label>
+                                    <label for="permanentmapcoordinates"><b>Map Coordinates <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="Enter Map Coordinates"
                                         name="permanentmapcoordinates"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.mapCoordinates')?.errors?.required}"
@@ -228,10 +228,10 @@
 
                                 <span
                                     *ngIf="addressDetailsForm.get('permanentAddress.mapCoordinates')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Permanent map coordinates is required </span>
+                                    class="invalid-feedback">Permanent map coordinates is required </span>
 
                                 <div class="container">
-                                    <label for="permanentpincode"><b>Pincode</b></label>
+                                    <label for="permanentpincode"><b>Pincode <span class="mandatory-asterick">*</span></b></label>
                                     <input type="text" placeholder="Pincode" name="permanentpincode"
                                         id="permanentpincode" formControlName="pinCode"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.pinCode')?.errors?.required || addressDetailsForm.get('permanentAddress.pinCode')?.errors?.pattern}">
@@ -239,10 +239,10 @@
 
                                 <span
                                     *ngIf="addressDetailsForm.get('permanentAddress.pinCode')?.errors?.required && submitted "
-                                    class="invalid-feedback">*Permanent pincode is required </span>
+                                    class="invalid-feedback">Permanent pincode is required </span>
                                 <span
                                     *ngIf="addressDetailsForm.get('permanentAddress.pinCode')?.errors?.pattern && submitted "
-                                    class="invalid-feedback">*Pincode should contain digits only </span>
+                                    class="invalid-feedback">Pincode should contain digits only </span>
                             </div>
                         </ng-container>
                     </div>
