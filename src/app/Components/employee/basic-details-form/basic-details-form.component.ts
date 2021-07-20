@@ -10,7 +10,10 @@ import { EmployeeService } from 'src/app/Services/employee.service';
   styleUrls: ['./basic-details-form.component.css']
 })
 export class BasicDetailsFormComponent implements OnInit {
-
+  @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
+    confirm("Reload Employee Form?");
+    event.returnValue = false;
+  }
   current: number = 0;
   showaddressform: Boolean = false;
   isDisabled: Boolean = false;

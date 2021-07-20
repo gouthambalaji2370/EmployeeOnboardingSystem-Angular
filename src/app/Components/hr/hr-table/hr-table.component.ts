@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Employees } from '../../../Interfaces/employees';
@@ -13,6 +13,11 @@ import { HrService } from 'src/app/Services/hr.service';
   styleUrls: ['./hr-table.component.css']
 })
 export class HRTableComponent implements OnInit, OnDestroy {
+  @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
+    confirm("Reload Home Page?");
+    event.returnValue = false;
+  }
+
   notify: Boolean = false;
   edit: Boolean = false;
   invite: Boolean = false;

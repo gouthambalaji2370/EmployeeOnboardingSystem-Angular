@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { EMPTY, Observable } from 'rxjs';
 import { distinctUntilChanged, startWith, switchMap, tap } from 'rxjs/operators';
@@ -12,6 +12,10 @@ import { EmployeeService } from 'src/app/Services/employee.service';
   styleUrls: ['./address-form.component.css']
 })
 export class AddressFormComponent implements OnInit {
+  @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
+    confirm("Reload Employee Form?");
+    event.returnValue = false;
+  }
 
   @Input()
   current: number = 0;
