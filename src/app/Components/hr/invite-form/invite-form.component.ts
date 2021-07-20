@@ -13,7 +13,7 @@ export class InviteformComponent implements OnInit {
   @Input()
   open: Boolean = false;
   @Output()
-  closeEvent = new EventEmitter<Boolean>();
+  closeInviteEvent = new EventEmitter<Boolean>();
   inviteForm!: FormGroup;
   public roles: Role[] = [];
 
@@ -23,7 +23,7 @@ export class InviteformComponent implements OnInit {
   isSubmitted: Boolean = false;
   isLoaded:Boolean=true;
   ngOnInit(): void {
-    this.hr.listRoles();
+    this.hr.getRoles();
     this.hr.roles$.subscribe((data) => {
       console.log(data, typeof data, "httpdata");
       this.roles=data.sets;
@@ -77,23 +77,23 @@ export class InviteformComponent implements OnInit {
   }
   closemodal(): void {
     this.open = !this.open
-    this.closeEvent.emit(false);
+    this.closeInviteEvent.emit(false);
   }
   createinvite(): void {
     this.isSubmitted = true;
     console.log(this.password);
     if (this.inviteForm.valid) {
       let form=JSON.stringify({'name':this.name?.value,'email':this.email?.value,'role':this.role?.value,'password':this.password?.value});
-      let submit=this.hr.createuser(form);
+      let submit=this.hr.createEmployee(form);
       if(submit){
       this.open = !this.open
-      this.closeEvent.emit(false);
+      this.closeInviteEvent.emit(false);
     }
     }
   }
   closeout(): void {
     this.open = false
-    this.closeEvent.emit(false);
+    this.closeInviteEvent.emit(false);
   }
 
 }

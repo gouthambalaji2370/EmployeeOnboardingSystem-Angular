@@ -25,25 +25,31 @@ export class UserdetailsviewComponent implements OnInit {
     status = this.employeedetails.Status
     console.log(typeof status)
   }
-  closemodalapprove(): void {
+  closemodalapprove(userid:String): void {
+    console.log(userid);
     this.closedetails.emit(false);
     this.rejectreason.emit(false);
   }
-  openBasicDetails() {
-    this.basicDetails = !this.basicDetails;
-    this.addressDetails = false;
+  openDetails(type:String) {
+    if(type==="Basic"){
+    this.addressDetails = false
+    this.basicDetails = true;
   }
-  openAddressDetails() {
-    this.addressDetails = !this.addressDetails;
+  else{
+    this.addressDetails = true
     this.basicDetails = false;
+  }
 
   }
-  closemodal(): void {
-    this.closedetails.emit(false);
-    this.rejectreason.emit(false);
-  }
-  closemodalreject(): void {
-    this.closedetails.emit(false);
-    this.rejectreason.emit(true);
+  closeNotificationModal(type:Boolean): void {
+    if(type){
+      this.closedetails.emit(false);
+      this.rejectreason.emit(true);
+    }
+    else{
+      this.closedetails.emit(false);
+      this.rejectreason.emit(false);
+    }
+   
   }
 }

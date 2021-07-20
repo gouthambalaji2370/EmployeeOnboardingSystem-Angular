@@ -1,11 +1,7 @@
 .scroll-to-top {
-    /* margin-top: 70px;
     position: fixed;
-    bottom: 15px;
-    right: 15px; */
-    position: absolute;
-    margin-top: 30px;
-    right: 20px;
+    bottom: 30px;
+    right: 15px;
     opacity: 0;
     transition: all .2s ease-in-out;
    }
@@ -17,6 +13,7 @@
     background:#2F5D62;
     color: white;
     border: none;
+    border-radius: 40px;
     margin-left: 10px;
     margin-bottom: 10px;
     font-size: 18px;

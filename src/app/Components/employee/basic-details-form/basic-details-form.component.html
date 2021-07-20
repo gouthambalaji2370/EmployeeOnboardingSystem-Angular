@@ -7,7 +7,7 @@
                 <li [ngClass]="{'step':current===0 ,'active': current ===1}">Address</li>
             </ul>
         </div>
-        <form style="margin-left: 250px;" [ngClass]="{'tab': current === 1}" (ngSubmit)="basicdetails()"
+        <form style="margin-left: 250px;" [ngClass]="{'tab': current === 1}" (ngSubmit)="SubmitBasicDetails()"
             [formGroup]="basicDetailsForm">
             <div>
                 <div class="wholefieldset">
@@ -278,11 +278,7 @@
                 <button type="submit" class="firstbutton" id="nextBtn">Next</button>
 
             </div>
-
         </form>
-        <app-scroll-to-top [ngClass]="{'tab': current === 1}"></app-scroll-to-top>
-
-
-        <app-address-form [current]="current" (currentback)="checkback($event)"></app-address-form>
+        <app-address-form [current]="current" (goToPrevious)="goToPrevious($event)"></app-address-form>
     </div>
 </div>

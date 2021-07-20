@@ -8,10 +8,7 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
   title = 'EmployeeOnboardingSystem';
   @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
-    let result = confirm("Changes you made may not be saved.");
-    if (result) {
-      // Do more processing...
-    }
-    event.returnValue = false; // stay on same page
+    confirm("Changes you made may not be saved.");
+    event.returnValue = false;
   }
 }

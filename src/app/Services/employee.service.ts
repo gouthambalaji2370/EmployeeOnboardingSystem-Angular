@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -18,10 +18,10 @@ export class EmployeeService {
   getEmployeeDetails() {
     const data =  {
       basicDetails : {
-        firstName: 'Devika',
-      lastName: 'A',
+        firstName: 'ada',
+      lastName: 'aba',
       gender: 'female',
-      name: 'Vino',
+      name: 'adf',
       relationShip: 'Uncle',
       phoneNumber: 1234567890,
     },
@@ -35,31 +35,30 @@ export class EmployeeService {
 }
   register(data:any){
     console.log(data);
-    let formdata=this.basicDetails+this.addressDetails
-    
-    console.log(formdata);
-    this.http.post(this.baseurl+'register',formdata).subscribe(res=>{
-      console.log(res);
-    })
-    return true;
+    this.setAddressDetails(data)
+    this.employeeDetails={
+    "basicdetails":this.basicDetails,
+    "addressDetails":this.addressDetails
+  };
+    console.log(this.employeeDetails);;
+    return of ({success:true});
 
   }
   save(data:any){
     console.log(data);
     this.setAddressDetails(data)
-    let formdata={
+    this.employeeDetails={
     "basicdetails":this.basicDetails,
     "addressDetails":this.addressDetails
   };
-    console.log(formdata);
-    this.http.post(this.baseurl+'save',formdata).subscribe(res=>{
-      console.log(res);
-    })
-    return true;
+    console.log(this.employeeDetails);
+    return ({success:true});
 
   }
   setBasicDetails(details:any) {
     this.basicDetails = details;
+    console.log(this.basicDetails);
+    
   }
   getBasicDetails() {
     return this.basicDetails;

@@ -8,7 +8,6 @@ import { of } from 'rxjs';
 export class DialogService {
   confirm(message?: string): Observable<boolean> {
     const confirmation = window.confirm(message || 'Are you sure?');
-
     return of(confirmation);
   };
 

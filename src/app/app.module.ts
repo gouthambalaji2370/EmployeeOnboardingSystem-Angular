@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeModule } from './Components/employee/employee.module';
 import { HrModule } from './Components/hr/hr.module';
 import { LoginModule } from './Components/login/login.module';
+import { CoreModule } from './Components/core/core.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LoginModule } from './Components/login/login.module';
     EmployeeModule,
     HrModule,
     LoginModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

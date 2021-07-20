@@ -17,11 +17,11 @@ export class LoginformComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage = {
     userName: {
-      empty: "*UserName is required",
-      valid: "*Enter valid Username"
+      empty: "UserName is required",
+      valid: "Enter valid Username"
     },
     password: {
-      empty: "*Password is required",
+      empty: "Password is required",
       minLegth: "Password must have atleast 5 characters",
       pattern: "Numbers only allowed",
     },
@@ -29,10 +29,13 @@ export class LoginformComponent implements OnInit {
   userNameErrorMsg: String = "";
   passwordErrorMsg: String = "";
   isSubmitted: Boolean = false;
-  constructor(private login: LoginService, http: HttpClient, private router: Router, private fb: FormBuilder) {
+  constructor(private loginservice: LoginService, http: HttpClient, private router: Router, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.LoginFormInitalize()
+  }
+  LoginFormInitalize():void{
     this.loginForm = this.fb.group({
       userName: ["",
         [
@@ -49,7 +52,6 @@ export class LoginformComponent implements OnInit {
         ],
       ],
     });
-
   }
   get userName() {
     return this.loginForm.get("userName");
@@ -63,19 +65,19 @@ export class LoginformComponent implements OnInit {
     if (this.loginForm.valid) {
       var formData: any = new FormData();
       console.log(formData);
-      this.login.checkuser({
-        email: this.userName?.value,
-        password: this.password?.value,
-      })
-      if (this.userName?.value === 'hr@gmail.com') {
-        localStorage.setItem('user', 'HR');
-        this.router.navigate(['/hr'])
-      }
-      else if (this.userName?.value === 'user@gmail.com') {
-        localStorage.setItem('user', 'Employee');
-        this.router.navigate(['/employee'])
-      }
-
+      this.loginservice.checkUser({email: this.userName?.value, password: this.password?.value}).subscribe((data: { success: Boolean,role:String }) => {
+        console.log(data.success)
+        if(data.success===true){
+          if(data.role==='Employee'){
+            localStorage.setItem('user', 'Employee');
+            this.router.navigate(['/employee'])
+          }
+          else{
+            localStorage.setItem('user', 'HR');
+            this.router.navigate(['/hr'])
+          }
+        }
+    })
     }
   }
 

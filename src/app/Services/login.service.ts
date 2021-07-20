@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +8,17 @@ import { Subject } from 'rxjs';
 export class LoginService {
   public login$: Subject<any> = new Subject();
   constructor(private http: HttpClient) { }
-  checkuser = (data: any) => {
+  checkUser = (data: any) => {
     console.log(data);
-    return this.http.post("http://localhost:5000/login", data);
+  let res;
+    if(data.email==="hr@gmail.com"){
+      res=({success:true,role:'HR'})
+    }
+    else{
+      res=({success:true,role:'Employee'})
+    }
+    return of( res);
+    // return this.http.post("http://localhost:5000/login", data);
   };
   isLoggedIn =()=>{
     let value=false;

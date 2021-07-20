@@ -12,12 +12,9 @@ export class CountryStateDataService {
 
   constructor(private http: HttpClient) { }
 
-  allCountries(): Observable<any> {
-    return this.http.get(this.url);
-  }
-  allCountriesSubject() {
+  getAllCountriesSubject() {
     return this.http.get(this.url).subscribe(data =>{
-      this.Countrydata$.next(data); // same data
+      this.Countrydata$.next(data); 
     });
  }
 

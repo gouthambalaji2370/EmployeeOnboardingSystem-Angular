@@ -15,7 +15,7 @@ export class AddressFormComponent implements OnInit {
 
   @Input()
   current: number = 0;
-  @Output() currentback = new EventEmitter<any>();
+  @Output() goToPrevious = new EventEmitter<any>();
   presentStateInfo: any[] = [];
   permanentStateInfo: any[] = [];
   countryInfo: any[] = [];
@@ -43,12 +43,12 @@ export class AddressFormComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getformInstance()
-    this.getCountries()
+    this.getCountriesdata()
   }
 
-  CloseNotification(closeEvent: Boolean) {
-    this.notify = closeEvent;
-    this.draft = closeEvent;
+  closeNotificationModal(closeModalEvent: Boolean) {
+    this.notify = closeModalEvent;
+    this.draft = closeModalEvent;
   }
   saveDraft() {
     let form = JSON.stringify(this.addressDetailsForm.getRawValue());
@@ -67,10 +67,10 @@ export class AddressFormComponent implements OnInit {
     }
 
   }
-  nextPrev(): void {
-    this.currentback.emit({ 'current': 0, 'completed': this.isDisabled });
+  previous(): void {
+    this.goToPrevious.emit({ 'current': 0, 'completed': this.isDisabled });
   }
-  finalSubmit(): void {
+  submitForm(): void {
     this.submitted = true;
     if (this.addressDetailsForm.valid) {
       let form = JSON.stringify(this.addressDetailsForm.getRawValue());
@@ -83,22 +83,20 @@ export class AddressFormComponent implements OnInit {
       parseform.permanentAddress.state = this.permanentStateName;
       parseform.permanentAddress.country = this.permanentCountryName;
 
-      let value = this.employeeService.register(parseform);
-      if (value) {
-        this.notify = true;
-        this.notifyText = "User Details has been forwarded Successfully";
-        console.log("Form is submitted successfully")
-        this.addressDetailsForm.disable();
-        this.isDisabled = true;
-        this.submitted = false;
-      }
-      else {
-        this.notify = true;
-        this.notifyText = "User Details has some issues";
-      }
-    }
-    else {
-      console.log("this form has errors else case addressDetails");
+      this.employeeService.register(parseform).subscribe(data=>{
+        if(data.success===true){
+          this.notify = true;
+          this.notifyText = "User Details has been forwarded Successfully";
+          console.log("Form is submitted successfully")
+          this.addressDetailsForm.disable();
+          this.isDisabled = true;
+          this.submitted = false;
+        }
+        else {
+          this.notify = true;
+          this.notifyText = "User Details has some issues";
+        }
+      })
     }
   }
   getformInstance() {
@@ -225,15 +223,12 @@ export class AddressFormComponent implements OnInit {
     )
       .subscribe();
   }
-  getCountries() {
-    this.country.allCountriesSubject();
+  getCountriesdata() {
+    this.country.getAllCountriesSubject();
     this.country.Countrydata$.subscribe(data => {
       console.log(data);
       this.countryInfo = data.Countries;
-      if(this.countryInfo.length>0){
-        console.log('data loaded successfully')
-      }
-      else{
+      if(this.countryInfo.length===0){
         this.notify = true;
         this.notifyText = "Country data failed to load";
       }
@@ -241,24 +236,27 @@ export class AddressFormComponent implements OnInit {
       console.log(err)
       
     },
-      () => console.log('Country data loaded')
     )
   }
-  onChangeCountrypresent(countryValue: any) {
-    this.presentStateInfo = this.countryInfo[countryValue].States;
-    this.presentCountryName = this.countryInfo[countryValue].CountryName;
+  onChangeCountry(countryValue: any,type:Boolean) {
+    if(type){
+      this.presentStateInfo = this.countryInfo[countryValue].States;
+      this.presentCountryName = this.countryInfo[countryValue].CountryName;
 
-  }
-  onChangeCountrypermanent(countryValue: any) {
-    this.permanentStateInfo = this.countryInfo[countryValue].States;
-    this.presentCountryName = this.countryInfo[countryValue].CountryName;
+    }
+    else{
+      this.permanentStateInfo = this.countryInfo[countryValue].States;
+      this.permanentCountryName = this.countryInfo[countryValue].CountryName;
+    }
   }
 
-  onChangeStatepresent(stateValue: any) {
+  onChangeState(stateValue: any,type:Boolean) {
+    if(type){
     this.presentStateName = this.presentStateInfo[stateValue].StateName
-  }
-  onChangeStatepermanent(stateValue: any) {
-    this.permanentStateName = this.permanentStateInfo[stateValue].StateName
+    }
+    else{
+      this.permanentStateName = this.permanentStateInfo[stateValue].StateName
+    }
   }
 
 

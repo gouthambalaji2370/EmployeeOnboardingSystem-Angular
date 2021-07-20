@@ -13,14 +13,16 @@ export class ErrorpageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-  moveback():void{
     let user=localStorage.getItem('user');
     if(user==='HR'){
       this.router.navigate(['/hr'])
     }
-    else{
+    else if(user==='Employee'){
       this.router.navigate(['/employee'])
     }
+    else{
+      this.router.navigate(['/login'])
+    }
   }
+
 }

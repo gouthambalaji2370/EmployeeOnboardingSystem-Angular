@@ -31,6 +31,10 @@ export class HRTableComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+    this.RejectFormInitalize()
+      this.getEmployeeData()
+  }
+  RejectFormInitalize():void{
     this.reasonForm = this.fb.group(
       {
         reason: ["",
@@ -39,7 +43,9 @@ export class HRTableComponent implements OnInit, OnDestroy {
           ]
         ],
       })
-    this.hr.listEmployees();
+  }
+  getEmployeeData():void{
+    this.hr.getEmployees();
     this.hr.employees$.subscribe((data) => {
       console.log(data, typeof data, "httpdata");
       this.employees = data.data;
@@ -57,30 +63,28 @@ export class HRTableComponent implements OnInit, OnDestroy {
       }
     });
   }
-  prevstateview() {
+  backToViewModal() {
     this.reject = !this.reject;
-    this.openview(this.current);
+    this.openViewModal(this.current);
   }
-  CloseNotification(closeEvent: Boolean) {
-    this.notify = closeEvent;
-    this.edit = closeEvent;
+  CloseNotification(closeModalEvent: Boolean) {
+    this.notify = closeModalEvent;
+    this.edit = closeModalEvent;
   }
-  closeview(closedetails: Boolean) {
+  closeViewModal(closedetails: Boolean) {
     this.view = closedetails;
   }
-  rejectview(rejectreason: Boolean) {
+  rejectViewModal(rejectreason: Boolean) {
     console.log(rejectreason);
     this.reject = rejectreason;
   }
-  closefor(closereason: Boolean) {
-    this.reject = closereason;
-  }
+ 
 
-  submitreason(): void {
+  submitReject(): void {
     this.isSubmitted = true;
     if (this.reasonForm.valid) {
       let form = JSON.stringify(this.reason?.value)
-      let status = this.hr.reasonforrejection(form);
+      let status = this.hr.rejectEmployeeData(form);
       if (status === true)
         this.reject = false;
     }
@@ -88,11 +92,11 @@ export class HRTableComponent implements OnInit, OnDestroy {
   get reason() {
     return this.reasonForm.get("reason");
   }
-  closemodal() {
+  closeRejectModal() {
     this.reject = false;
   }
 
-  openview(status: Number): void {
+  openViewModal(status: Number): void {
     this.current = status;
     this.employees.forEach(data => {
       if (data.EmpId === this.current) {
@@ -102,20 +106,22 @@ export class HRTableComponent implements OnInit, OnDestroy {
     console.log(status);
     this.view = !this.view
   }
-  closeform(closeEvent: Boolean) {
-    this.invite = closeEvent;
+  closeInvite(closeInviteEvent: Boolean) {
+    this.invite = closeInviteEvent;
   }
-  openform(): void {
+  openInvite(): void {
     console.log(this.invite);
     this.invite = !this.invite
   }
-  opennotification(): void {
+  openNotificationModal(type:boolean): void {
+    if(type){
     this.notifyText = "User Notified Successfully"
     this.notify = !this.notify;
-  }
-  openedit(): void {
-    this.notifyText = "Edit access provided"
-    this.edit = !this.edit;
+    }
+    else{
+      this.notifyText = "Edit access provided"
+      this.edit = !this.edit;
+    }
   }
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();

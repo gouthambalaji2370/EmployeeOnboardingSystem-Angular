@@ -5,7 +5,6 @@ import { EmployeeModule } from './Components/employee/employee.module';
 import { LoginModule } from './Components/login/login.module';
 import { LoginformComponent } from './Components/login/login-form.component';
 import { ErrorpageComponent } from './Components/core/error-page/error-page.component';
-import { AuthguardService } from './Services/auth-guard.service';
 import { RolebasedguardService } from './Services/role-based-guard.service';
 import { HRTableComponent } from './Components/hr/hr-table/hr-table.component';
 import { BasicDetailsFormComponent } from './Components/employee/basic-details-form/basic-details-form.component';
@@ -14,8 +13,8 @@ import { RouteDeactivationGuardService } from './Services/route-deactivation-gua
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
   { path: 'login',  component: LoginformComponent },
-  { path: 'employee', component:BasicDetailsFormComponent,canActivate:[AuthguardService,RolebasedguardService],canDeactivate:[RouteDeactivationGuardService],data: {roles: ['Employee']}},
-  { path: 'hr',component:HRTableComponent,canActivate:[AuthguardService,RolebasedguardService],data: {roles: ['HR']}},
+  { path: 'employee', component:BasicDetailsFormComponent,canActivate:[RolebasedguardService],canDeactivate:[RouteDeactivationGuardService],data: {roles: ['Employee']}},
+  { path: 'hr',component:HRTableComponent,canActivate:[RolebasedguardService],data: {roles: ['HR']}},
   {path:'**', component:ErrorpageComponent},
 ];
 

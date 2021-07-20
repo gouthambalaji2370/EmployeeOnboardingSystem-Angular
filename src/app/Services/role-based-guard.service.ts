@@ -16,7 +16,12 @@ export class RolebasedguardService {
       return true
     }
     else{
-      this.router.navigate(["/**"])
+      if(user==='Employee')
+        this.router.navigate(["/employee"])
+      else if(user==='HR')
+        this.router.navigate(["/hr"])
+      else
+        this.router.navigate(["/login"])
       return false
     }
    }

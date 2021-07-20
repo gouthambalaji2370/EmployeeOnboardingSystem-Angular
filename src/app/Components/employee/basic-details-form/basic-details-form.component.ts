@@ -20,20 +20,20 @@ export class BasicDetailsFormComponent implements OnInit {
   submitted: Boolean = false;
 
   ngOnInit(): void {
-    this.formoninit();
+    this.formOnInit();
     this.basicDetails = this.employeeService.getBasicDetails();
     if (this.basicDetails) this.setFormData();
   }
 
  
-  checkback(currentback: any) {
-    this.current = currentback.current;
-    this.isDisabled = currentback.completed
+  goToPrevious(goToPrevious: any) {
+    this.current = goToPrevious.current;
+    this.isDisabled = goToPrevious.completed
     if (this.isDisabled) {
       this.basicDetailsForm.disable();
     }
   }
-  formoninit() {
+  formOnInit() {
     this.basicDetailsForm = this.fb.group({
       firstName: new FormControl("",
         [
@@ -140,10 +140,10 @@ export class BasicDetailsFormComponent implements OnInit {
     }
     return true;
   }
-  basicdetails() {
+  SubmitBasicDetails() {
     this.submitted = true;
     if (this.basicDetailsForm.valid || this.isDisabled === true) {
-      let form = JSON.stringify(this.basicDetailsForm.getRawValue());
+      let form = this.basicDetailsForm.getRawValue();
       this.employeeService.setBasicDetails(form);
       this.current = 1;
     }
