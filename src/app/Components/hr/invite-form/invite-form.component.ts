@@ -9,7 +9,7 @@ import { HrService } from 'src/app/Services/hr.service';
 })
 export class InviteformComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private  hr:HrService) {  }
+  constructor(private fb: FormBuilder, private hrService: HrService) { }
   @Input()
   open: Boolean = false;
   @Output()
@@ -21,18 +21,25 @@ export class InviteformComponent implements OnInit {
 
   close: Boolean = false;
   isSubmitted: Boolean = false;
-  isLoaded:Boolean=true;
+  isLoaded: Boolean = true;
+
   ngOnInit(): void {
-    this.hr.getRoles();
-    this.hr.roles$.subscribe((data) => {
-      this.roles=data.sets;
-      if(this.roles.length>0){
-        this.isLoaded=true
+    this.getRoleData();
+    this.inviteFormLoad()
+  }
+  getRoleData() {
+    this.hrService.getRoles();
+    this.hrService.roles$.subscribe((data) => {
+      this.roles = data.sets;
+      if (this.roles.length > 0) {
+        this.isLoaded = true
       }
-      else{
-        this.isLoaded=false
+      else {
+        this.isLoaded = false
       }
     });
+  }
+  inviteFormLoad() {
     this.inviteForm = this.fb.group({
       name: ["",
         [
@@ -79,16 +86,14 @@ export class InviteformComponent implements OnInit {
   createInvite(): void {
     this.isSubmitted = true;
     if (this.inviteForm.valid) {
-      let form=JSON.stringify({'name':this.name?.value,'email':this.email?.value,'role':this.role?.value,'password':this.password?.value});
-      let submit=this.hr.createEmployee(form).subscribe(data=>{
-        if(data.success===true){
+      let form = JSON.stringify({ 'name': this.name?.value, 'email': this.email?.value, 'role': this.role?.value, 'password': this.password?.value });
+      this.hrService.createEmployee(form).subscribe(data => {
+        if (data.success === true) {
           this.open = !this.open
           this.closeInviteEvent.emit(false);
         }
       })
-     
+
     }
   }
-
-
 }

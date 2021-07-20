@@ -15,7 +15,6 @@ export class BasicDetailsFormComponent implements OnInit {
     event.returnValue = false;
   }
   current: number = 0;
-  showaddressform: Boolean = false;
   isDisabled: Boolean = false;
   basicDetailsForm!: FormGroup;
   basicDetails: any;
@@ -143,7 +142,7 @@ export class BasicDetailsFormComponent implements OnInit {
     }
     return true;
   }
-  SubmitBasicDetails() {
+  submitBasicDetails() {
     this.submitted = true;
     if (this.basicDetailsForm.valid || this.isDisabled === true) {
       let form = this.basicDetailsForm.getRawValue();

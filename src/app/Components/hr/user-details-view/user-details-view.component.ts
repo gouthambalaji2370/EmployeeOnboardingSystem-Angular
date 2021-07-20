@@ -8,11 +8,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class UserdetailsviewComponent implements OnInit {
 
   @Input()
-  employeedetails: any;
+  employeeDetails: any;
   @Output()
-  closedetails = new EventEmitter<Boolean>();
+  closeDetailsView = new EventEmitter<Boolean>();
   @Output()
-  rejectreason = new EventEmitter<Boolean>();
+  rejectReasonView = new EventEmitter<Boolean>();
   basicDetails: Boolean = true;
   addressDetails: Boolean = false;
   approve:Boolean=false;
@@ -21,11 +21,11 @@ export class UserdetailsviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    status = this.employeedetails.Status
+    status = this.employeeDetails.Status
   }
-  closemodalapprove(userid:String): void {
-    this.closedetails.emit(false);
-    this.rejectreason.emit(false);
+  ApproveData(userid:String): void {
+    this.closeDetailsView.emit(false);
+    this.rejectReasonView.emit(false);
   }
   openDetails(type:String) {
     if(type==="Basic"){
@@ -40,12 +40,12 @@ export class UserdetailsviewComponent implements OnInit {
   }
   closeNotificationModal(type:Boolean): void {
     if(type){
-      this.closedetails.emit(false);
-      this.rejectreason.emit(true);
+      this.closeDetailsView.emit(false);
+      this.rejectReasonView.emit(true);
     }
     else{
-      this.closedetails.emit(false);
-      this.rejectreason.emit(false);
+      this.closeDetailsView.emit(false);
+      this.rejectReasonView.emit(false);
     }
    
   }

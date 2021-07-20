@@ -56,15 +56,15 @@ export class AddressDetailsFormComponent implements OnInit {
   }
   saveDraft() {
     let form = JSON.stringify(this.addressDetailsForm.getRawValue());
-    let parseform = JSON.parse(form)
+    let parseForm = JSON.parse(form)
     if (this.isSameAddressControl) {
       this.permanentCountryName = this.presentCountryName;
     }
-    parseform.presentAddress.country = this.presentCountryName;
-    parseform.presentAddress.state = this.presentStateName;
-    parseform.permanentAddress.state = this.permanentStateName;
-    parseform.permanentAddress.country = this.permanentCountryName;
-    let value = this.employeeService.save(parseform);
+    parseForm.presentAddress.country = this.presentCountryName;
+    parseForm.presentAddress.state = this.presentStateName;
+    parseForm.permanentAddress.state = this.permanentStateName;
+    parseForm.permanentAddress.country = this.permanentCountryName;
+    let value = this.employeeService.save(parseForm);
     if (value) {
       this.draft = !this.draft;
       this.notifyText = "User Details has been saved";
@@ -228,7 +228,7 @@ export class AddressDetailsFormComponent implements OnInit {
   }
   getCountriesdata() {
     this.country.getAllCountriesSubject();
-    this.country.Countrydata$.subscribe(data => {
+    this.country.countryData$.subscribe(data => {
       this.countryInfo = data.Countries;
       if(this.countryInfo.length===0){
         this.notify = true;

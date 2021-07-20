@@ -7,7 +7,7 @@
                 <li [ngClass]="{'step':current===0 ,'active': current ===1}">Address</li>
             </ul>
         </div>
-        <form style="margin-left: 250px;" [ngClass]="{'tab': current === 1}" (ngSubmit)="SubmitBasicDetails()"
+        <form style="margin-left: 250px;" [ngClass]="{'tab': current === 1}" (ngSubmit)="submitBasicDetails()"
             [formGroup]="basicDetailsForm">
             <div>
                 <div class="wholefieldset">

@@ -72,11 +72,11 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.notify = closeModalEvent;
     this.edit = closeModalEvent;
   }
-  closeViewModal(closedetails: Boolean) {
-    this.view = closedetails;
+  closeViewModal(closeDetailsView: Boolean) {
+    this.view = closeDetailsView;
   }
-  rejectViewModal(rejectreason: Boolean) {
-    this.reject = rejectreason;
+  rejectViewModal(rejectReasonView: Boolean) {
+    this.reject = rejectReasonView;
   }
  
 

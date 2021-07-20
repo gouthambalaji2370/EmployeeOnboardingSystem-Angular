@@ -6,7 +6,7 @@ import { throwError, Observable ,Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class CountryStateDataService {
-  public Countrydata$:Subject<any> = new Subject();
+  public countryData$:Subject<any> = new Subject();
   url: string = "https://raw.githubusercontent.com/sagarshirbhate/Country-State-City-Database/master/Contries.json";
 
 
@@ -14,7 +14,7 @@ export class CountryStateDataService {
 
   getAllCountriesSubject() {
     return this.http.get(this.url).subscribe(data =>{
-      this.Countrydata$.next(data); 
+      this.countryData$.next(data); 
     });
  }
 

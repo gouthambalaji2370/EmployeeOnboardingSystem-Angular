@@ -22,7 +22,7 @@ export class EmployeeService {
       lastName: 'aba',
       gender: 'female',
       name: 'adf',
-      relationShip: 'Uncle',
+      relationship: 'Uncle',
       phoneNumber: 1234567890,
     },
     addressDetails: {

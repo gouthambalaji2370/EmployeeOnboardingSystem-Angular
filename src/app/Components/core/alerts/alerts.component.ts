@@ -9,7 +9,7 @@ export class ModalsComponent implements OnInit {
 
   constructor() { }
   @Input()
-  Content: String = "";
+  content: String = "";
   @Input()
   type:Boolean=true
   @Output()

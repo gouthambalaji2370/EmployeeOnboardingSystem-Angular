@@ -29,7 +29,7 @@ export class LoginformComponent implements OnInit {
   userNameErrorMsg: String = "";
   passwordErrorMsg: String = "";
   isSubmitted: Boolean = false;
-  constructor(private loginservice: LoginService, http: HttpClient, private router: Router, private fb: FormBuilder) {
+  constructor(private loginService: LoginService, http: HttpClient, private router: Router, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -63,8 +63,7 @@ export class LoginformComponent implements OnInit {
   loginmethod(): void {
     this.isSubmitted = true
     if (this.loginForm.valid) {
-      var formData: any = new FormData();
-      this.loginservice.checkUser({email: this.userName?.value, password: this.password?.value}).subscribe((data: { success: Boolean,role:String }) => {
+      this.loginService.checkUser({email: this.userName?.value, password: this.password?.value}).subscribe((data: { success: Boolean,role:String }) => {
         if(data.success===true){
           if(data.role==='Employee'){
             localStorage.setItem('user', 'Employee');

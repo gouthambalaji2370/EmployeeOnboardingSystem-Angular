@@ -43,10 +43,10 @@
           </tr>
         </tbody>
       </table>
-      <app-userdetailsview *ngIf=view id="userdetails" (closedetails)="closeViewModal($event)"
-            (rejectreason)="rejectViewModal($event)" [employeedetails]=employee></app-userdetailsview>
+      <app-userdetailsview *ngIf=view id="userdetails" (closeDetailsView)="closeViewModal($event)"
+            (rejectReasonView)="rejectViewModal($event)" [employeeDetails]=employee></app-userdetailsview>
       <app-modals *ngIf="notify || edit" (closeModalEvent)="CloseNotification($event)" [type]="error" id="usernotified"
-        [Content]="notifyText"></app-modals>
+        [content]="notifyText"></app-modals>
       <app-inviteform *ngIf=invite (closeInviteEvent)="closeInvite($event)" id="inviteform" [open]=invite></app-inviteform>
     
 
