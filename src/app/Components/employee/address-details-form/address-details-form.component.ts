@@ -7,11 +7,11 @@ import { DialogService } from 'src/app/Services/dialog.service';
 import { EmployeeService } from 'src/app/Services/employee.service';
 
 @Component({
-  selector: 'app-address-form',
-  templateUrl: './address-form.component.html',
-  styleUrls: ['./address-form.component.css']
+  selector: 'app-address-details-form',
+  templateUrl: './address-details-form.component.html',
+  styleUrls: ['./address-details-form.component.css']
 })
-export class AddressFormComponent implements OnInit {
+export class AddressDetailsFormComponent implements OnInit {
   @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
     confirm("Reload Employee Form?");
     event.returnValue = false;
