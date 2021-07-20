@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,17 +27,17 @@ export class HrService {
   }
   createEmployee(data:any){
     console.log(data);
-    this.http.post(this.baseurl+'createuser',data).subscribe(res=>{
-      return res;
-    })
-    return true;
+    // this.http.post(this.baseurl+'createuser',data).subscribe(res=>{
+    //   return res;
+    // })
+    return of ({success:true});
   }
   rejectEmployeeData(data:any){
     console.log(data);
-    this.http.post(this.baseurl+'reject',data).subscribe(res=>{
-      return res;
-    })
-    return true;
+    // this.http.post(this.baseurl+'reject',data).subscribe(res=>{
+    //   return res;
+    // })
+    return of ({success:true});
   }
   
 }

@@ -84,9 +84,12 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.isSubmitted = true;
     if (this.reasonForm.valid) {
       let form = JSON.stringify(this.reason?.value)
-      let status = this.hr.rejectEmployeeData(form);
-      if (status === true)
+     this.hr.rejectEmployeeData(form).subscribe(data=>{
+      if (data.success === true){
         this.reject = false;
+      }
+     })
+     
     }
   }
   get reason() {

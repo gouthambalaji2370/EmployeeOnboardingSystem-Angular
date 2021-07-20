@@ -84,11 +84,13 @@ export class InviteformComponent implements OnInit {
     console.log(this.password);
     if (this.inviteForm.valid) {
       let form=JSON.stringify({'name':this.name?.value,'email':this.email?.value,'role':this.role?.value,'password':this.password?.value});
-      let submit=this.hr.createEmployee(form);
-      if(submit){
-      this.open = !this.open
-      this.closeInviteEvent.emit(false);
-    }
+      let submit=this.hr.createEmployee(form).subscribe(data=>{
+        if(data.success===true){
+          this.open = !this.open
+          this.closeInviteEvent.emit(false);
+        }
+      })
+     
     }
   }
   closeout(): void {

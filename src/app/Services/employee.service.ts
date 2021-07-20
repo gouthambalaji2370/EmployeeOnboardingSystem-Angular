@@ -40,6 +40,9 @@ export class EmployeeService {
     "basicdetails":this.basicDetails,
     "addressDetails":this.addressDetails
   };
+   // this.http.post(this.baseurl+'register',this.employeeDetails).subscribe(res=>{
+    //   return res;
+    // })
     console.log(this.employeeDetails);;
     return of ({success:true});
 
@@ -51,6 +54,9 @@ export class EmployeeService {
     "basicdetails":this.basicDetails,
     "addressDetails":this.addressDetails
   };
+   // this.http.post(this.baseurl+'savedetails',this.employeeDetails).subscribe(res=>{
+    //   return res;
+    // })
     console.log(this.employeeDetails);
     return ({success:true});
 
