@@ -91,7 +91,6 @@ export class AddressDetailsFormComponent implements OnInit {
         if(data.success===true){
           this.notify = true;
           this.notifyText = "User Details has been forwarded Successfully";
-          console.log("Form is submitted successfully")
           this.addressDetailsForm.disable();
           this.isDisabled = true;
           this.submitted = false;
@@ -230,7 +229,6 @@ export class AddressDetailsFormComponent implements OnInit {
   getCountriesdata() {
     this.country.getAllCountriesSubject();
     this.country.Countrydata$.subscribe(data => {
-      console.log(data);
       this.countryInfo = data.Countries;
       if(this.countryInfo.length===0){
         this.notify = true;

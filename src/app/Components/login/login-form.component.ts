@@ -64,9 +64,7 @@ export class LoginformComponent implements OnInit {
     this.isSubmitted = true
     if (this.loginForm.valid) {
       var formData: any = new FormData();
-      console.log(formData);
       this.loginservice.checkUser({email: this.userName?.value, password: this.password?.value}).subscribe((data: { success: Boolean,role:String }) => {
-        console.log(data.success)
         if(data.success===true){
           if(data.role==='Employee'){
             localStorage.setItem('user', 'Employee');

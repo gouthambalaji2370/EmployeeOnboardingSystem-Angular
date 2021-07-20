@@ -9,7 +9,6 @@ export class LoginService {
   public login$: Subject<any> = new Subject();
   constructor(private http: HttpClient) { }
   checkUser = (data: any) => {
-    console.log(data);
   let res;
     if(data.email==="hr@gmail.com"){
       res=({success:true,role:'HR'})
@@ -20,15 +19,5 @@ export class LoginService {
     return of( res);
     // return this.http.post("http://localhost:5000/login", data);
   };
-  isLoggedIn =()=>{
-    let value=false;
-    if (localStorage.getItem('user')) {
-      value=true;
-  }
-    else{
-    value=false;
-  }
-  return value;
-  }
   
 }

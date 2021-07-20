@@ -1,14 +1,14 @@
 <div id="myModal" [ngClass]="{'modal fades': open}">
   <div class="modal-head">
     <h4 class="modal-top alert-text">Create Invite</h4>
-    <button type="button" class="modal-close-button" (click)="closemodal()">&times;</button>
+    <button type="button" class="modal-close-button" (click)="closeInvite()">&times;</button>
   </div>
   <div class="modal-content">
     <div class="modal-body">
       <div class="invalid-feedback" *ngIf="!isLoaded" style="margin-left: 250px;" >
        Data Loading failed!! Retry!!
       </div>
-      <form [formGroup]="inviteForm" *ngIf="isLoaded" (ngSubmit)="createinvite()" class="form-class">
+      <form [formGroup]="inviteForm" *ngIf="isLoaded" (ngSubmit)="createInvite()" class="form-class">
         <div class="form-elements">
           <div class="container">
             <label for="name">Name:</label>

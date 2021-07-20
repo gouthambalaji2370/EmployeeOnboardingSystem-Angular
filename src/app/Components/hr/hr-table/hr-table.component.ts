@@ -52,20 +52,16 @@ export class HRTableComponent implements OnInit, OnDestroy {
   getEmployeeData():void{
     this.hr.getEmployees();
     this.hr.employees$.subscribe((data) => {
-      console.log(data, typeof data, "httpdata");
       this.employees = data.data;
       this.dtTrigger.next();
       this.dtOptions = {
       }
-      console.log(this.employees);
-      if (this.employees.length > 0) {
-        console.log('data loaded successfully');
-      }
-      else {
+      if (this.employees.length <= 0) {
         this.notifyText = "Employee data loading failed";
         this.error=!this.error
         this.notify = !this.notify
       }
+     
     });
   }
   backToViewModal() {
@@ -80,7 +76,6 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.view = closedetails;
   }
   rejectViewModal(rejectreason: Boolean) {
-    console.log(rejectreason);
     this.reject = rejectreason;
   }
  
@@ -111,14 +106,12 @@ export class HRTableComponent implements OnInit, OnDestroy {
         this.employee = data
       }
     })
-    console.log(status);
     this.view = !this.view
   }
   closeInvite(closeInviteEvent: Boolean) {
     this.invite = closeInviteEvent;
   }
   openInvite(): void {
-    console.log(this.invite);
     this.invite = !this.invite
   }
   openNotificationModal(type:boolean): void {

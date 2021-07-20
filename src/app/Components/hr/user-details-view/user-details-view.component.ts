@@ -21,12 +21,9 @@ export class UserdetailsviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.employeedetails.Status)
     status = this.employeedetails.Status
-    console.log(typeof status)
   }
   closemodalapprove(userid:String): void {
-    console.log(userid);
     this.closedetails.emit(false);
     this.rejectreason.emit(false);
   }

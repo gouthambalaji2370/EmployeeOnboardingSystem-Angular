@@ -13,7 +13,6 @@ export class HrService {
   constructor(private http: HttpClient) { }
   getRoles(){
    return this.http.get("/../../../../assets/roles.json").subscribe(data=>{
-     console.log(data);
      this.roles$.next(data);
    })
     
@@ -21,19 +20,16 @@ export class HrService {
   
   getEmployees(){
     return this.http.get('../../../../assets/data.json').subscribe(data=>{
-      console.log(data);
       this.employees$.next(data);
     })
   }
   createEmployee(data:any){
-    console.log(data);
     // this.http.post(this.baseurl+'createuser',data).subscribe(res=>{
     //   return res;
     // })
     return of ({success:true});
   }
   rejectEmployeeData(data:any){
-    console.log(data);
     // this.http.post(this.baseurl+'reject',data).subscribe(res=>{
     //   return res;
     // })

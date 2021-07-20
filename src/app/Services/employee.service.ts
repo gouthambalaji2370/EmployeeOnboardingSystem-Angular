@@ -34,7 +34,6 @@ export class EmployeeService {
   this.setAddressDetails(data.addressDetails);
 }
   register(data:any){
-    console.log(data);
     this.setAddressDetails(data)
     this.employeeDetails={
     "basicdetails":this.basicDetails,
@@ -43,12 +42,10 @@ export class EmployeeService {
    // this.http.post(this.baseurl+'register',this.employeeDetails).subscribe(res=>{
     //   return res;
     // })
-    console.log(this.employeeDetails);;
     return of ({success:true});
 
   }
   save(data:any){
-    console.log(data);
     this.setAddressDetails(data)
     this.employeeDetails={
     "basicdetails":this.basicDetails,
@@ -57,13 +54,11 @@ export class EmployeeService {
    // this.http.post(this.baseurl+'savedetails',this.employeeDetails).subscribe(res=>{
     //   return res;
     // })
-    console.log(this.employeeDetails);
     return ({success:true});
 
   }
   setBasicDetails(details:any) {
     this.basicDetails = details;
-    console.log(this.basicDetails);
     
   }
   getBasicDetails() {

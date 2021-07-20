@@ -25,11 +25,8 @@ export class InviteformComponent implements OnInit {
   ngOnInit(): void {
     this.hr.getRoles();
     this.hr.roles$.subscribe((data) => {
-      console.log(data, typeof data, "httpdata");
       this.roles=data.sets;
-      console.log(this.roles);
       if(this.roles.length>0){
-        console.log('data loaded successfully')
         this.isLoaded=true
       }
       else{
@@ -75,13 +72,12 @@ export class InviteformComponent implements OnInit {
   get password() {
     return this.inviteForm.get("password");
   }
-  closemodal(): void {
+  closeInvite(): void {
     this.open = !this.open
     this.closeInviteEvent.emit(false);
   }
-  createinvite(): void {
+  createInvite(): void {
     this.isSubmitted = true;
-    console.log(this.password);
     if (this.inviteForm.valid) {
       let form=JSON.stringify({'name':this.name?.value,'email':this.email?.value,'role':this.role?.value,'password':this.password?.value});
       let submit=this.hr.createEmployee(form).subscribe(data=>{
@@ -93,9 +89,6 @@ export class InviteformComponent implements OnInit {
      
     }
   }
-  closeout(): void {
-    this.open = false
-    this.closeInviteEvent.emit(false);
-  }
+
 
 }
