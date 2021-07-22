@@ -5,7 +5,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './alerts.component.html',
   styleUrls: ['./alerts.component.css']
 })
-export class ModalsComponent implements OnInit {
+export class AlertsComponent implements OnInit {
+  onCloseButtonClicked(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor() { }
   @Input()

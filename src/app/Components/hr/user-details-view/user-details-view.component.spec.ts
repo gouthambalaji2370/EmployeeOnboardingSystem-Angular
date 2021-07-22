@@ -7,7 +7,9 @@ describe('UserdetailsviewComponent', () => {
   let fixture: ComponentFixture<UserdetailsviewComponent>;
 
   beforeEach(async () => {
+
     await TestBed.configureTestingModule({
+      
       declarations: [ UserdetailsviewComponent ]
     })
     .compileComponents();

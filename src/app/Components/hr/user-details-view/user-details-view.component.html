@@ -15,29 +15,29 @@
         </div>
         <div [ngClass]="{'grid-col':basicDetails===true ,'tab': basicDetails===false}">
           <div class="grid-row">
-            <p><b>Blood Group:</b> {{employeeDetails.basicDetails.bloodGroup}}</p>
-            <p><b>DOB:</b> {{employeeDetails.basicDetails.dob}}</p>
-            <p><b>Gender:</b> {{employeeDetails.basicDetails.gender}}</p>
+            <p><b>Blood Group:</b> {{employeeDetails?.basicDetails.bloodGroup}}</p>
+            <p><b>DOB:</b> {{employeeDetails?.basicDetails.dob}}</p>
+            <p><b>Gender:</b> {{employeeDetails?.basicDetails.gender}}</p>
           </div>
           <div class="grid-row">
-            <p><b>SSLC:</b> {{employeeDetails.basicDetails.SSLC}} %</p>
-            <p><b>HSC:</b> {{employeeDetails.basicDetails.HSC}} %</p>
-            <p><b>UG:</b> {{employeeDetails.basicDetails.UG}} CGPA</p>
+            <p><b>SSLC:</b> {{employeeDetails?.basicDetails.SSLC}} %</p>
+            <p><b>HSC:</b> {{employeeDetails?.basicDetails.HSC}} %</p>
+            <p><b>UG:</b> {{employeeDetails?.basicDetails.UG}} CGPA</p>
           </div>
           <div class="grid-row-2">
-            <p><b>Father Name:</b> {{employeeDetails.basicDetails.fatherName}}</p>
-            <p><b>Mother Name:</b> {{employeeDetails.basicDetails.motherName}}</p>
+            <p><b>Father Name:</b> {{employeeDetails?.basicDetails.fatherName}}</p>
+            <p><b>Mother Name:</b> {{employeeDetails?.basicDetails.motherName}}</p>
           </div>
           <div class="grid-row-2">
-            <p><b>Mobile:</b> {{employeeDetails.basicDetails.ContactNumber}}</p>
-            <p><b>Aadhar:</b> {{employeeDetails.basicDetails.aadharNumber}}</p>
+            <p><b>Mobile:</b> {{employeeDetails?.basicDetails.ContactNumber}}</p>
+            <p><b>Aadhar:</b> {{employeeDetails?.basicDetails.aadharNumber}}</p>
           </div>
           <hr />
           <h4 class="sub-heading">Emergency Contact</h4>
           <div class="grid-row">
-            <p><b>Name:</b> {{employeeDetails.basicDetails.emergencyContactName}}</p>
-            <p><b>Relation:</b> {{employeeDetails.basicDetails.emergencyContactRelation}}</p>
-            <p><b>Contact:</b> {{employeeDetails.basicDetails.emergencyContactNumber}}</p>
+            <p><b>Name:</b> {{employeeDetails?.basicDetails.emergencyContactName}}</p>
+            <p><b>Relation:</b> {{employeeDetails?.basicDetails.emergencyContactRelation}}</p>
+            <p><b>Contact:</b> {{employeeDetails?.basicDetails.emergencyContactNumber}}</p>
           </div>
         </div>
       </div>
@@ -55,50 +55,50 @@
         <div [ngClass]="{'grid-col':addressDetails===true ,'tab': addressDetails===false}">
           <h4 class="sub-heading">Present Address</h4>
           <div class="grid-row">
-            <p><b>Building No/Flat Name:</b> {{employeeDetails.addressDetails.presentAddress.buildingName}}</p>
-            <p><b>Street:</b> {{employeeDetails.addressDetails.presentAddress.streetName}}</p>
-            <p><b>Area:</b> {{employeeDetails.addressDetails.presentAddress.area}}</p>
+            <p><b>Building No/Flat Name:</b> {{employeeDetails?.addressDetails.presentAddress.buildingName}}</p>
+            <p><b>Street:</b> {{employeeDetails?.addressDetails.presentAddress.streetName}}</p>
+            <p><b>Area:</b> {{employeeDetails?.addressDetails.presentAddress.area}}</p>
           </div>
           <div class="grid-row">
-            <p><b>City:</b> {{employeeDetails.addressDetails.presentAddress.city}}</p>
-            <p><b>State:</b> {{employeeDetails.addressDetails.presentAddress.state}}</p>
-            <p><b>Country:</b> {{employeeDetails.addressDetails.presentAddress.country}}</p>
+            <p><b>City:</b> {{employeeDetails?.addressDetails.presentAddress.city}}</p>
+            <p><b>State:</b> {{employeeDetails?.addressDetails.presentAddress.state}}</p>
+            <p><b>Country:</b> {{employeeDetails?.addressDetails.presentAddress.country}}</p>
           </div>
           <div class="grid-row-2">
-            <p><b>Map:</b> {{employeeDetails.addressDetails.presentAddress.mapCoordinates}}</p>
-            <p><b>Pincode:</b> {{employeeDetails.addressDetails.presentAddress.pinCode}}</p>
+            <p><b>Map:</b> {{employeeDetails?.addressDetails.presentAddress.mapCoordinates}}</p>
+            <p><b>Pincode:</b> {{employeeDetails?.addressDetails.presentAddress.pinCode}}</p>
           </div>
           <hr />
           <h4 class="sub-heading">Permanent Address</h4>
           <div class="grid-row">
-            <p><b>Building No/Flat Name:</b> {{employeeDetails.addressDetails.permanentAddress.buildingName}}</p>
-            <p><b>Street:</b> {{employeeDetails.addressDetails.permanentAddress.streetName}}</p>
-            <p><b>Area:</b> {{employeeDetails.addressDetails.permanentAddress.area}}</p>
+            <p><b>Building No/Flat Name:</b> {{employeeDetails?.addressDetails.permanentAddress.buildingName}}</p>
+            <p><b>Street:</b> {{employeeDetails?.addressDetails.permanentAddress.streetName}}</p>
+            <p><b>Area:</b> {{employeeDetails?.addressDetails.permanentAddress.area}}</p>
           </div>
           <div class="grid-row">
-            <p><b>City:</b> {{employeeDetails.addressDetails.permanentAddress.city}}</p>
-            <p><b>State:</b> {{employeeDetails.addressDetails.permanentAddress.state}}</p>
-            <p><b>Country:</b> {{employeeDetails.addressDetails.permanentAddress.country}}</p>
+            <p><b>City:</b> {{employeeDetails?.addressDetails.permanentAddress.city}}</p>
+            <p><b>State:</b> {{employeeDetails?.addressDetails.permanentAddress.state}}</p>
+            <p><b>Country:</b> {{employeeDetails?.addressDetails.permanentAddress.country}}</p>
           </div>
           <div class="grid-row-2">
-            <p><b>Map:</b> {{employeeDetails.addressDetails.permanentAddress.mapCoordinates}}</p>
-            <p><b>Pincode:</b> {{employeeDetails.addressDetails.permanentAddress.pinCode}}</p>
+            <p><b>Map:</b> {{employeeDetails?.addressDetails.permanentAddress.mapCoordinates}}</p>
+            <p><b>Pincode:</b> {{employeeDetails?.addressDetails.permanentAddress.pinCode}}</p>
           </div>
         </div>
       </div>
 
 
-      <div class="flex-form" *ngIf="employeeDetails.Status==='Rejected'">
+      <div class="flex-form" *ngIf="employeeDetails?.Status==='Rejected'">
         <h4>Reason for Rejection:</h4>
-        <h4 class="invalid-feedback"> {{employeeDetails.reasonForRejection}}</h4>
+        <h4 class="invalid-feedback"> {{employeeDetails?.reasonForRejection}}</h4>
       </div>
       <div class="modal-foot-right">
         <button type="button"
-          *ngIf="employeeDetails.Status == 'Completed' || 'Rejected' && employeeDetails.Status !== 'Pending'"
+          *ngIf="employeeDetails?.Status == 'Completed' || 'Rejected' && employeeDetails?.Status !== 'Pending'"
           class="button-group" (click)="closeNotificationModal(false)">Close</button>
-        <button type="button" *ngIf="employeeDetails.Status == 'Pending'" class="button-group"
-          (click)="ApproveData(employeeDetails.EmpId)">Approve</button>
-        <button type="button"  style="margin-right: 25px" *ngIf="employeeDetails.Status == 'Pending'" class="button-group"
+        <button type="button" *ngIf="employeeDetails?.Status == 'Pending'" class="button-group"
+          (click)="ApproveData(employeeDetails?.EmpId)">Approve</button>
+        <button type="button"  style="margin-right: 25px" *ngIf="employeeDetails?.Status == 'Pending'" class="button-group"
           (click)="closeNotificationModal(true)">Reject</button>
       </div>
     </div>

@@ -25,7 +25,6 @@ export class HRTableComponent implements OnInit, OnDestroy {
   reject: Boolean = false;
   error:boolean=true;
   current!: Number;
-  dtOptions: DataTables.Settings = {};
   employees: Employees[] = [];
   notifyText: String = "";
   dtTrigger: Subject<any> = new Subject<any>();
@@ -54,8 +53,6 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.hr.employees$.subscribe((data) => {
       this.employees = data.data;
       this.dtTrigger.next();
-      this.dtOptions = {
-      }
       if (this.employees.length <= 0) {
         this.notifyText = "Employee data loading failed";
         this.error=!this.error

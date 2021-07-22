@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HeaderComponent } from '../../core/header/header.component';
 
 import { HRTableComponent } from './hr-table.component';
 
@@ -8,7 +12,8 @@ describe('HrtableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HRTableComponent ]
+      imports:[HttpClientTestingModule,ReactiveFormsModule,RouterTestingModule],
+      declarations: [ HRTableComponent ,HeaderComponent]
     })
     .compileComponents();
   });

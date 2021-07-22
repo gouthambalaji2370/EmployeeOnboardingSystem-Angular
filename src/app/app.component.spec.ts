@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { ScrollToTopComponent } from './Components/core/scroll-to-top/scroll-to-top.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,7 +10,7 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,ScrollToTopComponent
       ],
     }).compileComponents();
   });
@@ -23,13 +24,7 @@ describe('AppComponent', () => {
   it(`should have as title 'EmployeeOnboardingSystemAngular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('EmployeeOnboardingSystemAngular');
+    expect(app.title).toEqual('EmployeeOnboardingSystem');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('EmployeeOnboardingSystemAngular app is running!');
-  });
 });

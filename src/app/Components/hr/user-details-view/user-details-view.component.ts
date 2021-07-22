@@ -16,12 +16,10 @@ export class UserdetailsviewComponent implements OnInit {
   basicDetails: Boolean = true;
   addressDetails: Boolean = false;
   approve:Boolean=false;
-  status: String = "";
   notifyText: String = "";
   constructor() { }
 
   ngOnInit(): void {
-    status = this.employeeDetails.Status
   }
   ApproveData(userid:String): void {
     this.closeDetailsView.emit(false);
