@@ -6,9 +6,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./alerts.component.css']
 })
 export class AlertsComponent implements OnInit {
-  onCloseButtonClicked(arg0: number) {
-    throw new Error('Method not implemented.');
-  }
 
   constructor() { }
   @Input()
@@ -21,7 +18,7 @@ export class AlertsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  closemodal(): void {
+  closeModal(): void {
     this.closeModalEvent.emit(false);
   }
 

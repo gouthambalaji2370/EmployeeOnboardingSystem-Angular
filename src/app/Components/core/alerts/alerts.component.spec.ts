@@ -22,7 +22,30 @@ describe('AlertsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should close dialog when close button clicked', () => {
-    
-  });
+  it('should close on button click', fakeAsync(() => {
+    spyOn(component, 'closeModal');
+    let button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+    tick();
+    expect(component.closeModal).toHaveBeenCalled();
+  
+  }));
+  it('should close on div click',fakeAsync(()=>{
+    spyOn(component,'closeModal');
+    let div=fixture.debugElement.nativeElement.querySelector('div');
+    div.click();
+    tick();
+    expect(component.closeModal).toHaveBeenCalled();
+  }));
+  it('should check close modal',()=>{
+    spyOn(component,'closeModal');
+    component.closeModal();
+    expect(component.closeModal).toHaveBeenCalled()
+  })
+  it('should call close Modal',()=>{
+    component.closeModalEvent.subscribe((response)=>{
+      expect(response).toEqual(false)
+    })
+    component.closeModal();
+  })
 });

@@ -31,10 +31,9 @@
             <td>{{ employee.CreatedAt }}</td>
             <td style="height: 50px;">
 
-              <button
-                *ngIf="employee.Status === 'Rejected' || employee.Status === 'Incomplete' || employee.Status !== 'Pending' && employee.Status !=='Completed'"
+              <button id="notificationModal" *ngIf="employee.Status === 'Rejected' || employee.Status === 'Incomplete' || employee.Status !== 'Pending' && employee.Status !=='Completed'"
                 class="button-group-small" data-target="#usernotified" (click)="openNotificationModal(true)">Notify</button>
-              <button *ngIf="employee.Status === 'Completed'" class="button-group-small" data-target="#editaccess"
+              <button id="editModal" *ngIf="employee.Status === 'Completed'" class="button-group-small" data-target="#editaccess"
                 (click)="openNotificationModal(false)">Edit</button>
               <button *ngIf="employee.Status !== 'Incomplete'" type="button" class="view" data-target="#empdetailsview"
                 (click)="openViewModal(employee.EmpId)"><i class="fa fa-eye"></i></button>
@@ -45,7 +44,7 @@
       </table>
       <app-userdetailsview *ngIf=view id="userdetails" (closeDetailsView)="closeViewModal($event)"
             (rejectReasonView)="rejectViewModal($event)" [employeeDetails]=employee></app-userdetailsview>
-      <app-modals *ngIf="notify || edit" (closeModalEvent)="CloseNotification($event)" [type]="error" id="usernotified"
+      <app-modals *ngIf="notify || edit" (closeModalEvent)="closeNotification($event)" [type]="error" id="usernotified"
         [content]="notifyText"></app-modals>
       <app-inviteform *ngIf=invite (closeInviteEvent)="closeInvite($event)" id="inviteform" [open]=invite></app-inviteform>
     
@@ -58,7 +57,7 @@
       </div>
       <div class="modal-content">
         <div class="modal-body">
-          <form [formGroup]="reasonForm" (ngSubmit)="submitReject()" class="formclass">
+          <form [formGroup]="reasonForm" (ngSubmit)="submitRejectForm()" class="formclass">
             <div class="flex-form">
               <textarea type="text" name="reason" rows="4" cols="40" formControlName="reason"
                 [ngClass]="{'alert':isSubmitted && this.reason?.errors?.required}"

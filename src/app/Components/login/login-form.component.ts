@@ -60,7 +60,7 @@ export class LoginformComponent implements OnInit {
   get password() {
     return this.loginForm.get("password");
   }
-  loginmethod(): void {
+  loginMethod(): void {
     this.isSubmitted = true
     if (this.loginForm.valid) {
       this.loginService.checkUser({email: this.userName?.value, password: this.password?.value}).subscribe((data: { success: Boolean,role:String }) => {

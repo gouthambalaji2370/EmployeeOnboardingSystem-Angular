@@ -173,7 +173,7 @@
                                 <div class="container">
                                     <label for="permanentcountry"><b>Country <span class="mandatory-asterick">*</span></b></label>
                                     <select name="permanentcountry" formControlName="country" class="countries"
-                                        id="countryId" #myCountrypermanent
+                                        id="countryIdpermanent" #myCountrypermanent
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.country')?.errors?.required}"
                                         (ngModelChange)='onChangeCountry(myCountrypermanent.value,false)'>
                                         <option value="">Select country...</option>
@@ -255,8 +255,8 @@
             </div>
             <div class="secondbutton">
                 <button type="button" class="previousbtn" id="prevBtn" (click)="previous()">Previous</button>
-                <button type="button" class="submitbtn" id="nextBtn" (click)="submitForm()">Submit</button>
-                <button type="button" class="submitbtn" id="nextBtn" (click)="saveDraft()">Save</button>
+                <button type="button" class="submitbtn forward" id="submitBtn" (click)="submitForm()">Submit</button>
+                <button type="button" class="submitbtn forward" id="saveBtn" (click)="saveDraft()">Save</button>
 
             </div>
         </div>

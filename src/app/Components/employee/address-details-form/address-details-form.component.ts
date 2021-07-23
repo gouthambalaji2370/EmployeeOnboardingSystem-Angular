@@ -46,7 +46,7 @@ export class AddressDetailsFormComponent implements OnInit {
     return true;
   }
   ngOnInit(): void {
-    this.getformInstance()
+    this.getFormInstance()
     this.getCountriesdata()
   }
 
@@ -102,7 +102,7 @@ export class AddressDetailsFormComponent implements OnInit {
       })
     }
   }
-  getformInstance() {
+  getFormInstance() {
     this.addressDetailsForm = this.fb.group({
       presentAddress: new FormGroup({
         flatName: new FormControl("",

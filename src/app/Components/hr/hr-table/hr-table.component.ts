@@ -13,6 +13,7 @@ import { HrService } from 'src/app/Services/hr.service';
   styleUrls: ['./hr-table.component.css']
 })
 export class HRTableComponent implements OnInit, OnDestroy {
+ 
   @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
     confirm("Reload Home Page?");
     event.returnValue = false;
@@ -65,7 +66,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.reject = !this.reject;
     this.openViewModal(this.current);
   }
-  CloseNotification(closeModalEvent: Boolean) {
+  closeNotification(closeModalEvent: Boolean) {
     this.notify = closeModalEvent;
     this.edit = closeModalEvent;
   }
@@ -77,7 +78,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
   }
  
 
-  submitReject(): void {
+  submitRejectForm(): void {
     this.isSubmitted = true;
     if (this.reasonForm.valid) {
       let form = JSON.stringify(this.reason?.value)
