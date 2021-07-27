@@ -52,42 +52,25 @@
         </div>
 
 
-        <div [ngClass]="{'grid-col':addressDetails===true ,'tab': addressDetails===false}">
-          <h4 class="sub-heading">Present Address</h4>
+        <div *ngFor="let address of employeeDetails?.addressDetails;"  [ngClass]="{'grid-col':addressDetails===true ,'tab': addressDetails===false}">
+          <h4 class="sub-heading">{{address.type}} Address</h4>
           <div class="grid-row">
-            <p><b>Building No/Flat Name:</b> {{employeeDetails?.addressDetails.presentAddress.buildingName}}</p>
-            <p><b>Street:</b> {{employeeDetails?.addressDetails.presentAddress.streetName}}</p>
-            <p><b>Area:</b> {{employeeDetails?.addressDetails.presentAddress.area}}</p>
+            <p><b>Building No/Flat Name:</b> {{address.data.buildingName}}</p>
+            <p><b>Street:</b> {{address.data.streetName}}</p>
+            <p><b>Area:</b> {{address.data.area}}</p>
           </div>
           <div class="grid-row">
-            <p><b>City:</b> {{employeeDetails?.addressDetails.presentAddress.city}}</p>
-            <p><b>State:</b> {{employeeDetails?.addressDetails.presentAddress.state}}</p>
-            <p><b>Country:</b> {{employeeDetails?.addressDetails.presentAddress.country}}</p>
+            <p><b>City:</b> {{address.data.city}}</p>
+            <p><b>State:</b> {{address.data.state}}</p>
+            <p><b>Country:</b> {{address.data.country}}</p>
           </div>
           <div class="grid-row-2">
-            <p><b>Map:</b> {{employeeDetails?.addressDetails.presentAddress.mapCoordinates}}</p>
-            <p><b>Pincode:</b> {{employeeDetails?.addressDetails.presentAddress.pinCode}}</p>
+            <p><b>Map:</b> {{address.data.mapCoordinates}}</p>
+            <p><b>Pincode:</b> {{address.data.pinCode}}</p>
           </div>
           <hr />
-          <h4 class="sub-heading">Permanent Address</h4>
-          <div class="grid-row">
-            <p><b>Building No/Flat Name:</b> {{employeeDetails?.addressDetails.permanentAddress.buildingName}}</p>
-            <p><b>Street:</b> {{employeeDetails?.addressDetails.permanentAddress.streetName}}</p>
-            <p><b>Area:</b> {{employeeDetails?.addressDetails.permanentAddress.area}}</p>
-          </div>
-          <div class="grid-row">
-            <p><b>City:</b> {{employeeDetails?.addressDetails.permanentAddress.city}}</p>
-            <p><b>State:</b> {{employeeDetails?.addressDetails.permanentAddress.state}}</p>
-            <p><b>Country:</b> {{employeeDetails?.addressDetails.permanentAddress.country}}</p>
-          </div>
-          <div class="grid-row-2">
-            <p><b>Map:</b> {{employeeDetails?.addressDetails.permanentAddress.mapCoordinates}}</p>
-            <p><b>Pincode:</b> {{employeeDetails?.addressDetails.permanentAddress.pinCode}}</p>
-          </div>
         </div>
       </div>
-
-
       <div class="flex-form" *ngIf="employeeDetails?.Status==='Rejected'">
         <h4>Reason for Rejection:</h4>
         <h4 class="invalid-feedback"> {{employeeDetails?.reasonForRejection}}</h4>

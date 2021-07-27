@@ -21,28 +21,36 @@
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
-        "addressDetails":{
-            "presentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+        "addressDetails":[
+            {
+                "type":"present",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             },
-            "permanentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+            {
+                "type":"permanent",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             }
-        }
+
+
+        ]
     },
     {
         "EmpId":"I001",
@@ -65,28 +73,36 @@
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
-        "addressDetails":{
-            "presentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+        "addressDetails":[
+            {
+                "type":"present",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             },
-            "permanentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+            {
+                "type":"permanent",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             }
-        }
+
+
+        ]
     },
     {
         "EmpId":"I002",
@@ -110,28 +126,36 @@
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
-        "addressDetails":{
-            "presentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+        "addressDetails":[
+            {
+                "type":"present",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             },
-            "permanentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+            {
+                "type":"permanent",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             }
-        }
+
+
+        ]
     },
     {
         "EmpId":"2370",
@@ -154,28 +178,36 @@
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
-        "addressDetails":{
-            "presentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+        "addressDetails":[
+            {
+                "type":"present",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             },
-            "permanentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+            {
+                "type":"permanent",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             }
-        }
+
+
+        ]
     },
     { 
         "EmpId":"I047",
@@ -198,28 +230,36 @@
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
-        "addressDetails":{
-            "presentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+        "addressDetails":[
+            {
+                "type":"present",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             },
-            "permanentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+            {
+                "type":"permanent",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             }
-        }
+
+
+        ]
     },
     {
         "EmpId":"I001",
@@ -242,28 +282,36 @@
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
-        "addressDetails":{
-            "presentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+        "addressDetails":[
+            {
+                "type":"present",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             },
-            "permanentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+            {
+                "type":"permanent",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             }
-        }
+
+
+        ]
     },
     {
         "EmpId":"I002",
@@ -287,28 +335,34 @@
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
-        "addressDetails":{
-            "presentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+        "addressDetails":[
+            {
+                "type":"present",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             },
-            "permanentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+            {
+                "type":"permanent",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             }
-        }
+        ]
     },
     {
         "EmpId":"2370",
@@ -331,28 +385,36 @@
             "emergencyContactRelation":"Father",
             "emergencyContactNumber":"9809012341"
         },
-        "addressDetails":{
-            "presentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+        "addressDetails":[
+            {
+                "type":"present",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             },
-            "permanentAddress":{
-                "buildingName":"12",
-                "streetName":"CNK Road",
-                "area":"Chepauk",
-                "city":"Chennai",
-                "state":"Tamilnadu",
-                "country":"India",
-                "mapCoordinates":"123121.123N,1231123.1211E",
-                "pinCode":"600005"
+            {
+                "type":"permanent",
+                "data":{
+                    "buildingName":"12",
+                    "streetName":"CNK Road",
+                    "area":"Chepauk",
+                    "city":"Chennai",
+                    "state":"Tamilnadu",
+                    "country":"India",
+                    "mapCoordinates":"123121.123N,1231123.1211E",
+                    "pinCode":"600005"
+                }
             }
-        }
+
+
+        ]
     }
 ]
 }
