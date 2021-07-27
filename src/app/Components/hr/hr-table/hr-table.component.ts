@@ -113,6 +113,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.invite = !this.invite
   }
   openNotificationModal(type:boolean): void {
+    console.log('hello');
     if(type){
     this.notifyText = "User Notified Successfully"
     this.notify = !this.notify;

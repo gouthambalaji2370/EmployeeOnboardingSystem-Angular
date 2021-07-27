@@ -9,7 +9,7 @@ import { HrService } from 'src/app/Services/hr.service';
 })
 export class InviteformComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private hrService: HrService) { }
+  constructor(private fb: FormBuilder, public hrService: HrService) { }
   @Input()
   open: Boolean = false;
   @Output()

@@ -9,8 +9,8 @@
       <div id="basicDetails">
         <div style="display: flex;">
           <h3>Basic Details</h3>
-          <button type="button" *ngIf="!basicDetails" class="view" (click)="openDetails('Basic')"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
-          <button type="button" *ngIf="basicDetails" class="view" (click)="openDetails('Address')"><i
+          <button type="button" id="basicDetails" *ngIf="!basicDetails" class="view" (click)="openDetails('Basic')"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+          <button type="button" id="basicDetailsclose" *ngIf="basicDetails" class="view" (click)="openDetails('Address')"><i
               class="fa fa-minus-circle" aria-hidden="true"></i></button>
         </div>
         <div [ngClass]="{'grid-col':basicDetails===true ,'tab': basicDetails===false}">
@@ -45,9 +45,9 @@
       <div id="addressDetails">
         <div style="display: flex;">
           <h3>Address Details</h3>
-          <button type="button" *ngIf="!addressDetails" class="view" (click)="openDetails('Address')"><i
+          <button type="button" id="addressDetails" *ngIf="!addressDetails" class="view" (click)="openDetails('Address')"><i
               class="fa fa-plus-circle" aria-hidden="true"></i></button>
-          <button type="button" *ngIf="addressDetails" class="view" (click)="openDetails('Basic')"><i
+          <button type="button" id="addressDetailsClose" *ngIf="addressDetails" class="view" (click)="openDetails('Basic')"><i
               class="fa fa-minus-circle" aria-hidden="true"></i></button>
         </div>
 
@@ -97,7 +97,7 @@
           *ngIf="employeeDetails?.Status == 'Completed' || 'Rejected' && employeeDetails?.Status !== 'Pending'"
           class="button-group" (click)="closeNotificationModal(false)">Close</button>
         <button type="button" *ngIf="employeeDetails?.Status == 'Pending'" class="button-group"
-          (click)="ApproveData(employeeDetails?.EmpId)">Approve</button>
+          (click)="approveData(employeeDetails?.EmpId)">Approve</button>
         <button type="button"  style="margin-right: 25px" *ngIf="employeeDetails?.Status == 'Pending'" class="button-group"
           (click)="closeNotificationModal(true)">Reject</button>
       </div>

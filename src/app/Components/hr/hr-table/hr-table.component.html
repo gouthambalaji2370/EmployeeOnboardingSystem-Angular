@@ -5,7 +5,7 @@
       <h1>HR Dashboard</h1>
     </div>
     <div id="invitenew">
-      <button class="button-group absolute-right" (click)="openInvite()" data-target="#createinvite">Create
+      <button id="openInvite" class="button-group absolute-right" (click)="openInvite()" data-target="#createinvite">Create
         Invite</button>
     </div>
     <div id="request" style="margin: 85px 14px">
@@ -31,14 +31,13 @@
             <td>{{ employee.CreatedAt }}</td>
             <td style="height: 50px;">
 
-              <button id="notificationModal" *ngIf="employee.Status === 'Rejected' || employee.Status === 'Incomplete' || employee.Status !== 'Pending' && employee.Status !=='Completed'"
+              <button id="notificationModal" *ngIf="employee.Status === 'Rejected' || employee.Status === 'Incomplete' || (employee.Status !== 'Pending' && employee.Status !=='Completed')"
                 class="button-group-small" data-target="#usernotified" (click)="openNotificationModal(true)">Notify</button>
               <button id="editModal" *ngIf="employee.Status === 'Completed'" class="button-group-small" data-target="#editaccess"
                 (click)="openNotificationModal(false)">Edit</button>
-              <button *ngIf="employee.Status !== 'Incomplete'" type="button" class="view" data-target="#empdetailsview"
+              <button  id="viewDetails" *ngIf="employee.Status !== 'Incomplete'" type="button" class="view" data-target="#empdetailsview"
                 (click)="openViewModal(employee.EmpId)"><i class="fa fa-eye"></i></button>
             </td>
-            
           </tr>
         </tbody>
       </table>
@@ -53,7 +52,7 @@
     <dialog id="myModal" *ngIf=reject class="modal fades">
       <div class="modal-head">
         <h4 class="modal-top alert-text">Reason For Rejection</h4>
-        <button type="button" class="modal-close-button" (click)="closeRejectModal()">&times;</button>
+        <button id="closeReject"  type="button" class="modal-close-button" (click)="closeRejectModal()">&times;</button>
       </div>
       <div class="modal-content">
         <div class="modal-body">
@@ -62,8 +61,7 @@
               <textarea type="text" name="reason" rows="4" cols="40" formControlName="reason"
                 [ngClass]="{'alert':isSubmitted && this.reason?.errors?.required}"
                 placeholder="Reason for Rejection..."></textarea>
-              <button type="submit" class="button-group-modal"><i class="fa fa-paper-plane"
-                  aria-hidden="true"></i></button>
+              <button id="submitForm" type="submit" class="button-group-modal"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
             </div>
             <span class="invalid-feedback" *ngIf="isSubmitted && this.reason?.errors?.required">
               <sup>*</sup>reason is required
@@ -71,7 +69,7 @@
 
           </form>
           <div class="modal-foot-center">
-            <button type="button" class="button-group-reject" (click)="backToViewModal()">Back</button>
+            <button type="button" id="redirectToView" class="button-group-reject" (click)="backToViewModal()">Back</button>
           </div>
 
         </div>

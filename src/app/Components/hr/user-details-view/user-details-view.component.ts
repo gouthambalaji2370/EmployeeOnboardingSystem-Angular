@@ -21,7 +21,7 @@ export class UserdetailsviewComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  ApproveData(userid:String): void {
+  approveData(userid:String): void {
     this.closeDetailsView.emit(false);
     this.rejectReasonView.emit(false);
   }

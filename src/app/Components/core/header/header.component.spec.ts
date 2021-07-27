@@ -9,11 +9,15 @@ let router = {
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
+  let routerSpy = {navigate: jasmine.createSpy('navigate')};
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports:[ RouterTestingModule],
-      declarations: [ HeaderComponent ]
+      declarations: [ HeaderComponent ],
+      providers: [
+        { provide: Router, useValue: routerSpy }
+      ]
     })
     .compileComponents();
   });
@@ -40,7 +44,10 @@ describe('HeaderComponent', () => {
     component.logout();
     expect(component.logout).toHaveBeenCalled()
   })
- 
+  it('should redirect to login route',()=>{
+    component.logout()
+    expect (routerSpy.navigate).toHaveBeenCalledWith(['/login']);
+  })
 });
 
 

@@ -51,6 +51,7 @@ describe('LoginformComponent', () => {
   //   password.setValue("Abce@1111");
   //   expect(password.errors).toBeNull();
   // })
+
   it('should check login form on init',()=>{
     spyOn(component,'LoginFormInitalize');
     component.LoginFormInitalize();
@@ -60,6 +61,11 @@ describe('LoginformComponent', () => {
     spyOn(component,'loginMethod');
     component.loginMethod();
     expect(component.loginMethod).toHaveBeenCalled()
+  })
+  it('should check if form valid',()=>{
+    component.loginForm.controls['userName'].setValue('user@gmail.com')
+    component.loginForm.controls['password'].setValue('Abaa@1115');
+    expect(component.loginForm.valid).toBeTruthy();
   })
 
 });

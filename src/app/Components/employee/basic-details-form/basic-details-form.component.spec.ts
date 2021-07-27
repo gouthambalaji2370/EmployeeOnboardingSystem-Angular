@@ -90,7 +90,8 @@ describe('BasicDetailsFormComponent', () => {
 expect(component.basicDetailsForm.valid).toBeFalsy();
 
   })
-  it('form should be invalid',()=>{
+  it('form should be valid and submit basic details is called',()=>{
+    spyOn(component,'submitBasicDetails').and.callThrough();
     component.basicDetailsForm.controls['firstName'].setValue('ram')
     component.basicDetailsForm.controls['lastName'].setValue('kumar')
     component.basicDetailsForm.controls['phoneNumber'].setValue('9840123123')
@@ -107,7 +108,10 @@ expect(component.basicDetailsForm.valid).toBeFalsy();
     component.basicDetailsForm.controls['emergencyContactName'].setValue('ravi')
     component.basicDetailsForm.controls['relation'].setValue('father')
     component.basicDetailsForm.controls['emergencyContactNumber'].setValue('9840123123')
-  expect(component.basicDetailsForm.valid).toBeTruthy();
+    fixture.detectChanges();
+    let button = fixture.debugElement.nativeElement.querySelector('#nextBtn');
+    button.click();
+    expect(component.submitBasicDetails).toHaveBeenCalled();
   })
  
   // it('should check email id value is entered',()=>{
@@ -128,6 +132,11 @@ expect(component.basicDetailsForm.valid).toBeFalsy();
     component.setFormData();
     expect(component.setFormData).toHaveBeenCalled()
   })
+  it('should check submit basic details',()=>{
+    spyOn(component,'submitBasicDetails');
+    component.submitBasicDetails();
+    expect(component.submitBasicDetails).toHaveBeenCalled()
+  })
   it('should check form on init',()=>{
     spyOn(component,'formOnInit');
     component.formOnInit();
@@ -143,9 +152,18 @@ expect(component.basicDetailsForm.valid).toBeFalsy();
     component.unloadHandler(new Event('reload'));
     expect(component.unloadHandler).toHaveBeenCalled()
   })
-  it('should check get form instance',()=>{
+  it('should check go to previous false',()=>{
     spyOn(component,'goToPrevious');
     component.goToPrevious({current:0,completed:false});   
+    expect(component.goToPrevious).toHaveBeenCalled()
+  })
+  it('should disable form',()=>{
+    component.basicDetailsForm.disable();
+      expect(component.basicDetailsForm.disabled).toBeTruthy()  
+  })
+  it('should check go to previous true',()=>{
+    spyOn(component,'goToPrevious');
+    component.goToPrevious({current:0,completed:true});   
     expect(component.goToPrevious).toHaveBeenCalled()
   })
  

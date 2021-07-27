@@ -34,7 +34,18 @@ export class EmployeeService {
   this.setAddressDetails(data.addressDetails);
 }
   register(data:any){
-    this.setAddressDetails(data)
+    let address=[
+      {
+        "type":"present",
+         "data":data.presentAddress
+      },
+      {
+        "type":"permanent",
+        "data":data.permanentAddress
+      }
+    ]
+    console.log(address)
+    this.setAddressDetails(address)
     this.employeeDetails={
     "basicdetails":this.basicDetails,
     "addressDetails":this.addressDetails
@@ -46,11 +57,23 @@ export class EmployeeService {
 
   }
   save(data:any){
-    this.setAddressDetails(data)
+    let address=[
+      {
+        "type":"present",
+         "data":data.presentAddress
+      },
+      {
+        "type":"permanent",
+        "data":data.permanentAddress
+      }
+    ]
+    console.log(address)
+    this.setAddressDetails(address)
     this.employeeDetails={
     "basicdetails":this.basicDetails,
     "addressDetails":this.addressDetails
   };
+  console.log(this.employeeDetails)
    // this.http.post(this.baseurl+'savedetails',this.employeeDetails).subscribe(res=>{
     //   return res;
     // })
