@@ -37,11 +37,26 @@ export class EmployeeService {
     let address=[
       {
         "type":"present",
-         "data":data.presentAddress
+        "flatName":data.presentAddress.flatName,
+         "area":data.presentAddress.area,
+         "city":data.presentAddress.city,
+         "country":data.presentAddress.country,
+         "state":data.presentAddress.state,
+         "street":data.presentAddress.streetName,
+         "pincode":data.presentAddress.pinCode,
+         "mapCoordinates":data.presentAddress.mapCoordinates
       },
       {
         "type":"permanent",
-        "data":data.permanentAddress
+        "flatName":data.permanentAddress.flatName,
+         "area":data.permanentAddress.area,
+         "city":data.permanentAddresscity,
+         "country":data.permanentAddress.country,
+         "state":data.permanentAddress.state,
+         "street":data.permanentAddress.streetName,
+         "pincode":data.permanentAddress.pinCode,
+         "mapCoordinates":data.permanentAddress.mapCoordinates
+       
       }
     ]
     console.log(address)
@@ -57,14 +72,30 @@ export class EmployeeService {
 
   }
   save(data:any){
+   
     let address=[
       {
         "type":"present",
-         "data":data.presentAddress
+        "flatName":data.presentAddress.flatName,
+         "area":data.presentAddress.area,
+         "city":data.presentAddress.city,
+         "country":data.presentAddress.country,
+         "state":data.presentAddress.state,
+         "street":data.presentAddress.streetName,
+         "pincode":data.presentAddress.pinCode,
+         "mapCoordinates":data.presentAddress.mapCoordinates
       },
       {
         "type":"permanent",
-        "data":data.permanentAddress
+        "flatName":data.permanentAddress.flatName,
+         "area":data.permanentAddress.area,
+         "city":data.permanentAddresscity,
+         "country":data.permanentAddress.country,
+         "state":data.permanentAddress.state,
+         "street":data.permanentAddress.streetName,
+         "pincode":data.permanentAddress.pinCode,
+         "mapCoordinates":data.permanentAddress.mapCoordinates
+       
       }
     ]
     console.log(address)
