@@ -114,7 +114,7 @@ export class EmployeeService {
       "lastName": this.basicDetails.lastName,
      "motherName": this.basicDetails.motherName,
       "phoneNumber": this.basicDetails.phoneNumber,
-      "relation": this.basicDetails.relation,
+      "emergencyContactRelation": this.basicDetails.relation,
       "sslc": this.basicDetails.sslc,
       "ug": this.basicDetails.ug,
     "addressDetails":this.addressDetails
