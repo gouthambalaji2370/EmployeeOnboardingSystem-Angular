@@ -101,7 +101,22 @@ export class EmployeeService {
     console.log(address)
     this.setAddressDetails(address)
     this.employeeDetails={
-    "basicdetails":this.basicDetails,
+      "aadharNumber": this.basicDetails.aadharNumber,
+      "bloodGroup": this.basicDetails.bloodGroup,
+      "dob": this.basicDetails.dob,
+      "emailID":  this.basicDetails.emailID,
+      "emergencyContactName":  this.basicDetails.emergencyContactName,
+      "emergencyContactNumber": this.basicDetails.emergencyContactNumber,
+      "fatherName": this.basicDetails.fatherName,
+      "firstName": this.basicDetails.firstName,
+      "gender": this.basicDetails.gender,
+      "hsc": this.basicDetails.hsc,
+      "lastName": this.basicDetails.lastName,
+     "motherName": this.basicDetails.motherName,
+      "phoneNumber": this.basicDetails.phoneNumber,
+      "relation": this.basicDetails.relation,
+      "sslc": this.basicDetails.sslc,
+      "ug": this.basicDetails.ug,
     "addressDetails":this.addressDetails
   };
   console.log(this.employeeDetails)
