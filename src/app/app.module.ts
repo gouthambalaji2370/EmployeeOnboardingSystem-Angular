@@ -9,6 +9,7 @@ import { EmployeeModule } from './Components/employee/employee.module';
 import { HrModule } from './Components/hr/hr.module';
 import { LoginModule } from './Components/login/login.module';
 import { CoreModule } from './Components/core/core.module';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { CoreModule } from './Components/core/core.module';
     LoginModule,
     CoreModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

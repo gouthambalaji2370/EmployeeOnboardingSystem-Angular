@@ -1,37 +1,61 @@
 import { Injectable } from '@angular/core';
 import { of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { DatePipe } from '@angular/common'
+import { first } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
+export class EmployeeService {  
+  public employee$: Subject<any> = new Subject();
+  public response$: Subject<any> = new Subject();
+
+
   basicDetails: any;
   addressDetails: any;
   employeeDetails: any;
 
-  baseurl="http://localhost:5000/";
+  baseurl="http://localhost:8080/";
 
+  
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,public datepipe: DatePipe) { }
+  datePipeImplementation(date:any){
+    date=new Date();
+    let latest_date =this.datepipe.transform(date, 'MM/dd/yyyy');
+   }
   getEmployeeDetails() {
-    const data =  {
-      basicDetails : {
-        firstName: 'ada',
-      lastName: 'aba',
-      gender: 'female',
-      name: 'adf',
-      relationship: 'Uncle',
-      phoneNumber: 1234567890,
-    },
-    addressDetails: {
+    var user=localStorage.getItem('id');
+    this.http.get(this.baseurl+`formdata/${user}`).subscribe(data=>{
+    this.employee$.next(data);
+  })
+    const addressDetails= [
+      {
+        area: "chepauk",
+        country: "India",
+        district: "chennai",
+        flatName: "sfa",
+        mapCoordinates: "12341.123N,123.12E",
+        pincode: 600006,
+        state: "Tamilnadu",
+        street: "cnk",
+        type: "permanent"
+      },{
+        area: "chepauk",
+        country: "India",
+        district: "chennai",
+        flatName: "sfa",
+        mapCoordinates: "12341.123N,123.12E",
+        pincode: 600006,
+        state: "Tamilnadu",
+        street: "cnk",
+        type: "present"
+      }
      
-    },
-   
-  };
-  this.setBasicDetails(data.basicDetails);
-  this.setAddressDetails(data.addressDetails);
+    ]
+  this.setAddressDetails(addressDetails);
 }
   register(data:any){
     let address=[
@@ -39,7 +63,7 @@ export class EmployeeService {
         "type":"present",
         "flatName":data.presentAddress.flatName,
          "area":data.presentAddress.area,
-         "city":data.presentAddress.city,
+         "district":data.presentAddress.city,
          "country":data.presentAddress.country,
          "state":data.presentAddress.state,
          "street":data.presentAddress.streetName,
@@ -50,7 +74,7 @@ export class EmployeeService {
         "type":"permanent",
         "flatName":data.permanentAddress.flatName,
          "area":data.permanentAddress.area,
-         "city":data.permanentAddresscity,
+         "district":data.permanentAddress.city,
          "country":data.permanentAddress.country,
          "state":data.permanentAddress.state,
          "street":data.permanentAddress.streetName,
@@ -62,13 +86,28 @@ export class EmployeeService {
     console.log(address)
     this.setAddressDetails(address)
     this.employeeDetails={
-    "basicdetails":this.basicDetails,
-    "addressDetails":this.addressDetails
+      "action":"submit",
+      "empID":localStorage.getItem('id'),
+      "aadharNumber": this.basicDetails.aadharNumber,
+      "bloodGroup": this.basicDetails.bloodGroup,
+      "dob": this.datepipe.transform(this.basicDetails.dob, 'MM/dd/yyyy'),
+      "emailID":  this.basicDetails.emailID,
+      "emergencyContactName":  this.basicDetails.emergencyContactName,
+      "emergencyContactNumber": this.basicDetails.emergencyContactNumber,
+      "fatherName": this.basicDetails.fatherName,
+      "firstName": this.basicDetails.firstName,
+      "gender": this.basicDetails.gender,
+      "hscScore": this.basicDetails.hsc,
+      "lastName": this.basicDetails.lastName,
+     "motherName": this.basicDetails.motherName,
+      "phoneNumber": this.basicDetails.phoneNumber,
+      "emergencyContactRelation": this.basicDetails.relation,
+      "sslcScore": this.basicDetails.sslc,
+      "ugScore": this.basicDetails.ug,
+    "addresses":address
   };
-   // this.http.post(this.baseurl+'register',this.employeeDetails).subscribe(res=>{
-    //   return res;
-    // })
-    return of ({success:true});
+   
+    return this.http.post(this.baseurl+'employeedetails',this.employeeDetails)
 
   }
   save(data:any){
@@ -77,19 +116,19 @@ export class EmployeeService {
       {
         "type":"present",
         "flatName":data.presentAddress.flatName,
-         "area":data.presentAddress.area,
-         "city":data.presentAddress.city,
-         "country":data.presentAddress.country,
-         "state":data.presentAddress.state,
-         "street":data.presentAddress.streetName,
-         "pincode":data.presentAddress.pinCode,
-         "mapCoordinates":data.presentAddress.mapCoordinates
+        "area":data.presentAddress.area,
+        "district":data.presentAddress.city,
+        "country":data.presentAddress.country,
+        "state":data.presentAddress.state,
+        "street":data.presentAddress.streetName,
+        "pincode":data.presentAddress.pinCode,
+        "mapCoordinates":data.presentAddress.mapCoordinates
       },
       {
         "type":"permanent",
         "flatName":data.permanentAddress.flatName,
          "area":data.permanentAddress.area,
-         "city":data.permanentAddresscity,
+         "district":data.permanentAddress.city,
          "country":data.permanentAddress.country,
          "state":data.permanentAddress.state,
          "street":data.permanentAddress.streetName,
@@ -101,29 +140,28 @@ export class EmployeeService {
     console.log(address)
     this.setAddressDetails(address)
     this.employeeDetails={
+      "action":"save",
+      "empID":localStorage.getItem('id'),
       "aadharNumber": this.basicDetails.aadharNumber,
       "bloodGroup": this.basicDetails.bloodGroup,
-      "dob": this.basicDetails.dob,
+      "dob": this.datepipe.transform(this.basicDetails.dob, 'MM/dd/yyyy'),
       "emailID":  this.basicDetails.emailID,
       "emergencyContactName":  this.basicDetails.emergencyContactName,
       "emergencyContactNumber": this.basicDetails.emergencyContactNumber,
       "fatherName": this.basicDetails.fatherName,
       "firstName": this.basicDetails.firstName,
       "gender": this.basicDetails.gender,
-      "hsc": this.basicDetails.hsc,
+      "hscScore": this.basicDetails.hsc,
       "lastName": this.basicDetails.lastName,
      "motherName": this.basicDetails.motherName,
       "phoneNumber": this.basicDetails.phoneNumber,
       "emergencyContactRelation": this.basicDetails.relation,
-      "sslc": this.basicDetails.sslc,
-      "ug": this.basicDetails.ug,
-    "addressDetails":this.addressDetails
+      "sslcScore": this.basicDetails.sslc,
+      "ugScore": this.basicDetails.ug,
+    "addresses":address
   };
-  console.log(this.employeeDetails)
-   // this.http.post(this.baseurl+'savedetails',this.employeeDetails).subscribe(res=>{
-    //   return res;
-    // })
-    return ({success:true});
+  // console.log(this.employeeDetails)
+   return this.http.post(this.baseurl+'employeedetails',this.employeeDetails)
 
   }
   setBasicDetails(details:any) {

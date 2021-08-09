@@ -9,15 +9,7 @@ export class LoginService {
   public login$: Subject<any> = new Subject();
   constructor(private http: HttpClient) { }
   checkUser = (data: any) => {
-  let res;
-    if(data.email==="hr@gmail.com"){
-      res=({success:true,role:'HR'})
-    }
-    else{
-      res=({success:true,role:'Employee'})
-    }
-    return of( res);
-    // return this.http.post("http://localhost:5000/login", data);
+    return  this.http.post("http://localhost:8080/login", data);
   };
   
 }

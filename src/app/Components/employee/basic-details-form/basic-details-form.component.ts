@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DialogService } from 'src/app/Services/dialog.service';
@@ -23,17 +24,84 @@ export class BasicDetailsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formOnInit();
-    this.basicDetails = this.employeeService.getBasicDetails();
-    if (this.basicDetails) this.setFormData();
+    this.employeeService.getEmployeeDetails();
+    this.employeeService.employee$.subscribe(data => {
+      let fname = data.name.split(" ");
+      let dobd = data.dob.split("T");
+      var basicDetails = {
+        firstName: fname[0],
+        lastName: fname[1],
+        aadharNumber: data.aadharNumber,
+        bloodGroup: data.bloodGroup,
+        dob: dobd[0],
+        emailID: data.emailID,
+        emergencyContactName: data.emergencyContactName,
+        emergencyContactNumber: data.emergencyContactNumber,
+        relation: data.emergencyContactRelation,
+        fatherName: data.fatherName,
+        gender: data.gender,
+        hsc: data.hscScore,
+        motherName: data.motherName,
+        phoneNumber: data.phoneNumber,
+        sslc: data.sslcScore,
+        ug: data.ugScore
+      };
+      var addressDetails = {
+        presentAddress: {
+          flatName: "",
+          area: "",
+          city: "",
+          country: "",
+          state: "",
+          streetName: "",
+          pinCode: "",
+          mapCoordinates: ""
+        },
+        permanentAddress:
+        {
+          flatName: "",
+          area: "",
+          city: "",
+          country: "",
+          state: "",
+          streetName: "",
+          pinCode: "",
+          mapCoordinates: ""
+        }
+
+      };
+      for (let list of data.addressSet) {
+        if (list.type = "permanent") {
+          addressDetails.permanentAddress.area = list.area;
+          addressDetails.permanentAddress.city = list.district;
+          addressDetails.permanentAddress.country = list.country;
+          addressDetails.permanentAddress.state = list.state;
+          addressDetails.permanentAddress.streetName = list.street;
+          addressDetails.permanentAddress.mapCoordinates = list.mapCoordinates;
+          addressDetails.permanentAddress.pinCode = list.pincode;
+          addressDetails.permanentAddress.flatName = list.flatName;
+
+        }
+        if (list.type = "present") {
+          addressDetails.presentAddress.area = list.area;
+          addressDetails.presentAddress.city = list.district;
+          addressDetails.presentAddress.country = list.country;
+          addressDetails.presentAddress.state = list.state;
+          addressDetails.presentAddress.streetName = list.street;
+          addressDetails.presentAddress.mapCoordinates = list.mapCoordinates;
+          addressDetails.presentAddress.pinCode = list.pincode;
+          addressDetails.presentAddress.flatName = list.flatName;
+        }
+      }
+      this.basicDetails = basicDetails;
+      this.setFormData();
+      this.employeeService.setBasicDetails(this.basicDetails);
+    })
   }
 
- 
+
   goToPrevious(goToPrevious: any) {
     this.current = goToPrevious.current;
-    this.isDisabled = goToPrevious.completed
-    if (this.isDisabled) {
-      this.basicDetailsForm.disable();
-    }
   }
   formOnInit() {
     this.basicDetailsForm = this.fb.group({

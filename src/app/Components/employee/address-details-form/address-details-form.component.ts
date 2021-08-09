@@ -1,5 +1,6 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { data } from 'jquery';
 import { EMPTY, Observable } from 'rxjs';
 import { distinctUntilChanged, startWith, switchMap, tap } from 'rxjs/operators';
 import { CountryStateDataService } from 'src/app/Services/country-state-data.service';
@@ -34,7 +35,6 @@ export class AddressDetailsFormComponent implements OnInit {
   permanentStateName: String = "";
   permanentCountryName: String = "";
   public isSameAddressControl: FormControl = new FormControl(false);
-  isDisabled: boolean = false;
   notifyText: string = "";
   constructor(private country: CountryStateDataService, private fb: FormBuilder, private employeeService: EmployeeService, public dialogService: DialogService) { }
   canDeactivate(): Observable<boolean> | boolean {
@@ -48,6 +48,57 @@ export class AddressDetailsFormComponent implements OnInit {
   ngOnInit(): void {
     this.getFormInstance()
     this.getCountriesdata()
+    var data = this.employeeService.getAddressDetails();
+    var addressDetails = {
+      presentAddress: {
+        flatName: "",
+        area: "",
+        city: "",
+        country: "",
+        state: "",
+        streetName: "",
+        pinCode: "",
+        mapCoordinates: ""
+      },
+      permanentAddress:
+      {
+        flatName: "",
+        area: "",
+        city: "",
+        country: "",
+        state: "",
+        streetName: "",
+        pinCode: "",
+        mapCoordinates: ""
+      }
+
+    };
+    console.log(this.countryInfo)
+    for (let list of data) {
+      if (list.type = "permanent") {
+        addressDetails.permanentAddress.area = list.area;
+        addressDetails.permanentAddress.city = list.district;
+        addressDetails.permanentAddress.country = list.country;
+        addressDetails.permanentAddress.state = list.state;
+        addressDetails.permanentAddress.streetName = list.street;
+        addressDetails.permanentAddress.mapCoordinates = list.mapCoordinates;
+        addressDetails.permanentAddress.pinCode = list.pincode;
+        addressDetails.permanentAddress.flatName = list.flatName;
+
+      }
+      if (list.type = "present") {
+        addressDetails.presentAddress.area = list.area;
+        addressDetails.presentAddress.city = list.district;
+        addressDetails.presentAddress.country = list.country;
+        addressDetails.presentAddress.state = list.state;
+        addressDetails.presentAddress.streetName = list.street;
+        addressDetails.presentAddress.mapCoordinates = list.mapCoordinates;
+        addressDetails.presentAddress.pinCode = list.pincode;
+        addressDetails.presentAddress.flatName = list.flatName;
+      }
+    }
+    this.addressDetailsForm.setValue(addressDetails);
+
   }
 
   closeNotificationModal(closeModalEvent: Boolean) {
@@ -64,15 +115,15 @@ export class AddressDetailsFormComponent implements OnInit {
     parseForm.presentAddress.state = this.presentStateName;
     parseForm.permanentAddress.state = this.permanentStateName;
     parseForm.permanentAddress.country = this.permanentCountryName;
-    let value = this.employeeService.save(parseForm);
-    if (value) {
-      this.draft = !this.draft;
+     this.employeeService.save(parseForm).subscribe((data:any)=>{
+      if(data.success==true){
+        this.draft = !this.draft;
       this.notifyText = "User Details has been saved";
-    }
-
+      }
+     })
   }
   previous(): void {
-    this.goToPrevious.emit({ 'current': 0, 'completed': this.isDisabled });
+    this.goToPrevious.emit({ 'current': 0 });
   }
   submitForm(): void {
     this.submitted = true;
@@ -87,18 +138,16 @@ export class AddressDetailsFormComponent implements OnInit {
       parseform.permanentAddress.state = this.permanentStateName;
       parseform.permanentAddress.country = this.permanentCountryName;
 
-      this.employeeService.register(parseform).subscribe(data=>{
-        if(data.success===true){
-          this.notify = true;
-          this.notifyText = "User Details has been forwarded Successfully";
-          this.addressDetailsForm.disable();
-          this.isDisabled = true;
-          this.submitted = false;
-        }
-        else {
-          this.notify = true;
-          this.notifyText = "User Details has some issues";
-        }
+      this.employeeService.register(parseform).subscribe((data:any)=>{
+        if (data.success === true) {
+              this.notify = true;
+              this.notifyText = "User Details has been forwarded Successfully";
+              this.submitted = false;
+            }
+            else {
+              this.notify = true;
+              this.notifyText = "User Details has some issues";
+            }
       })
     }
   }
@@ -230,36 +279,34 @@ export class AddressDetailsFormComponent implements OnInit {
     this.country.getAllCountriesSubject();
     this.country.countryData$.subscribe(data => {
       this.countryInfo = data.Countries;
-      if(this.countryInfo.length===0){
+      if (this.countryInfo.length === 0) {
         this.notify = true;
         this.notifyText = "Country data failed to load";
       }
     }, err => {
       console.log(err)
-      
+
     },
     )
   }
-  onChangeCountry(countryValue: any,type:Boolean) {
-    if(type){
+  onChangeCountry(countryValue: any, type: Boolean) {
+    if (type) {
       this.presentStateInfo = this.countryInfo[countryValue].States;
       this.presentCountryName = this.countryInfo[countryValue].CountryName;
 
     }
-    else{
+    else {
       this.permanentStateInfo = this.countryInfo[countryValue].States;
       this.permanentCountryName = this.countryInfo[countryValue].CountryName;
     }
   }
 
-  onChangeState(stateValue: any,type:Boolean) {
-    if(type){
-    this.presentStateName = this.presentStateInfo[stateValue].StateName
+  onChangeState(stateValue: any, type: Boolean) {
+    if (type) {
+      this.presentStateName = this.presentStateInfo[stateValue].StateName
     }
-    else{
+    else {
       this.permanentStateName = this.permanentStateInfo[stateValue].StateName
     }
   }
-
-
 }

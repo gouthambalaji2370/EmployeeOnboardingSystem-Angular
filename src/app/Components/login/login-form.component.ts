@@ -63,15 +63,17 @@ export class LoginformComponent implements OnInit {
   loginMethod(): void {
     this.isSubmitted = true
     if (this.loginForm.valid) {
-      this.loginService.checkUser({email: this.userName?.value, password: this.password?.value}).subscribe((data: { success: Boolean,role:String }) => {
+      this.loginService.checkUser({email: this.userName?.value, password: this.password?.value}).subscribe((data: any) => {
         if(data.success===true){
-          if(data.role==='Employee'){
-            localStorage.setItem('user', 'Employee');
-            this.router.navigate(['/employee'])
+          console.log(data);
+          if(data.roleName==='HR'){
+            localStorage.setItem('user', data.roleName);
+            this.router.navigate(['/hr']) 
           }
           else{
-            localStorage.setItem('user', 'HR');
-            this.router.navigate(['/hr'])
+            localStorage.setItem('id', data.userId);
+            localStorage.setItem('user', data.roleName);
+            this.router.navigate(['/employee'])
           }
         }
     })
