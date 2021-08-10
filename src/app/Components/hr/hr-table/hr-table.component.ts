@@ -26,7 +26,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
   reject: Boolean = false;
   error:boolean=true;
   current!: Number;
-  employees: Employees[] = [];
+  employees: any;
   notifyText: String = "";
   dtTrigger: Subject<any> = new Subject<any>();
   reasonForm!: FormGroup;
@@ -52,7 +52,13 @@ export class HRTableComponent implements OnInit, OnDestroy {
   getEmployeeData():void{
     this.hr.getEmployees();
     this.hr.employees$.subscribe((data) => {
-      this.employees = data.data;
+      this.employees = data;
+      console.log(data);
+      this.employees.forEach((element:any) => {
+        let data=element.createdAt;
+        let date=data.split("T");
+        element.createdAt=date[0];
+      });
       this.dtTrigger.next();
       if (this.employees.length <= 0) {
         this.notifyText = "Employee data loading failed";
@@ -81,8 +87,12 @@ export class HRTableComponent implements OnInit, OnDestroy {
   submitRejectForm(): void {
     this.isSubmitted = true;
     if (this.reasonForm.valid) {
-      let form = JSON.stringify(this.reason?.value)
-     this.hr.rejectEmployeeData(form).subscribe(data=>{
+      var updatestatus={
+        action:"reject",
+        id:this.current,
+        reason:this.reason?.value
+      }
+      this.hr.rejectEmployeeData(updatestatus).subscribe((data:any)=>{
       if (data.success === true){
         this.reject = false;
       }
@@ -99,8 +109,8 @@ export class HRTableComponent implements OnInit, OnDestroy {
 
   openViewModal(status: Number): void {
     this.current = status;
-    this.employees.forEach(data => {
-      if (data.EmpId === this.current) {
+    this.employees.forEach((data:any) => {
+      if (data.id === this.current) {
         this.employee = data
       }
     })
@@ -112,9 +122,14 @@ export class HRTableComponent implements OnInit, OnDestroy {
   openInvite(): void {
     this.invite = !this.invite
   }
-  openNotificationModal(type:boolean): void {
-    console.log('hello');
+  openNotificationModal(type:boolean,id:Number): void {
     if(type){
+      console.log(id);
+      this.hr.notifyEmployee(id).subscribe((data:any)=>{
+        if (data.success === true){
+          this.reject = false;
+        }
+       })
     this.notifyText = "User Notified Successfully"
     this.notify = !this.notify;
     }

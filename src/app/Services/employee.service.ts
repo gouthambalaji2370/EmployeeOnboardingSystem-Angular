@@ -107,7 +107,7 @@ export class EmployeeService {
     "addresses":address
   };
    
-    return this.http.post(this.baseurl+'employeedetails',this.employeeDetails)
+    return this.http.put(this.baseurl+`employee/${localStorage.getItem('id')}`,this.employeeDetails)
 
   }
   save(data:any){
@@ -160,8 +160,7 @@ export class EmployeeService {
       "ugScore": this.basicDetails.ug,
     "addresses":address
   };
-  // console.log(this.employeeDetails)
-   return this.http.post(this.baseurl+'employeedetails',this.employeeDetails)
+   return this.http.put(this.baseurl+`employee/${localStorage.getItem('id')}`,this.employeeDetails)
 
   }
   setBasicDetails(details:any) {

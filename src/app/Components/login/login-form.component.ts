@@ -65,7 +65,6 @@ export class LoginformComponent implements OnInit {
     if (this.loginForm.valid) {
       this.loginService.checkUser({email: this.userName?.value, password: this.password?.value}).subscribe((data: any) => {
         if(data.success===true){
-          console.log(data);
           if(data.roleName==='HR'){
             localStorage.setItem('user', data.roleName);
             this.router.navigate(['/hr']) 

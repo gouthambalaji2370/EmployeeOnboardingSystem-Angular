@@ -13,7 +13,7 @@ import { RouteDeactivationGuardService } from './Services/route-deactivation-gua
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
   { path: 'login',  component: LoginformComponent },
-  { path: 'employee', component:BasicDetailsFormComponent,canActivate:[RolebasedguardService],canDeactivate:[RouteDeactivationGuardService],data: {roles: [localStorage.getItem('user')]}},
+  { path: 'employee', component:BasicDetailsFormComponent, canActivate:[RolebasedguardService],canDeactivate:[RouteDeactivationGuardService],data: {roles: [localStorage.getItem('user')]}},
   { path: 'hr',component:HRTableComponent,canActivate:[RolebasedguardService],data: {roles: ['HR']}},
   {path:'**', component:ErrorpageComponent},
 ];

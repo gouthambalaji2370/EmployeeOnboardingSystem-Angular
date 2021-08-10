@@ -12,28 +12,26 @@ export class HrService {
   baseurl="http://localhost:8080/";
   constructor(private http: HttpClient) { }
   getRoles(){
-   return this.http.get("/../../../../assets/roles.json").subscribe(data=>{
+   return this.http.get(this.baseurl+"role").subscribe(data=>{
      this.roles$.next(data);
    })
     
   }
   
   getEmployees(){
-    return this.http.get('../../../../assets/data.json').subscribe(data=>{
+    return this.http.get(this.baseurl+'employees').subscribe(data=>{
       this.employees$.next(data);
     })
   }
   createEmployee(data:any){
-    // this.http.post(this.baseurl+'createuser',data).subscribe(res=>{
-    //   return res;
-    // })
-    return of ({success:true});
+    console.log(data);
+    return this.http.post(this.baseurl+'employee',data);
   }
   rejectEmployeeData(data:any){
-    // this.http.post(this.baseurl+'reject',data).subscribe(res=>{
-    //   return res;
-    // })
-    return of ({success:true});
+    return this.http.post(this.baseurl+'/updatestatus',data)
+  }
+  notifyEmployee(data:any){
+    return this.http.post(this.baseurl+`/notification/${data}`,data);
   }
   
 }

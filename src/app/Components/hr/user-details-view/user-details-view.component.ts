@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HrService } from 'src/app/Services/hr.service';
 
 @Component({
   selector: 'app-userdetailsview',
@@ -17,13 +18,23 @@ export class UserdetailsviewComponent implements OnInit {
   addressDetails: Boolean = false;
   approve:Boolean=false;
   notifyText: String = "";
-  constructor() { }
+  constructor( private hr: HrService) { }
 
   ngOnInit(): void {
   }
   approveData(userid:String): void {
-    this.closeDetailsView.emit(false);
-    this.rejectReasonView.emit(false);
+    var updatestatus={
+      action:"approve",
+      id:this.employeeDetails.id,
+      reason:null
+    }
+    this.hr.rejectEmployeeData(updatestatus).subscribe((data:any)=>{
+      if (data.success === true){
+        this.closeDetailsView.emit(false);
+        this.rejectReasonView.emit(false);
+      }
+     })
+  
   }
   openDetails(type:String) {
     if(type==="Basic"){

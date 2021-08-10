@@ -15,7 +15,7 @@ export class InviteformComponent implements OnInit {
   @Output()
   closeInviteEvent = new EventEmitter<Boolean>();
   inviteForm!: FormGroup;
-  public roles: Role[] = [];
+  public roles: any;
 
 
 
@@ -29,8 +29,8 @@ export class InviteformComponent implements OnInit {
   }
   getRoleData() {
     this.hrService.getRoles();
-    this.hrService.roles$.subscribe((data) => {
-      this.roles = data.sets;
+    this.hrService.roles$.subscribe((data:any) => {
+      this.roles = data;
       if (this.roles.length > 0) {
         this.isLoaded = true
       }
@@ -86,8 +86,9 @@ export class InviteformComponent implements OnInit {
   createInvite(): void {
     this.isSubmitted = true;
     if (this.inviteForm.valid) {
-      let form = JSON.stringify({ 'name': this.name?.value, 'email': this.email?.value, 'role': this.role?.value, 'password': this.password?.value });
-      this.hrService.createEmployee(form).subscribe(data => {
+      let form = JSON.stringify(this.inviteForm.getRawValue());
+      let parseform = JSON.parse(form)
+      this.hrService.createEmployee(parseform).subscribe((data:any) => {
         if (data.success === true) {
           this.open = !this.open
           this.closeInviteEvent.emit(false);
