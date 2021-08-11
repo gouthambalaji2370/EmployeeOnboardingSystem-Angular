@@ -47,63 +47,62 @@ export class AddressDetailsFormComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getFormInstance()
-    this.getCountriesdata()
-      if(localStorage.getItem('type')==="updated user"){
+    if(localStorage.getItem('type')==="updated user"){
+      this.employeeService.getEmployeeDetails();
+      this.employeeService.employee$.subscribe(data => {
 
-    var data = this.employeeService.getAddressDetails();
-    var addressDetails = {
-      presentAddress: {
-        flatName: "",
-        area: "",
-        city: "",
-        country: "",
-        state: "",
-        streetName: "",
-        pinCode: "",
-        mapCoordinates: ""
-      },
-      permanentAddress:
-      {
-        flatName: "",
-        area: "",
-        city: "",
-        country: "",
-        state: "",
-        streetName: "",
-        pinCode: "",
-        mapCoordinates: ""
-      }
+      var addressDetails = {
+        presentAddress: {
+          flatName: "",
+          area: "",
+          city: "",
+          country: "",
+          state: "",
+          streetName: "",
+          pinCode: "",
+          mapCoordinates: ""
+        },
+        permanentAddress:
+        {
+          flatName: "",
+          area: "",
+          city: "",
+          country: "",
+          state: "",
+          streetName: "",
+          pinCode: "",
+          mapCoordinates: ""
+        }
 
-    };
-    if(data.current_status==='pending'){
-      this.addressDetailsForm.disable()
-    }
-    for (let list of data) {
-      if (list.type = "permanent") {
-        addressDetails.permanentAddress.area = list.area;
-        addressDetails.permanentAddress.city = list.district;
-        addressDetails.permanentAddress.country = list.country;
-        addressDetails.permanentAddress.state = list.state;
-        addressDetails.permanentAddress.streetName = list.street;
-        addressDetails.permanentAddress.mapCoordinates = list.mapCoordinates;
-        addressDetails.permanentAddress.pinCode = list.pincode;
-        addressDetails.permanentAddress.flatName = list.flatName;
+      };
+      for (let list of data.addressSet) {
+        if (list.type = "permanent") {
+          addressDetails.permanentAddress.area = list.area;
+          addressDetails.permanentAddress.city = list.district;
+          addressDetails.permanentAddress.country = list.country;
+          addressDetails.permanentAddress.state = list.state;
+          addressDetails.permanentAddress.streetName = list.street;
+          addressDetails.permanentAddress.mapCoordinates = list.mapCoordinates;
+          addressDetails.permanentAddress.pinCode = list.pincode;
+          addressDetails.permanentAddress.flatName = list.flatName;
 
+        }
+        if (list.type = "present") {
+          addressDetails.presentAddress.area = list.area;
+          addressDetails.presentAddress.city = list.district;
+          addressDetails.presentAddress.country = list.country;
+          addressDetails.presentAddress.state = list.state;
+          addressDetails.presentAddress.streetName = list.street;
+          addressDetails.presentAddress.mapCoordinates = list.mapCoordinates;
+          addressDetails.presentAddress.pinCode = list.pincode;
+          addressDetails.presentAddress.flatName = list.flatName;
+        }
       }
-      if (list.type = "present") {
-        addressDetails.presentAddress.area = list.area;
-        addressDetails.presentAddress.city = list.district;
-        addressDetails.presentAddress.country = list.country;
-        addressDetails.presentAddress.state = list.state;
-        addressDetails.presentAddress.streetName = list.street;
-        addressDetails.presentAddress.mapCoordinates = list.mapCoordinates;
-        addressDetails.presentAddress.pinCode = list.pincode;
-        addressDetails.presentAddress.flatName = list.flatName;
+      console.log(data);
+      this.setFormData(addressDetails);
+    })}
+    this.getCountriesdata();
       }
-    }
-    this.addressDetailsForm.setValue(addressDetails);
-  }
-  }
 
   closeNotificationModal(closeModalEvent: Boolean) {
     this.notify = closeModalEvent;
@@ -312,5 +311,16 @@ export class AddressDetailsFormComponent implements OnInit {
     else {
       this.permanentStateName = this.permanentStateInfo[stateValue].StateName
     }
+  }
+  get PresentAddress(){
+    return this.addressDetailsForm.get("presentAddress");
+  }
+  get PermanentAddress(){
+    return this.addressDetailsForm.get("permanentAddress");
+  }
+  setFormData(data:any){
+    console.log(data);
+   this.PresentAddress?.setValue(data.presentAddress)
+   this.PermanentAddress?.setValue(data.permanentAddress)
   }
 }

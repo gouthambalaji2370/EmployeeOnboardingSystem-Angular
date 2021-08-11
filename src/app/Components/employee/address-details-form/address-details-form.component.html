@@ -198,7 +198,7 @@
                                         (ngModelChange)='onChangeState(mySelect.value,false)'
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.state')?.errors?.required}">
                                         <option value="">Select state...</option>
-                                        <option   [ngClass]="{'none':addressDetailsForm.get('permanentAddress.country')==null}" *ngIf="addressDetailsForm.get('permanentAddress.state')!=null"  [selected]="true">{{addressDetailsForm.get('permanentAddress.state')?.value}}</option>
+                                        <option  [ngClass]="{'none':addressDetailsForm.get('permanentAddress.state')==null}" [selected]="addressDetailsForm.get('permanentAddress.state')!=null" >{{addressDetailsForm.get('permanentAddress.state')?.value}}</option>
                                         <option *ngFor="let state of permanentStateInfo ;let i = index" value="{{i}}">
                                             {{state.StateName}}</option>
                                     </select>
