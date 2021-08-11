@@ -56,20 +56,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
         ],
       })
   }
-  // ngAfterViewInit(): void {
-  //   this.dtTrigger.next();
-  // }
-
-  
-
-  // rerender(): void {
-  //   this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-  //     // Destroy the table first
-  //     dtInstance.destroy();
-  //     // Call the dtTrigger to rerender again
-  //     this.dtTrigger.next();
-  //   });
-  // }
+ 
 
   getEmployeeData(count :number):void{
     this.hr.getEmployees();
@@ -162,6 +149,20 @@ export class HRTableComponent implements OnInit, OnDestroy {
       this.edit = !this.edit;
     }
   }
+   // ngAfterViewInit(): void {
+  //   this.dtTrigger.next();
+  // }
+
+  
+
+  // rerender(): void {
+  //   this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+  //     // Destroy the table first
+  //     dtInstance.destroy();
+  //     // Call the dtTrigger to rerender again
+  //     this.dtTrigger.next();
+  //   });
+  // }
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
