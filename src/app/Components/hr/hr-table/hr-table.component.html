@@ -11,7 +11,7 @@
     <div id="request" style="margin: 85px 14px">
       <table id="requesttable" datatable  [dtTrigger]="dtTrigger"
         style="width: 100%;margin-top: 40px;">
-        <thead style=" height:60px; margin-top: 30px;">
+        <thead style=" height:60px; margin-top: 30px; border: 2px solid #111;">
           <tr>
             <th>Emp ID</th>
             <th>Name</th>
@@ -19,7 +19,6 @@
             <th>Status</th>
             <th>Created At</th>
             <th style="width: 200px; text-align: center; background-image: none;">Actions</th>
-            <!-- style="width: 170px;" -->
           </tr>
         </thead>
         <tbody>
@@ -33,8 +32,6 @@
 
               <button id="notificationModal" *ngIf="employee.currentStatus === 'rejected' || employee.currentStatus === 'incomplete' || (employee.currentStatus !== 'pending' && employee.currentStatus !=='completed')"
                 class="button-group-small" data-target="#usernotified" (click)="openNotificationModal(true,employee.id)">Notify</button>
-              <button id="editModal" *ngIf="employee.currentStatus === 'completed'" class="button-group-small" data-target="#editaccess"
-                (click)="openNotificationModal(false,employee.id)">Edit</button>
               <button  id="viewDetails" *ngIf="employee.currentStatus !== 'incomplete'" type="button" class="view" data-target="#empdetailsview"
                 (click)="openViewModal(employee.id)"><i class="fa fa-eye"></i></button>
             </td>

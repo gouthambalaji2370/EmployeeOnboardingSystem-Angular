@@ -55,12 +55,12 @@
         <div *ngFor="let address of employeeDetails?.addressSet;"  [ngClass]="{'grid-col':addressDetails===true ,'tab': addressDetails===false}">
           <h4 class="sub-heading">{{address.type}} Address</h4>
           <div class="grid-row">
-            <p><b>Building No/Flat Name:</b> {{address.buildingName}}</p>
-            <p><b>Street:</b> {{address.streetName}}</p>
+            <p><b>Building No/Flat Name:</b> {{address.flatName}}</p>
+            <p><b>Street:</b> {{address.street}}</p>
             <p><b>Area:</b> {{address.area}}</p>
           </div>
           <div class="grid-row">
-            <p><b>City:</b> {{address.city}}</p>
+            <p><b>City:</b> {{address.district}}</p>
             <p><b>State:</b> {{address.state}}</p>
             <p><b>Country:</b> {{address.country}}</p>
           </div>

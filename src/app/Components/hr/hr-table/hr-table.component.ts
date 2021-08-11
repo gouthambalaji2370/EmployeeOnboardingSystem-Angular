@@ -44,7 +44,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.RejectFormInitalize()
-      this.getEmployeeData()
+      this.getEmployeeData(0)
   }
   RejectFormInitalize():void{
     this.reasonForm = this.fb.group(
@@ -56,7 +56,22 @@ export class HRTableComponent implements OnInit, OnDestroy {
         ],
       })
   }
-  getEmployeeData():void{
+  // ngAfterViewInit(): void {
+  //   this.dtTrigger.next();
+  // }
+
+  
+
+  // rerender(): void {
+  //   this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+  //     // Destroy the table first
+  //     dtInstance.destroy();
+  //     // Call the dtTrigger to rerender again
+  //     this.dtTrigger.next();
+  //   });
+  // }
+
+  getEmployeeData(count :number):void{
     this.hr.getEmployees();
     this.hr.employees$.subscribe((data) => {
       this.employees = data;
@@ -66,11 +81,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
         let date=data.split("T");
         element.createdAt=date[0];
       });
-      // this.dtTrigger.next();
-      this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-        dtInstance.destroy();
-        this.dtTrigger.next();     
-     });
+      this.dtTrigger.next();
       if (this.employees.length <= 0) {
         this.notifyText = "Employee data loading failed";
         this.error=!this.error
@@ -128,7 +139,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.view = !this.view
   }
   closeInvite(closeInviteEvent: Boolean) {
-    this.getEmployeeData()
+    this.getEmployeeData(1);
     this.invite = closeInviteEvent;
   }
   openInvite(): void {

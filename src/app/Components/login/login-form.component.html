@@ -30,4 +30,6 @@
       </form>
     </div>
   </div>
+  <app-modals *ngIf="loginFailed" (closeModalEvent)="closeNotification($event)" [type]="error" id="usernotified"
+  [content]="notifyText"></app-modals>
 </div>

@@ -15,6 +15,9 @@ export class LoginformComponent implements OnInit {
 
   status: Boolean = false;
   loginForm!: FormGroup;
+  notifyText: String = "";
+  loginFailed:Boolean=false;
+  error:boolean=false;
   errorMessage = {
     userName: {
       empty: "UserName is required",
@@ -60,6 +63,9 @@ export class LoginformComponent implements OnInit {
   get password() {
     return this.loginForm.get("password");
   }
+  closeNotification(closeModalEvent: Boolean) {
+    this.loginFailed = closeModalEvent;
+  }
   loginMethod(): void {
     this.isSubmitted = true
     if (this.loginForm.valid) {
@@ -77,7 +83,12 @@ export class LoginformComponent implements OnInit {
             this.router.navigate(['/employee'])
           }
         }
+    },(error)=>{
+      console.log(error);
+      this.notifyText=error.error.message
+      this.loginFailed=!this.loginFailed
     })
+    
     }
   }
 
