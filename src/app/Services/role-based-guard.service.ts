@@ -12,11 +12,12 @@ export class RolebasedguardService {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     let roles = route.data["roles"] as Array<string>;
     var user=localStorage.getItem('user');
+    var id=localStorage.getItem('id');
     if (user===roles[0]){
       return true
     }
     else{
-      if(user==='software engineer' || user==='senior software engineer' || user==='software engineer')
+      if(id!==null)
         this.router.navigate(["/employee"])
       else if(user==='HR')
         this.router.navigate(["/hr"])

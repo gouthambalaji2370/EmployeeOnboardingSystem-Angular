@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { throwError, Observable ,Subject} from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +14,7 @@ export class CountryStateDataService {
   constructor(private http: HttpClient) { }
 
   getAllCountriesSubject() {
-    return this.http.get(this.url).subscribe(data =>{
+    return this.http.get('../../assets/countries.json').subscribe(data =>{
       this.countryData$.next(data); 
     });
  }

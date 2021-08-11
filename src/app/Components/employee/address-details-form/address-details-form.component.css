@@ -202,6 +202,9 @@ border-radius: 15px;
 
 
 }
+.none{
+    display: none;
+}
 
 .forward{
     background-color: #2F5D62;

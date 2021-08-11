@@ -24,6 +24,7 @@ export class BasicDetailsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formOnInit();
+    if(localStorage.getItem('type')==="updated user"){
     this.employeeService.getEmployeeDetails();
     this.employeeService.employee$.subscribe(data => {
       let fname = data.name.split(" ");
@@ -95,8 +96,13 @@ export class BasicDetailsFormComponent implements OnInit {
       }
       this.basicDetails = basicDetails;
       this.setFormData();
+      if(data.current_status==='pending'){
+        this.basicDetailsForm.disable
+      }
       this.employeeService.setBasicDetails(this.basicDetails);
+    
     })
+  }
   }
 
 

@@ -72,6 +72,8 @@ export class LoginformComponent implements OnInit {
           else{
             localStorage.setItem('id', data.userId);
             localStorage.setItem('user', data.roleName);
+            localStorage.setItem('type',data.userType)
+            console.log('hello');
             this.router.navigate(['/employee'])
           }
         }

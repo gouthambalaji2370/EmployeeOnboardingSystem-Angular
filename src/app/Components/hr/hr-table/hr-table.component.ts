@@ -1,9 +1,10 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Employees } from '../../../Interfaces/employees';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HrService } from 'src/app/Services/hr.service';
+import { DataTableDirective } from 'angular-datatables';
 
 
 
@@ -31,6 +32,12 @@ export class HRTableComponent implements OnInit, OnDestroy {
   dtTrigger: Subject<any> = new Subject<any>();
   reasonForm!: FormGroup;
   isSubmitted: Boolean = false;
+
+  @ViewChild(DataTableDirective)
+  dtElement!: DataTableDirective;
+
+  dtInstance!: DataTables.Api;
+  
   employee: any
   constructor(private httpClient: HttpClient, private fb: FormBuilder, private hr: HrService) { }
 
@@ -59,7 +66,11 @@ export class HRTableComponent implements OnInit, OnDestroy {
         let date=data.split("T");
         element.createdAt=date[0];
       });
-      this.dtTrigger.next();
+      // this.dtTrigger.next();
+      this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+        dtInstance.destroy();
+        this.dtTrigger.next();     
+     });
       if (this.employees.length <= 0) {
         this.notifyText = "Employee data loading failed";
         this.error=!this.error
@@ -117,6 +128,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.view = !this.view
   }
   closeInvite(closeInviteEvent: Boolean) {
+    this.getEmployeeData()
     this.invite = closeInviteEvent;
   }
   openInvite(): void {
@@ -128,10 +140,11 @@ export class HRTableComponent implements OnInit, OnDestroy {
       this.hr.notifyEmployee(id).subscribe((data:any)=>{
         if (data.success === true){
           this.reject = false;
+          this.notifyText = "User Notified Successfully"
+          this.notify = !this.notify;
         }
        })
-    this.notifyText = "User Notified Successfully"
-    this.notify = !this.notify;
+   
     }
     else{
       this.notifyText = "Edit access provided"

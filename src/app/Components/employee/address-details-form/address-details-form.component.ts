@@ -48,6 +48,8 @@ export class AddressDetailsFormComponent implements OnInit {
   ngOnInit(): void {
     this.getFormInstance()
     this.getCountriesdata()
+      if(localStorage.getItem('type')==="updated user"){
+
     var data = this.employeeService.getAddressDetails();
     var addressDetails = {
       presentAddress: {
@@ -73,7 +75,9 @@ export class AddressDetailsFormComponent implements OnInit {
       }
 
     };
-    console.log(this.countryInfo)
+    if(data.current_status==='pending'){
+      this.addressDetailsForm.disable()
+    }
     for (let list of data) {
       if (list.type = "permanent") {
         addressDetails.permanentAddress.area = list.area;
@@ -98,7 +102,7 @@ export class AddressDetailsFormComponent implements OnInit {
       }
     }
     this.addressDetailsForm.setValue(addressDetails);
-
+  }
   }
 
   closeNotificationModal(closeModalEvent: Boolean) {
