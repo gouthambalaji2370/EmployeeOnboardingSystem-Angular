@@ -101,6 +101,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.edit = closeModalEvent;
   }
   closeViewModal(closeDetailsView: Boolean) {
+    this.getEmployeeData(1);
     this.view = closeDetailsView;
   }
   rejectViewModal(rejectReasonView: Boolean) {
@@ -119,6 +120,7 @@ export class HRTableComponent implements OnInit, OnDestroy {
       this.hr.rejectEmployeeData(updatestatus).subscribe((data:any)=>{
       if (data.success === true){
         this.reject = false;
+        this.getEmployeeData(1);
       }
      })
      
@@ -164,20 +166,6 @@ export class HRTableComponent implements OnInit, OnDestroy {
       this.edit = !this.edit;
     }
   }
-   // ngAfterViewInit(): void {
-  //   this.dtTrigger.next();
-  // }
-
-  
-
-  // rerender(): void {
-  //   this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-  //     // Destroy the table first
-  //     dtInstance.destroy();
-  //     // Call the dtTrigger to rerender again
-  //     this.dtTrigger.next();
-  //   });
-  // }
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
