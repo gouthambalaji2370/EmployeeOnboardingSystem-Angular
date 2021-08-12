@@ -13,11 +13,11 @@ export class RolebasedguardService {
     let roles = route.data["roles"] as Array<string>;
     var user=localStorage.getItem('user');
     var id=localStorage.getItem('id');
-    if (user===roles[0]){
+    if (user===roles[0] || roles[0]==='Employee' && id){
       return true
     }
     else{
-      if(id!==null)
+      if(user!=='HR')
         this.router.navigate(["/employee"])
       else if(user==='HR')
         this.router.navigate(["/hr"])

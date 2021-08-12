@@ -9,11 +9,11 @@ import { RolebasedguardService } from './Services/role-based-guard.service';
 import { HRTableComponent } from './Components/hr/hr-table/hr-table.component';
 import { BasicDetailsFormComponent } from './Components/employee/basic-details-form/basic-details-form.component';
 import { RouteDeactivationGuardService } from './Services/route-deactivation-guard.service';
-// canActivate:[RolebasedguardService]
+// 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
   { path: 'login',  component: LoginformComponent },
-  { path: 'employee', component:BasicDetailsFormComponent,canDeactivate:[RouteDeactivationGuardService],data: {roles: [localStorage.getItem('user')]}},
+  { path: 'employee', component:BasicDetailsFormComponent,canActivate:[RolebasedguardService],canDeactivate:[RouteDeactivationGuardService],data: {roles: ['Employee']}},
   { path: 'hr',component:HRTableComponent,canActivate:[RolebasedguardService],data: {roles: ['HR']}},
   {path:'**', component:ErrorpageComponent},
 ];
