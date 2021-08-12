@@ -9,7 +9,6 @@ import { RolebasedguardService } from './Services/role-based-guard.service';
 import { HRTableComponent } from './Components/hr/hr-table/hr-table.component';
 import { BasicDetailsFormComponent } from './Components/employee/basic-details-form/basic-details-form.component';
 import { RouteDeactivationGuardService } from './Services/route-deactivation-guard.service';
-// 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
   { path: 'login',  component: LoginformComponent },

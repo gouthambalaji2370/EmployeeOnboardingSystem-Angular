@@ -79,12 +79,10 @@ export class LoginformComponent implements OnInit {
             localStorage.setItem('id', data.userId);
             localStorage.setItem('user', data.roleName);
             localStorage.setItem('type',data.userType)
-            console.log('hello');
             this.router.navigate(['/employee'])
           }
         }
     },(error)=>{
-      console.log(error);
       this.notifyText=error.error.message
       this.loginFailed=!this.loginFailed
     })
