@@ -69,7 +69,7 @@
                                         (ngModelChange)='onChangeState(myPresentState.value,true)' 
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.state')?.errors?.required}">
                                         <option value="">Select state...</option>
-                                       <option  [ngClass]="{'none':presetData}" *ngIf="presetData"  [selected]="presetData">{{addressDetailsForm.get('presentAddress.state')?.value}}</option>
+                                       <option  [ngClass]="{'none':presetPresentData}" *ngIf="presetPresentData"  [selected]="presetPresentData">{{addressDetailsForm.get('presentAddress.state')?.value}}</option>
                                         <option *ngFor="let state of presentStateInfo;let i = index" value="{{i}}">
                                             {{state.StateName}}</option>
                                     </select>
@@ -198,7 +198,7 @@
                                         (ngModelChange)='onChangeState(myPermanentState.value,false)'
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.state')?.errors?.required}">
                                         <option  value="">Select state...</option>
-                                        <option [ngClass]="{'none':presetData}" *ngIf="presetData"   [selected]="presetData" >{{addressDetailsForm.get('permanentAddress.state')?.value}}</option>
+                                        <option [ngClass]="{'none':presetPermanentData}" *ngIf="presetPermanentData"   [selected]="presetPermanentData" >{{addressDetailsForm.get('permanentAddress.state')?.value}}</option>
                                         <option *ngFor="let state of permanentStateInfo ;let i = index" value="{{i}}">
                                             {{state.StateName}}</option>
                                     </select>
