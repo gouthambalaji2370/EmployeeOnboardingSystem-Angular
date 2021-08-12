@@ -1,6 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { data } from 'jquery';
 import { EMPTY, Observable } from 'rxjs';
 import { distinctUntilChanged, startWith, switchMap, tap } from 'rxjs/operators';
 import { CountryStateDataService } from 'src/app/Services/country-state-data.service';
@@ -36,6 +35,8 @@ export class AddressDetailsFormComponent implements OnInit {
   permanentCountryName: String = "";
   public isSameAddressControl: FormControl = new FormControl(false);
   notifyText: string = "";
+  addressDetails:any;
+  presetData:Boolean =localStorage.getItem('type')==="updated user";
   constructor(private country: CountryStateDataService, private fb: FormBuilder, private employeeService: EmployeeService, public dialogService: DialogService) { }
   canDeactivate(): Observable<boolean> | boolean {
 
@@ -99,6 +100,7 @@ export class AddressDetailsFormComponent implements OnInit {
         }
       }
       console.log(data);
+      this.addressDetails=addressDetails;
       this.setFormData(addressDetails);
     })}
     this.getCountriesdata();
@@ -113,11 +115,20 @@ export class AddressDetailsFormComponent implements OnInit {
     let parseForm = JSON.parse(form)
     if (this.isSameAddressControl) {
       this.permanentCountryName = this.presentCountryName;
+      this.permanentStateName=this.presentStateName
     }
+    if(localStorage.getItem('type')==="updated user"){
+    this.permanentCountryName=this.addressDetails.permanentAddress.country;
+      this.permanentStateName=this.addressDetails.permanentAddress.state;
+      this.presentCountryName=this.addressDetails.presentAddress.country;
+      this.presentStateName=this.addressDetails.permanentAddress.state;
+    }
+      if(localStorage.getItem('type')){
     parseForm.presentAddress.country = this.presentCountryName;
     parseForm.presentAddress.state = this.presentStateName;
     parseForm.permanentAddress.state = this.permanentStateName;
     parseForm.permanentAddress.country = this.permanentCountryName;
+      }
      this.employeeService.save(parseForm).subscribe((data:any)=>{
       if(data.success==true){
         this.draft = !this.draft;
@@ -135,12 +146,20 @@ export class AddressDetailsFormComponent implements OnInit {
       let parseform = JSON.parse(form)
       if (this.isSameAddressControl) {
         this.permanentCountryName = this.presentCountryName;
+        this.permanentStateName=this.presentStateName;
       }
-      parseform.presentAddress.country = this.presentCountryName;
+      if(localStorage.getItem('type')==="updated user"){
+      this.permanentCountryName=this.addressDetails.permanentAddress.country;
+      this.permanentStateName=this.addressDetails.permanentAddress.state;
+      this.presentCountryName=this.addressDetails.presentAddress.country;
+      this.presentStateName=this.addressDetails.permanentAddress.state;
+      }
+      if(localStorage.getItem('type'))
+     { parseform.presentAddress.country = this.presentCountryName;
       parseform.presentAddress.state = this.presentStateName;
       parseform.permanentAddress.state = this.permanentStateName;
       parseform.permanentAddress.country = this.permanentCountryName;
-
+     }
       this.employeeService.register(parseform).subscribe((data:any)=>{
         if (data.success === true) {
               this.notify = true;
