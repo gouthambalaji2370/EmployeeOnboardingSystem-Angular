@@ -47,11 +47,11 @@
                                     <select name="presentcountry" class="countries" id="countryId"
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.country')?.errors?.required}"
                                         formControlName="country" #mySelect
-                                        (change)='onChangeCountry(mySelect.value,true)'>
+                                        (change)='onPresentChangeCountry(mySelect.value,true)'>
 
                                         <option value="">Select country...</option>
                                         <option [ngClass]="{'none':addressDetailsForm.get('presentAddress.country')!=null}" *ngIf="addressDetailsForm.get('presentAddress.country')!=null" [selected]="addressDetailsForm.get('presentAddress.country')!=null" >{{addressDetailsForm.get('presentAddress.country')?.value}}</option>
-                                        <option *ngFor="let country of countryInfo;let i = index" value="{{i}}">
+                                        <option *ngFor="let country of presentCountryInfo;let i = index" value="{{i}}">
                                             {{country.CountryName}}</option>
                                     </select>
                                 </div>
@@ -65,11 +65,11 @@
                                 <div class="container">
                                     <label for="presentstate"><b>State <span class="mandatory-asterick">*</span></b></label>
 
-                                    <select name="presentstate" class="countries" id="stateId" formControlName="state" #myPresentState
+                                    <select name="presentstate" class="countries" id="presentstate" formControlName="state" #myPresentState
                                         (ngModelChange)='onChangeState(myPresentState.value,true)' 
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('presentAddress.state')?.errors?.required}">
                                         <option value="">Select state...</option>
-                                       <option  [ngClass]="{'none':presetPresentData}" *ngIf="presetPresentData"  [selected]="presetPresentData">{{addressDetailsForm.get('presentAddress.state')?.value}}</option>
+                                       <option  [ngClass]="{'none':presetPresentData}" *ngIf="presetPresentData"  [selected]="addressDetailsForm.get('presentAddress.state')!=null">{{addressDetailsForm.get('presentAddress.state')?.value}}</option>
                                         <option *ngFor="let state of presentStateInfo;let i = index" value="{{i}}">
                                             {{state.StateName}}</option>
                                     </select>
@@ -177,10 +177,10 @@
                                     <select name="permanentcountry" formControlName="country" class="countries"
                                         id="countryIdpermanent" #myCountrypermanent
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.country')?.errors?.required}"
-                                        (ngModelChange)='onChangeCountry(myCountrypermanent.value,false)'>
+                                        (ngModelChange)='onPermanentChangeCountry(myCountrypermanent.value,false)'>
                                         <option value="">Select country...</option>
                                         <option [ngClass]="{'none':addressDetailsForm.get('permanentAddress.country')!=null}" *ngIf="addressDetailsForm.get('permanentAddress.country')!=null"  [selected]="addressDetailsForm.get('permanentAddress.country')!=null">{{addressDetailsForm.get('permanentAddress.country')?.value}}</option>
-                                        <option *ngFor="let country of countryInfo;let i = index" value="{{i}}">
+                                        <option *ngFor="let country of permanentCountryInfo;let i = index" value="{{i}}">
                                             {{country.CountryName}}</option>
                                     </select>
 
@@ -194,11 +194,11 @@
                             <div class="column2">
                                 <div class="container">
                                     <label for="permanentstate"><b>State <span class="mandatory-asterick">*</span></b></label>
-                                    <select name="permanentstate" class="countries" id="stateId" formControlName="state" #myPermanentState
+                                    <select name="permanentstate" class="countries" id="permanentstateID" formControlName="state" #myPermanentState
                                         (ngModelChange)='onChangeState(myPermanentState.value,false)'
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.state')?.errors?.required}">
                                         <option  value="">Select state...</option>
-                                        <option [ngClass]="{'none':presetPermanentData}" *ngIf="presetPermanentData"   [selected]="presetPermanentData" >{{addressDetailsForm.get('permanentAddress.state')?.value}}</option>
+                                        <option [ngClass]="{'none':addressDetailsForm.get('permanentAddress.state')?.value!=null}" *ngIf="addressDetailsForm.get('permanentAddress.state')?.value!=null"   [selected]="addressDetailsForm.get('permanentAddress.state')?.value!=null" >{{addressDetailsForm.get('permanentAddress.state')?.value}}</option>
                                         <option *ngFor="let state of permanentStateInfo ;let i = index" value="{{i}}">
                                             {{state.StateName}}</option>
                                     </select>
