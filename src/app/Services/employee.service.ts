@@ -22,13 +22,9 @@ export class EmployeeService {
   
 
   constructor(private http: HttpClient,public datepipe: DatePipe) { }
-  datePipeImplementation(date:any){
-    date=new Date();
-    let latest_date =this.datepipe.transform(date, 'MM/dd/yyyy');
-   }
   getEmployeeDetails() {
     var user=localStorage.getItem('id');
-    this.http.get(this.baseurl+`formdata/${user}`).subscribe(data=>{
+    this.http.get(this.baseurl+`employee/${user}`).subscribe(data=>{
     this.employee$.next(data);
   })
     const addressDetails= [
@@ -83,7 +79,6 @@ export class EmployeeService {
        
       }
     ]
-    console.log(address)
     this.setAddressDetails(address)
     this.employeeDetails={
       "action":"submit",
@@ -137,7 +132,6 @@ export class EmployeeService {
        
       }
     ]
-    console.log(address)
     this.setAddressDetails(address)
     this.employeeDetails={
       "action":"save",

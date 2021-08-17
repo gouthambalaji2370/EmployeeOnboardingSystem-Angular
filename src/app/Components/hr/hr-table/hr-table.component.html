@@ -30,7 +30,7 @@
             <td>{{ employee.createdAt }}</td>
             <td style="height: 50px;">
 
-              <button id="notificationModal" *ngIf="employee.currentStatus === 'rejected' || employee.currentStatus === 'incomplete' || (employee.currentStatus !== 'pending' && employee.currentStatus !=='completed')"
+              <button id="notificationModal" *ngIf="employee.currentStatus === 'rejected' ||  employee.currentStatus === 'incomplete' || (employee.currentStatus !== 'pending'  && employee.currentStatus !=='completed' )"
                 class="button-group-small" data-target="#usernotified" (click)="openNotificationModal(true,employee.id)">Notify</button>
               <button  id="viewDetails" *ngIf="employee.currentStatus !== 'incomplete'" type="button" class="view" data-target="#empdetailsview"
                 (click)="openViewModal(employee.id)"><i class="fa fa-eye"></i></button>

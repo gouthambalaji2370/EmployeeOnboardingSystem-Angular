@@ -106,7 +106,6 @@ export class AddressDetailsFormComponent implements OnInit {
           addressDetails.presentAddress.flatName = list.flatName;
         }
       }
-      console.log(addressDetails);
       this.addressDetails=addressDetails;
       this.setFormData(addressDetails);
     })}
@@ -121,30 +120,24 @@ export class AddressDetailsFormComponent implements OnInit {
     
       this.presentDataChange=true
       this.presetPresentData=false
-      console.log("present country data",this.presentCountryInfo[countryValue].CountryName,this.presentCountryInfo[countryValue].States)
       this.presentStateInfo = this.presentCountryInfo[countryValue].States;
       this.presentCountryName = this.presentCountryInfo[countryValue].CountryName;
-      console.log("present country data",this.presentStateInfo,this.presentCountryName);
    
   }
   onPermanentChangeCountry(countryValue: any, type: Boolean){
     this.permanentDataChange=true
     this.presetPermanentData=false
     this.permanentCountryCode=countryValue;
-    console.log("permanent country data",this.permanentCountryInfo[countryValue].CountryName,this.permanentCountryInfo[countryValue].States)
     this.permanentStateInfo = this.permanentCountryInfo[countryValue].States;
     this.permanentCountryName = this.permanentCountryInfo[countryValue].CountryName;
-    console.log("permanent country data",this.permanentStateInfo,this.permanentCountryName)
   }
 
   onChangeState(stateValue: any, type: Boolean) {
     if (type) {
       this.presentStateName = this.presentStateInfo[stateValue].StateName;
-      console.log("present data",this.presentStateInfo[stateValue].StateName,this.presentStateName)
     }
     else {
       this.permanentStateName = this.permanentStateInfo[stateValue].StateName;
-      console.log("permanent data",this.permanentStateInfo[stateValue].StateName,this.permanentStateName)
 
       this.permanentStateCode=stateValue;
 
@@ -163,35 +156,28 @@ export class AddressDetailsFormComponent implements OnInit {
       parseForm.permanentAddress.state = this.permanentStateName;
       parseForm.permanentAddress.country = this.permanentCountryName;
       }
-      console.log(parseForm);
       if(localStorage.getItem('type') === "updated user"){
-        console.log(this.permanentDataChange,this.presentDataChange)
         if(this.presentDataChange===false && this.permanentDataChange===false){
           parseForm.presentAddress.country = this.addressDetails.presentAddress.country;
           parseForm.presentAddress.state = this.addressDetails.presentAddress.state;
           parseForm.permanentAddress.state =this.addressDetails.permanentAddress.country;
           parseForm.permanentAddress.country = this.addressDetails.permanentAddress.state;
-          console.log(parseForm,this.addressDetails);
         }
         if(this.permanentDataChange===true && this.presentDataChange===false){
-          console.log(this.permanentStateName,this.permanentCountryName);
           if(this.permanentStateName!==""){
           parseForm.presentAddress.country = this.addressDetails.presentAddress.country;
           parseForm.presentAddress.state = this.addressDetails.presentAddress.state;
           parseForm.permanentAddress.state = this.permanentStateName;
           parseForm.permanentAddress.country = this.permanentCountryName;
-          console.log(parseForm,this.addressDetails);
           }
           if(this.permanentStateName===""){
             parseForm.presentAddress.country = this.addressDetails.presentAddress.country;
             parseForm.presentAddress.state = this.addressDetails.presentAddress.state;
             parseForm.permanentAddress.state = this.addressDetails.permanentAddress.state;
             parseForm.permanentAddress.country =this.addressDetails.permanentAddress.country;
-            console.log(parseForm,this.addressDetails);
             }
         }
         if(this.presentDataChange===true && this.permanentDataChange===false || (this.presentDataChange===true && this.permanentDataChange===true)) {
-          console.log(this.permanentStateName);
           if(this.permanentStateName!==""){   
                 parseForm.presentAddress.country = this.presentCountryName;
                 parseForm.presentAddress.state = this.presentStateName;
@@ -204,12 +190,10 @@ export class AddressDetailsFormComponent implements OnInit {
             parseForm.permanentAddress.state = this.addressDetails.permanentAddress.state;
             parseForm.permanentAddress.country = this.addressDetails.permanentAddress.country;
           }
-          console.log(parseForm);
         }
 
       }
     
-    console.log(parseForm);
    
      this.employeeService.save(parseForm).subscribe((data:any)=>{
       if(data.success==true){
@@ -226,7 +210,6 @@ export class AddressDetailsFormComponent implements OnInit {
     if (this.addressDetailsForm.valid) {
       let form = JSON.stringify(this.addressDetailsForm.getRawValue());
       let parseform = JSON.parse(form)
-      console.log(parseform);
       if (this.sameAddress===true) {
         this.permanentCountryName = this.presentCountryName;
         this.permanentStateName=this.presentStateName;
@@ -237,35 +220,28 @@ export class AddressDetailsFormComponent implements OnInit {
       parseform.permanentAddress.state = this.permanentStateName;
       parseform.permanentAddress.country = this.permanentCountryName;
       }
-      console.log(parseform);
       if(localStorage.getItem('type') === "updated user"){
-        console.log(this.permanentDataChange,this.presentDataChange)
         if(this.presentDataChange===false && this.permanentDataChange===false){
           parseform.presentAddress.country = this.addressDetails.presentAddress.country;
           parseform.presentAddress.state = this.addressDetails.presentAddress.state;
           parseform.permanentAddress.state =this.addressDetails.permanentAddress.country;
           parseform.permanentAddress.country = this.addressDetails.permanentAddress.state;
-          console.log(parseform,this.addressDetails);
         }
         if(this.permanentDataChange===true && this.presentDataChange===false){
-          console.log(this.permanentStateName,this.permanentCountryName);
           if(this.permanentStateName!==""){
           parseform.presentAddress.country = this.addressDetails.presentAddress.country;
           parseform.presentAddress.state = this.addressDetails.presentAddress.state;
           parseform.permanentAddress.state = this.permanentStateName;
           parseform.permanentAddress.country = this.permanentCountryName;
-          console.log(parseform,this.addressDetails);
           }
           if(this.permanentStateName===""){
             parseform.presentAddress.country = this.addressDetails.presentAddress.country;
             parseform.presentAddress.state = this.addressDetails.presentAddress.state;
             parseform.permanentAddress.state = this.addressDetails.permanentAddress.state;
             parseform.permanentAddress.country =this.addressDetails.permanentAddress.country;
-            console.log(parseform,this.addressDetails);
             }
         }
         if(this.presentDataChange===true && this.permanentDataChange===false || (this.presentDataChange===true && this.permanentDataChange===true)) {
-          console.log(this.permanentStateName);
           if(this.permanentStateName!==""){   
                 parseform.presentAddress.country = this.presentCountryName;
                 parseform.presentAddress.state = this.presentStateName;
@@ -278,7 +254,6 @@ export class AddressDetailsFormComponent implements OnInit {
             parseform.permanentAddress.state = this.addressDetails.permanentAddress.state;
             parseform.permanentAddress.country = this.addressDetails.permanentAddress.country;
           }
-          console.log(parseform);
         }
 
       }

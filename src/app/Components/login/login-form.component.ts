@@ -83,7 +83,7 @@ export class LoginformComponent implements OnInit {
           }
         }
     },(error)=>{
-      this.notifyText=error.error.message
+      this.notifyText='Invalid Credentials.. Retry'
       this.loginFailed=!this.loginFailed
     })
     

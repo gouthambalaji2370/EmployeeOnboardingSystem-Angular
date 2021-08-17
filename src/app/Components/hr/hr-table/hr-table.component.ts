@@ -60,36 +60,19 @@ export class HRTableComponent implements OnInit, OnDestroy {
 
   getEmployeeData(count :number):void{
     this.hr.getEmployees();
-    // if(count==1){
-    // $('#requesttable').DataTable( {
-    //       processing: true,
-    //   } );
-    // }
     this.hr.employees$.subscribe((data) => {
       this.employees = data;
-      console.log(data);
       this.employees.forEach((element:any) => {
         let data=element.createdAt;
         let date=data.split("T");
         element.createdAt=date[0];
       });
-      if(count==1){
-      this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-            // Destroy the table first
-            dtInstance.destroy();
-            // Call the dtTrigger to rerender again
-            this.dtTrigger.next();
-          });
-        }
-      else{
       this.dtTrigger.next();
-      }
       if (this.employees.length <= 0) {
         this.notifyText = "Employee data loading failed";
         this.error=!this.error
         this.notify = !this.notify
       }
-     
     });
   }
   backToViewModal() {
@@ -151,7 +134,6 @@ export class HRTableComponent implements OnInit, OnDestroy {
   }
   openNotificationModal(type:boolean,id:Number): void {
     if(type){
-      console.log(id);
       this.hr.notifyEmployee(id).subscribe((data:any)=>{
         if (data.success === true){
           this.reject = false;

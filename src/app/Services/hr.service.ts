@@ -24,14 +24,13 @@ export class HrService {
     })
   }
   createEmployee(data:any){
-    console.log(data);
     return this.http.post(this.baseurl+'employee',data);
   }
   rejectEmployeeData(data:any){
-    return this.http.post(this.baseurl+'/updatestatus',data)
+    return this.http.put(this.baseurl+'employee/status',data)
   }
   notifyEmployee(data:any){
-    return this.http.post(this.baseurl+`/notification/${data}`,data);
+    return this.http.post(this.baseurl+`employee/notification/${data}`,data);
   }
   
 }
