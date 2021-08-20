@@ -53,9 +53,10 @@ export class EmployeeService {
     ]
   this.setAddressDetails(addressDetails);
 }
-  register(data:any){
+  register(data:any,presentAddressID:Number,permanentAddressID:Number){
     let address=[
       {
+        "id":presentAddressID,
         "type":"present",
         "flatName":data.presentAddress.flatName,
          "area":data.presentAddress.area,
@@ -67,6 +68,7 @@ export class EmployeeService {
          "mapCoordinates":data.presentAddress.mapCoordinates
       },
       {
+        "id":permanentAddressID,
         "type":"permanent",
         "flatName":data.permanentAddress.flatName,
          "area":data.permanentAddress.area,
@@ -79,6 +81,7 @@ export class EmployeeService {
        
       }
     ]
+    
     this.setAddressDetails(address)
     this.employeeDetails={
       "action":"submit",
@@ -105,10 +108,10 @@ export class EmployeeService {
     return this.http.put(this.baseurl+`employee/${localStorage.getItem('id')}`,this.employeeDetails)
 
   }
-  save(data:any){
-   
+  save(data:any,presentAddressID:Number,permanentAddressID:Number){
     let address=[
       {
+        "id":presentAddressID,
         "type":"present",
         "flatName":data.presentAddress.flatName,
         "area":data.presentAddress.area,
@@ -120,6 +123,7 @@ export class EmployeeService {
         "mapCoordinates":data.presentAddress.mapCoordinates
       },
       {
+        "id":permanentAddressID,
         "type":"permanent",
         "flatName":data.permanentAddress.flatName,
          "area":data.permanentAddress.area,
@@ -132,6 +136,9 @@ export class EmployeeService {
        
       }
     ]
+  
+   
+  
     this.setAddressDetails(address)
     this.employeeDetails={
       "action":"save",

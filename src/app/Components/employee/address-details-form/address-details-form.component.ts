@@ -41,6 +41,8 @@ export class AddressDetailsFormComponent implements OnInit {
   notifyText: string = "";
   addressDetails:any;
   presentDataChange:Boolean=false;
+  presentAddressID!:Number;
+  permanentAddressID!:Number;
   permanentDataChange:Boolean=false;
   presetPresentData:Boolean =localStorage.getItem('type')==="updated user";
   presetPermanentData:Boolean =localStorage.getItem('type')==="updated user";
@@ -58,7 +60,7 @@ export class AddressDetailsFormComponent implements OnInit {
     if(localStorage.getItem('type')==="updated user"){
       this.employeeService.getEmployeeDetails();
       this.employeeService.employee$.subscribe(data => {
-
+      
       var addressDetails = {
         presentAddress: {
           flatName: "",
@@ -85,6 +87,7 @@ export class AddressDetailsFormComponent implements OnInit {
       };
       for (let list of data.addressSet) {
         if (list.type === "permanent") {
+          this.permanentAddressID=list.id
           addressDetails.permanentAddress.area = list.area;
           addressDetails.permanentAddress.city = list.district;
           addressDetails.permanentAddress.country = list.country;
@@ -96,6 +99,7 @@ export class AddressDetailsFormComponent implements OnInit {
 
         }
         else if(list.type === "present") {
+          this.presentAddressID=list.id
           addressDetails.presentAddress.area = list.area;
           addressDetails.presentAddress.city = list.district;
           addressDetails.presentAddress.country = list.country;
@@ -107,6 +111,7 @@ export class AddressDetailsFormComponent implements OnInit {
         }
       }
       this.addressDetails=addressDetails;
+      this.employeeService.setAddressDetails(addressDetails);
       this.setFormData(addressDetails);
     })}
     this.getCountriesdata();
@@ -118,15 +123,19 @@ export class AddressDetailsFormComponent implements OnInit {
   }
   onPresentChangeCountry(countryValue: any, type: Boolean) {
     
+    if(localStorage.getItem('type')==="updated user"){
       this.presentDataChange=true
       this.presetPresentData=false
+    }
       this.presentStateInfo = this.presentCountryInfo[countryValue].States;
       this.presentCountryName = this.presentCountryInfo[countryValue].CountryName;
    
   }
   onPermanentChangeCountry(countryValue: any, type: Boolean){
+    if(localStorage.getItem('type')==="updated user"){
     this.permanentDataChange=true
     this.presetPermanentData=false
+    }
     this.permanentCountryCode=countryValue;
     this.permanentStateInfo = this.permanentCountryInfo[countryValue].States;
     this.permanentCountryName = this.permanentCountryInfo[countryValue].CountryName;
@@ -195,11 +204,12 @@ export class AddressDetailsFormComponent implements OnInit {
       }
     
    
-     this.employeeService.save(parseForm).subscribe((data:any)=>{
+     this.employeeService.save(parseForm,this.presentAddressID,this.permanentAddressID).subscribe((data:any)=>{
       if(data.success==true){
         this.draft = !this.draft;
       this.notifyText = "User Details has been saved";
       }
+      
      })
   }
   previous(): void {
@@ -257,8 +267,7 @@ export class AddressDetailsFormComponent implements OnInit {
         }
 
       }
-      
-      this.employeeService.register(parseform).subscribe((data:any)=>{
+      this.employeeService.register(parseform,this.presentAddressID,this.permanentAddressID).subscribe((data:any)=>{
         if (data.success === true) {
               this.notify = true;
               this.notifyText = "User Details has been forwarded Successfully";
