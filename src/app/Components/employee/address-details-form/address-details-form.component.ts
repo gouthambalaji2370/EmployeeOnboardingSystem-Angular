@@ -56,6 +56,7 @@ export class AddressDetailsFormComponent implements OnInit {
     return true;
   }
   ngOnInit(): void {
+
     this.getFormInstance()
     if(localStorage.getItem('type')==="updated user"){
       this.employeeService.getEmployeeDetails();
@@ -113,6 +114,7 @@ export class AddressDetailsFormComponent implements OnInit {
       this.addressDetails=addressDetails;
       this.employeeService.setAddressDetails(addressDetails);
       this.setFormData(addressDetails);
+      this.presetPermanentData=true;
     })}
     this.getCountriesdata();
       }
@@ -122,7 +124,6 @@ export class AddressDetailsFormComponent implements OnInit {
     this.draft = closeModalEvent;
   }
   onPresentChangeCountry(countryValue: any, type: Boolean) {
-    
     if(localStorage.getItem('type')==="updated user"){
       this.presentDataChange=true
       this.presetPresentData=false
@@ -203,7 +204,6 @@ export class AddressDetailsFormComponent implements OnInit {
 
       }
     
-   
      this.employeeService.save(parseForm,this.presentAddressID,this.permanentAddressID).subscribe((data:any)=>{
       if(data.success==true){
         this.draft = !this.draft;
@@ -359,10 +359,10 @@ export class AddressDetailsFormComponent implements OnInit {
           ]
         ),
         state: new FormControl("",
-          [
-            Validators.required
-          ]
-        ),
+        [
+          Validators.required
+        ]
+      ),
         city: new FormControl("",
           [
             Validators.required

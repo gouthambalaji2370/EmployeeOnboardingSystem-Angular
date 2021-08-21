@@ -194,15 +194,15 @@
                             <div class="column2">
                                 <div class="container">
                                     <label for="permanentstate"><b>State <span class="mandatory-asterick">*</span></b></label>
-                                    <select name="permanentstate" class="countries" id="permanentstateID" formControlName="state" #myPermanentState
+                                    <select name="permanentstate" class="countries" id="permanentstate" formControlName="state" #myPermanentState
                                         (ngModelChange)='onChangeState(myPermanentState.value,false)'
                                         [ngClass]="{'alert':submitted && addressDetailsForm.get('permanentAddress.state')?.errors?.required}">
                                         <option  value="">Select state...</option>
-                                        <option [ngClass]="{'none':presetPresentData}" *ngIf="presetPresentData"   [selected]="addressDetailsForm.get('permanentAddress.state')!=null" >{{addressDetailsForm.get('permanentAddress.state')?.value}}</option>
+                                        <option *ngIf="presetPermanentData" [value]="addressDetailsForm.get('permanentAddress.state')?.value" >{{addressDetailsForm.get('permanentAddress.state')?.value}}</option>
                                         <option *ngFor="let state of permanentStateInfo ;let i = index" value="{{i}}">
                                             {{state.StateName}}</option>
                                     </select>
-                               
+                                
                                     <br />
 
 
