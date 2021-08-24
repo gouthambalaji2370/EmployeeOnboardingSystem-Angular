@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { of, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common'
-import { first } from 'rxjs/operators';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmployeeService {  
   public employee$: Subject<any> = new Subject();

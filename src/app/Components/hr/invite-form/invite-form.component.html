@@ -20,7 +20,7 @@
           </div>
           <div class="container">
             <label for="email">Email:</label>
-            <input type="email" [ngClass]="{'alert':isSubmitted && email?.errors?.required || email?.errors?.email}"
+            <input type="email" [ngClass]="{'alert':isSubmitted && (email?.errors?.required || email?.errors?.email)}"
               id="Email" name="Email" formControlName="email" placeholder="Email">
           </div>
           <div class="invalid-feedback" *ngIf="isSubmitted && email?.errors?.required">
@@ -32,7 +32,7 @@
 
           <div class="container-select">
             <label for="role" style="margin-left: 113px;">Role:</label>
-            <select name="role" [ngClass]="{'alert':isSubmitted&& role?.errors?.required}" formControlName="role"
+            <select name="role" [ngClass]="{'alert':isSubmitted && role?.errors?.required}" formControlName="role"
               id="role" placeholder="Role">
               <option value="">Select Role...</option>
               <option *ngFor="let set of roles" [ngValue]="set.id">{{set.roleName}}</option>
@@ -45,14 +45,14 @@
           <div class="container">
             <label for="password">Password:</label>
             <input id="Password" class="password-text"
-              [ngClass]="{'alert':isSubmitted && password?.errors?.required || password?.errors?.pattern || password?.errors?.minlength }"
+              [ngClass]="{'alert':isSubmitted && (password?.errors?.required || password?.errors?.pattern || password?.errors?.minlength) }"
               type="password" name="Password" formControlName="password" placeholder="Password">
           </div>
           <div class="invalid-feedback" *ngIf="isSubmitted && password?.errors?.required">
             <sup>*</sup>password is required
           </div>
           <div class="invalid-feedback"
-            *ngIf="isSubmitted && password?.errors?.pattern || password?.errors?.minlength ">
+            *ngIf="isSubmitted && (password?.errors?.pattern || password?.errors?.minlength) ">
             <sup>*</sup>please enter a valid password for the user
           </div>
 

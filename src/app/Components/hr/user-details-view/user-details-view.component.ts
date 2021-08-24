@@ -23,9 +23,10 @@ export class UserdetailsviewComponent implements OnInit {
   ngOnInit(): void {
   }
   approveData(userid:String): void {
+    console.log(this.employeeDetails.id)
     var updatestatus={
       action:"approve",
-      id:this.employeeDetails.id,
+      empId:this.employeeDetails.id,
       reason:null
     }
     this.hr.rejectEmployeeData(updatestatus).subscribe((data:any)=>{

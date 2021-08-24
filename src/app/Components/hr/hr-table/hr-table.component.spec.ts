@@ -5,6 +5,8 @@ import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DataTablesModule } from 'angular-datatables';
 import { HeaderComponent } from '../../core/header/header.component';
+import { InviteformComponent } from '../invite-form/invite-form.component';
+import { UserdetailsviewComponent } from '../user-details-view/user-details-view.component';
 import { HRTableComponent } from './hr-table.component';
 
 describe('HrtableComponent', () => {
@@ -14,7 +16,7 @@ describe('HrtableComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports:[HttpClientTestingModule,ReactiveFormsModule,RouterTestingModule,DataTablesModule],
-      declarations: [ HRTableComponent ,HeaderComponent]
+      declarations: [ HRTableComponent ,HeaderComponent,UserdetailsviewComponent,InviteformComponent]
     })
     .compileComponents();
   });
@@ -31,7 +33,7 @@ describe('HrtableComponent', () => {
     "Status":"Completed",
     "CreatedAt":"20-06-2021",
 },{
-    "EmpId":123,
+    "EmpId":124,
     "Name":"Indraneel",
     "Email":"n@gmail.com",
     "Status":"Rejected",
@@ -52,7 +54,7 @@ describe('HrtableComponent', () => {
   })
   it('should check get employee data',()=>{
     spyOn(component,'getEmployeeData');
-    component.getEmployeeData();
+    component.getEmployeeData(0);
     expect(component.getEmployeeData).toHaveBeenCalled()
   })
 
@@ -69,7 +71,6 @@ describe('HrtableComponent', () => {
   it('should check back to view modal',()=>{
     spyOn(component,'backToViewModal').and.callThrough();
     let button = fixture.debugElement.nativeElement.querySelector('#redirectToView');
-    console.log(button);
     button.click();
     fixture.detectChanges();
     expect(component.backToViewModal).toHaveBeenCalled()
@@ -79,14 +80,12 @@ describe('HrtableComponent', () => {
     component.reasonForm.controls['reason'].setValue('invalid map coordinates');
     fixture.detectChanges();
     let button = fixture.debugElement.nativeElement.querySelector('#submitForm');
-    console.log(button);
     button.click();
     expect(component.submitRejectForm).toHaveBeenCalled();
   })
   it('should check close reject modal',()=>{
     spyOn(component,'closeRejectModal').and.callThrough();
     let button = fixture.debugElement.nativeElement.querySelector('#closeReject');
-    console.log(button);
     button.click();
     fixture.detectChanges();
     expect(component.closeRejectModal).toHaveBeenCalled()
@@ -94,7 +93,6 @@ describe('HrtableComponent', () => {
   it('should check open view modal',()=>{
     spyOn(component,'openViewModal').and.callThrough();
     let button = fixture.debugElement.nativeElement.querySelector('#viewDetails');
-    // let button = fixture.debugElement.query(By.css('#notificationModal'));
     button.click();
     fixture.detectChanges();
     expect(component.openViewModal).toHaveBeenCalledWith(123);
@@ -103,41 +101,12 @@ describe('HrtableComponent', () => {
   it('should check open notification modal ',()=>{
     spyOn(component,'openNotificationModal').and.callThrough();
     let button = fixture.debugElement.nativeElement.querySelector('#notificationModal');
-    // let button = fixture.debugElement.query(By.css('#notificationModal'));
     button.click();
     fixture.detectChanges();
-    expect(component.openNotificationModal).toHaveBeenCalledWith(true);
+    expect(component.openNotificationModal).toHaveBeenCalledWith(true,123);
     
   })
-  it('should check open edit modal ',()=>{
-    spyOn(component,'openNotificationModal').and.callThrough();
-    let button = fixture.debugElement.nativeElement.querySelector('#editModal');
-    button.click();
-    fixture.detectChanges();
-    expect(component.openNotificationModal).toHaveBeenCalledWith(false);
-
-  })
-  // it('should check close invite ',()=>{
-  //   spyOn(component,'closeInvite').and.callThrough();
-  //   component.closeInvite(false);
-  //   expect(component.closeInvite).toHaveBeenCalled()
-  // })
-  
-  // it('should check close notification modal',()=>{
-  //   spyOn(component,'closeNotification').and.callThrough();
-  //   component.closeNotification(true);
-  //   expect(component.closeNotification).toHaveBeenCalled()
-  // })
-  // it('should check reject view modal',()=>{
-  //   spyOn(component,'rejectViewModal').and.callThrough();
-  //   component.rejectViewModal(false);
-  //   expect(component.rejectViewModal).toHaveBeenCalled()
-  // })
+ 
 
 });
 
-  // it('should check close view modal',()=>{
-  //   spyOn(component,'closeViewModal');
-  //   component.closeViewModal(false);
-  //   expect(component.closeViewModal).toHaveBeenCalled()
-  // })

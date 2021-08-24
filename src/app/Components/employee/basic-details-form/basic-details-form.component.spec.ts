@@ -8,6 +8,9 @@ import { AddressDetailsFormComponent } from '../address-details-form/address-det
 
 import { BasicDetailsFormComponent } from './basic-details-form.component';
 import { By } from '@angular/platform-browser';
+import { DatePipe } from '@angular/common';
+import { EmployeeService } from 'src/app/Services/employee.service';
+import { DialogService } from 'src/app/Services/dialog.service';
 
 describe('BasicDetailsFormComponent', () => {
   let component: BasicDetailsFormComponent;
@@ -15,7 +18,7 @@ describe('BasicDetailsFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [MockLocationStrategy],
+      providers: [MockLocationStrategy,DatePipe,EmployeeService,DialogService],
       imports:[ ReactiveFormsModule,HttpClientTestingModule,RouterTestingModule],
       declarations: [ BasicDetailsFormComponent ,AddressDetailsFormComponent,HeaderComponent]
     })

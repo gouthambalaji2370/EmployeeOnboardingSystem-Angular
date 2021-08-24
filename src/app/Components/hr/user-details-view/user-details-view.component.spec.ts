@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserdetailsviewComponent } from './user-details-view.component';
@@ -9,17 +10,25 @@ describe('UserdetailsviewComponent', () => {
   beforeEach(async () => {
 
     await TestBed.configureTestingModule({
-      
+      imports: [HttpClientTestingModule],
       declarations: [ UserdetailsviewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
+   
     fixture = TestBed.createComponent(UserdetailsviewComponent);
     component = fixture.componentInstance;
     component.addressDetails=false;
     component.basicDetails=false;
+    component.employeeDetails= [{
+      "EmpId":"123",
+      "Name":"Indraneel",
+      "Email":"n@gmail.com",
+      "Status":"Completed",
+      "CreatedAt":"20-06-2021",
+  }]
     fixture.detectChanges();
   });
 
@@ -34,6 +43,7 @@ describe('UserdetailsviewComponent', () => {
   it('should check open details',()=>{
     spyOn(component,'openDetails').and.callThrough();
     let button = fixture.debugElement.nativeElement.querySelector('#basicDetails');
+    console.log(button);
     button.click();
     fixture.detectChanges();
     expect(component.openDetails).toHaveBeenCalledWith("Basic");
@@ -59,7 +69,7 @@ describe('UserdetailsviewComponent', () => {
     component.closeDetailsView.subscribe((response)=>{
       expect(response).toEqual(false)
     })
-    component.approveData('2301');
+    component.approveData('123');
   })
   it('should call reject view event',()=>{
     component.rejectReasonView.subscribe((response)=>{

@@ -1,5 +1,4 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DialogService } from 'src/app/Services/dialog.service';
@@ -8,7 +7,7 @@ import { EmployeeService } from 'src/app/Services/employee.service';
 @Component({
   selector: 'app-basic-details-form',
   templateUrl: './basic-details-form.component.html',
-  styleUrls: ['./basic-details-form.component.css']
+  styleUrls: ['./basic-details-form.component.css'],
 })
 export class BasicDetailsFormComponent implements OnInit {
   @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {

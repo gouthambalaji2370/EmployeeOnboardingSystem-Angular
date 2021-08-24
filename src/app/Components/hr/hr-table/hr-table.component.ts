@@ -1,7 +1,6 @@
 import { Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
-import { Employees } from '../../../Interfaces/employees';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HrService } from 'src/app/Services/hr.service';
 import { DataTableDirective } from 'angular-datatables';
@@ -56,7 +55,6 @@ export class HRTableComponent implements OnInit, OnDestroy {
         ],
       })
   }
- 
 
   getEmployeeData(count :number):void{
     this.hr.getEmployees();
@@ -84,7 +82,6 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.edit = closeModalEvent;
   }
   closeViewModal(closeDetailsView: Boolean) {
-    this.getEmployeeData(1);
     this.view = closeDetailsView;
   }
   rejectViewModal(rejectReasonView: Boolean) {
@@ -97,13 +94,12 @@ export class HRTableComponent implements OnInit, OnDestroy {
     if (this.reasonForm.valid) {
       var updatestatus={
         action:"reject",
-        id:this.current,
+        empId:this.current,
         reason:this.reason?.value
       }
       this.hr.rejectEmployeeData(updatestatus).subscribe((data:any)=>{
       if (data.success === true){
         this.reject = false;
-        this.getEmployeeData(1);
       }
      })
      
@@ -126,7 +122,6 @@ export class HRTableComponent implements OnInit, OnDestroy {
     this.view = !this.view
   }
   closeInvite(closeInviteEvent: Boolean) {
-    this.getEmployeeData(1);
     this.invite = closeInviteEvent;
   }
   openInvite(): void {

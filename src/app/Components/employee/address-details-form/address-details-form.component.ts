@@ -9,9 +9,13 @@ import { EmployeeService } from 'src/app/Services/employee.service';
 @Component({
   selector: 'app-address-details-form',
   templateUrl: './address-details-form.component.html',
-  styleUrls: ['./address-details-form.component.css']
+  styleUrls: ['./address-details-form.component.css'],
+
 })
 export class AddressDetailsFormComponent implements OnInit {
+  static getFormData() {
+    throw new Error('Method not implemented.');
+  }
   @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
     confirm("Reload Employee Form?");
     event.returnValue = false;
@@ -119,6 +123,66 @@ export class AddressDetailsFormComponent implements OnInit {
     this.getCountriesdata();
       }
 
+      getFormData(){
+        if(localStorage.getItem('type')==="updated user"){
+          this.employeeService.getEmployeeDetails();
+          this.employeeService.employee$.subscribe(data => {
+          
+          var addressDetails = {
+            presentAddress: {
+              flatName: "",
+              area: "",
+              city: "",
+              country: "",
+              state: "",
+              streetName: "",
+              pinCode: "",
+              mapCoordinates: ""
+            },
+            permanentAddress:
+            {
+              flatName: "",
+              area: "",
+              city: "",
+              country: "",
+              state: "",
+              streetName: "",
+              pinCode: "",
+              mapCoordinates: ""
+            }
+    
+          };
+          for (let list of data.addressSet) {
+            if (list.type === "permanent") {
+              this.permanentAddressID=list.id
+              addressDetails.permanentAddress.area = list.area;
+              addressDetails.permanentAddress.city = list.district;
+              addressDetails.permanentAddress.country = list.country;
+              addressDetails.permanentAddress.state = list.state;
+              addressDetails.permanentAddress.streetName = list.street;
+              addressDetails.permanentAddress.mapCoordinates = list.mapCoordinates;
+              addressDetails.permanentAddress.pinCode = list.pincode;
+              addressDetails.permanentAddress.flatName = list.flatName;
+    
+            }
+            else if(list.type === "present") {
+              this.presentAddressID=list.id
+              addressDetails.presentAddress.area = list.area;
+              addressDetails.presentAddress.city = list.district;
+              addressDetails.presentAddress.country = list.country;
+              addressDetails.presentAddress.state = list.state;
+              addressDetails.presentAddress.streetName = list.street;
+              addressDetails.presentAddress.mapCoordinates = list.mapCoordinates;
+              addressDetails.presentAddress.pinCode = list.pincode;
+              addressDetails.presentAddress.flatName = list.flatName;
+            }
+          }
+          this.addressDetails=addressDetails;
+          this.employeeService.setAddressDetails(addressDetails);
+          this.setFormData(addressDetails);
+          this.presetPermanentData=true;
+        })}
+      }
   closeNotificationModal(closeModalEvent: Boolean) {
     this.notify = closeModalEvent;
     this.draft = closeModalEvent;
@@ -203,7 +267,6 @@ export class AddressDetailsFormComponent implements OnInit {
         }
 
       }
-    
      this.employeeService.save(parseForm,this.presentAddressID,this.permanentAddressID).subscribe((data:any)=>{
       if(data.success==true){
         this.draft = !this.draft;
@@ -397,9 +460,16 @@ export class AddressDetailsFormComponent implements OnInit {
                 this.addressDetailsForm.get('permanentAddress')!.setValue(value)
               )
             )
-        } else {
+        }else {
+          if(localStorage.getItem('type')==='updated user'){
+            this.setFormData(this.addressDetails);
+            return EMPTY;
+
+          }
+          else{
           this.addressDetailsForm.get('permanentAddress')!.reset();
           return EMPTY;
+          }
         }
       })
     )
