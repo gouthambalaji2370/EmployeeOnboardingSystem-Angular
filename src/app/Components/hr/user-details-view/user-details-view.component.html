@@ -71,17 +71,17 @@
           <hr />
         </div>
       </div>
-      <div class="flex-form" *ngIf="employeeDetails?.currentStatus==='rejected'">
+      <div class="flex-form" *ngIf="employeeDetails?.currentStatus==='REJECTED'">
         <h4>Reason for Rejection:</h4>
         <h4 class="invalid-feedback"> {{employeeDetails?.rejectReason}}</h4>
       </div>
       <div class="modal-foot-right">
         <button type="button"
-          *ngIf="employeeDetails?.currentStatus == 'completed' || 'rejected'  && employeeDetails?.currentStatus !== 'pending'"
+          *ngIf="employeeDetails?.currentStatus == 'COMPLETED' || 'REJECTED'  && employeeDetails?.currentStatus !== 'PENDING'"
           class="button-group" (click)="closeNotificationModal(false)">Close</button>
-        <button type="button" *ngIf="employeeDetails?.currentStatus == 'pending'" class="button-group"
+        <button type="button" *ngIf="employeeDetails?.currentStatus == 'PENDING'" class="button-group"
           (click)="approveData(employeeDetails?.EmpId)">Approve</button>
-        <button type="button"  style="margin-right: 25px" *ngIf="employeeDetails?.currentStatus == 'pending'" class="button-group"
+        <button type="button"  style="margin-right: 25px" *ngIf="employeeDetails?.currentStatus == 'PENDING'" class="button-group"
           (click)="closeNotificationModal(true)">Reject</button>
       </div>
     </div>

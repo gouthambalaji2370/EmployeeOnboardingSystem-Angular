@@ -95,7 +95,7 @@ describe('HrtableComponent', () => {
     let button = fixture.debugElement.nativeElement.querySelector('#viewDetails');
     button.click();
     fixture.detectChanges();
-    expect(component.openViewModal).toHaveBeenCalledWith(123);
+    expect(component.openViewModal).toHaveBeenCalled();
    
   })
   it('should check open notification modal ',()=>{
@@ -103,7 +103,7 @@ describe('HrtableComponent', () => {
     let button = fixture.debugElement.nativeElement.querySelector('#notificationModal');
     button.click();
     fixture.detectChanges();
-    expect(component.openNotificationModal).toHaveBeenCalledWith(true,123);
+    expect(component.openNotificationModal).toHaveBeenCalled();
     
   })
  

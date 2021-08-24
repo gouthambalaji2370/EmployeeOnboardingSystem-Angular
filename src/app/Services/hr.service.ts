@@ -27,7 +27,7 @@ export class HrService {
     return this.http.post(this.baseurl+'employee',data);
   }
   rejectEmployeeData(data:any){
-    return this.http.put(this.baseurl+`employee/${data.id}/status`,data)
+    return this.http.put(this.baseurl+`employee/${data.empId}/status`,data)
   }
   notifyEmployee(data:any){
     return this.http.post(this.baseurl+`employee/${data}/notification`,data);

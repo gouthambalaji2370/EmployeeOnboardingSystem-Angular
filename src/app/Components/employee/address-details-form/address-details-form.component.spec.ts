@@ -43,55 +43,7 @@ describe('AddressDetailsFormComponent', () => {
     component.presetPresentData=true;
     fixture.detectChanges();
   }));
-it("should call getUsers and return list of users", async(() => {
-  const addressDetails:Employees=
-    {
-      EmpId: 0,
-      Name: "",
-      Email:"",
-      Status:"",
-      CreatedAt:"",
-      aadharNumber:"",
-      bloodGroup:"",
-      dob:"",
-      emailID:"",
-      emergencyContactName:"",
-      emergencyContactNumber:"",
-      fatherName:"",
-        firstName:"",
-        gender:"",
-        hscScore:"",
-        lastName:"",
-      motherName:"",
-        phoneNumber:"",
-        emergencyContactRelation:"",
-        sslcScore:"",
-        ugScore:"",
-        addressSet:[
-            {
-              id:"",
-              type:"present",
-              flatName:"",
-               area:"",
-               district:"",
-               country:"",
-               state:"",
-               street:"",
-               pincode:"",
-               mapCoordinates:"",
-             
-            }
-      ]
-  };
 
-  spyOn(employeeService,'getEmployeeDetails').and.returnValue(of(addressDetails))
-
-  AddressDetailsFormComponent.getFormData();
-
-  fixture.detectChanges();
-
-  expect(AddressDetailsFormComponent.getFormData).toEqual(addressDetails);
-}));
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -127,7 +79,7 @@ it("should call getUsers and return list of users", async(() => {
   }))
   it('should call previous',()=>{
     component.goToPrevious.subscribe((response)=>{
-      expect(response).toEqual({'current': 0, 'completed': false })
+      expect(response).toEqual({'current': 0 })
     })
     component.previous();
   })

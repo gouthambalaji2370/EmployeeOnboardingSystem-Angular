@@ -41,13 +41,6 @@ describe('InviteformComponent', () => {
     tick();
     expect(component.createInvite).toHaveBeenCalled();
   }))
-  // it('should have role data',()=>{
-  //   component.getRoleData();
-  //   component.hrService.roles$.subscribe((data) => {
-  //     component.roles = data.sets;
-  //   })
-  //  expect(component.roles.length).toBeGreaterThan(0);
-  // })
   it('should call get role data',()=>{
     spyOn(component,'getRoleData');
     component.getRoleData();

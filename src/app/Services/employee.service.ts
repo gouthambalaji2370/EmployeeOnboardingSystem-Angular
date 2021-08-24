@@ -135,9 +135,6 @@ export class EmployeeService {
        
       }
     ]
-  
-   
-  
     this.setAddressDetails(address)
     this.employeeDetails={
       "action":"save",
